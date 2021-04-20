@@ -1,0 +1,9 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(37,5): warning MSB4211: Свойству "IntermediateOutputPath" в первый раз присваивается значение, но оно уже было использовано в "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (36,5)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(340,5): warning MSB4211: Свойству "CleanFile" в первый раз присваивается значение, но оно уже было использовано в "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (36,5)".
+cl : командная строка warning D9035: использование параметра "Gm" нежелательно, он будет удален в следующих выпусках
+  UDPdump.c
+D:\PHub\WpdPack\Examples-pcap\UDPdump\UDPdump.c(142,18): warning C4473: "fprintf": передано недостаточно аргументов для строки формата
+D:\PHub\WpdPack\Examples-pcap\UDPdump\UDPdump.c(142,18): message : заполнители и их параметры ожидают переменное число аргументов в количестве 1, но было предоставлено 0
+D:\PHub\WpdPack\Examples-pcap\UDPdump\UDPdump.c(142,18): message : отсутствующий вариативный аргумент "1" требуется для строки форматирования "%s"
+UDPdump.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/SAFESEH"
+  UDPdump.vcxproj -> D:\PHub\WpdPack\Examples-pcap\Debug\x86\UDPdump.exe

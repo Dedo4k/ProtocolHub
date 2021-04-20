@@ -1,0 +1,8 @@
+C:\Users\Vlad Lailo\source\repos\Project3\Project3\Debug\Project3.vcxprojAssemblyReference.cache
+C:\Users\Vlad Lailo\source\repos\Project3\Project3\Debug\curseProject1.MyForm.resources
+C:\Users\Vlad Lailo\source\repos\Project3\Project3\Debug\Project3.vcxproj.GenerateResource.cache
+D:\PHub\pcapplusplus-20.08-windows-vs2019\Project3\Debug\Project3.vcxprojAssemblyReference.cache
+D:\PHub\pcapplusplus-20.08-windows-vs2019\Project3\Debug\curseProject1.MyForm.resources
+D:\PHub\pcapplusplus-20.08-windows-vs2019\Project3\Debug\Project3.vcxproj.GenerateResource.cache
+D:\PHub\pcapplusplus-20.08-windows-vs2019\Project3\Debug\curseProject1.exe
+D:\PHub\pcapplusplus-20.08-windows-vs2019\Project3\Debug\curseProject1.pdb
