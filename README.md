@@ -22,9 +22,12 @@
 <li>DNS</li>
 <li>HTTP</li>
 <li>Ethernet (Ehternet II)</li>
+<li>IEEE 802.3 Ehternet</li>
 <li>ARP</li>
 <li>IPv4</li>
 <li>Ipv6</li>
+<li>Packet Trailer</li>
+<li>Generic Payload</li>
 </ul>
 
 <h1>В планах</h1>

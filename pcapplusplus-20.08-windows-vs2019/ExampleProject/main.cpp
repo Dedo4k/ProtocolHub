@@ -6,6 +6,9 @@
 #include <TcpLayer.h>
 #include <HttpLayer.h>
 #include <ArpLayer.h>
+#include <EthDot3Layer.h>
+#include <PacketTrailerLayer.h>
+#include <PayloadLayer.h>
 
 #include <Layer.h>
 #include <Packet.h>
@@ -38,6 +41,7 @@ std::string printTcpFlags(pcpp::TcpLayer* tcpLayer)
 	return result;
 }
 
+//getting arp operations as string
 std::string printArpOperation(pcpp::ArpLayer* arpLayer)
 {
 	switch ((int)ntohs(arpLayer->getArpHeader()->opcode))
@@ -54,8 +58,42 @@ std::string printArpOperation(pcpp::ArpLayer* arpLayer)
 	}
 }
 
+//getting dns operations as string
+std::string printDnsOperation(pcpp::DnsLayer* dnsLayer)
+{
+	switch (ntohs(dnsLayer->getDnsHeader()->opcode))
+	{
+	case 0:
+		return "Query";
+		break;
+	case 1:
+		return "IQuery (Inverse Query, OBSOLETE)";
+		break;
+	case 2:
+		return "Status";
+		break;
+	case 3:
+		return "Unassigned";
+		break;
+	case 4:
+		return "Notify";
+		break;
+	case 5:
+		return "Update";
+		break;
+	case 6:
+		return "DNS Stateful Operations (DSO)";
+		break;
+	default:
+		return "Unassigned";
+		break;
+	}
+}
+
 int main(int argc, char* argv[])
 {
+	system("color 0a");
+
 	// open a pcap file for reading
 	pcpp::PcapFileReaderDevice reader("ex.pcap");
 	if (!reader.open())
@@ -97,8 +135,8 @@ int main(int argc, char* argv[])
 				printf("Reserved: %d\n", (int)ntohs(tcp->getTcpHeader()->reserved));
 				printf("TCP flags: %s\n", printTcpFlags(tcp).c_str());
 				printf("Window size: %d\n", (int)ntohs(tcp->getTcpHeader()->windowSize));
-				printf("Sequence number: %d\n", (int)ntohl(tcp->getTcpHeader()->sequenceNumber));
-				printf("Acknowledgment number: %d\n", (int)ntohl(tcp->getTcpHeader()->ackNumber));
+				printf("Sequence number: %d\n", (int)ntohs(tcp->getTcpHeader()->sequenceNumber));
+				printf("Acknowledgment number: %d\n", (int)ntohs(tcp->getTcpHeader()->ackNumber));
 				printf("CheckSum: %d\n", (int)ntohs(tcp->getTcpHeader()->headerChecksum));
 				printf("Urgent point: %d\n", (int)ntohs(tcp->getTcpHeader()->urgentPointer));
 			}
@@ -115,7 +153,7 @@ int main(int argc, char* argv[])
 				printf("Number of answers: %d\n", (int)ntohs(dns->getDnsHeader()->numberOfAnswers));
 				printf("Number of authority: %d\n", (int)ntohs(dns->getDnsHeader()->numberOfAuthority));
 				printf("Number of questions: %d\n", (int)ntohs(dns->getDnsHeader()->numberOfQuestions));
-				printf("Opcode: %d\n", (int)ntohs(dns->getDnsHeader()->opcode));
+				printf("Operation - %s\n", printDnsOperation(dns).c_str());
 				printf("Query or response: %d\n", (int)ntohs(dns->getDnsHeader()->queryOrResponse));
 				printf("Recursion avaible: %d\n", (int)ntohs(dns->getDnsHeader()->recursionAvailable));
 				printf("Recursion desired: %d\n", (int)ntohs(dns->getDnsHeader()->recursionDesired));
@@ -138,10 +176,19 @@ int main(int argc, char* argv[])
 			{
 				pcpp::EthLayer* eth = parsedPacket.getLayerOfType<pcpp::EthLayer>();
 
-				printf("\n\t\tETHERNET\n");
-				printf("Ether type = 0x%X\n", eth->getEthHeader()->etherType);
-				printf("Ethrenet source MAC address: %s\n", eth->getSourceMac().toString().c_str());
-				printf("Ethrenet destination MAC address: %s\n", eth->getDestMac().toString().c_str());
+				printf("\n\t\tETHERNET (ETHERNET II)\n");
+				printf("Type: 0x%X\n", (int)ntohs(eth->getEthHeader()->etherType));
+				printf("Source MAC address: %s\n", eth->getSourceMac().toString().c_str());
+				printf("Destination MAC address: %s\n", eth->getDestMac().toString().c_str());
+			}
+			else if (lay->getProtocol() == pcpp::EthernetDot3)
+			{
+				pcpp::EthDot3Layer* eth3 = parsedPacket.getLayerOfType<pcpp::EthDot3Layer>();
+
+				printf("\n\t\tIEEE 802.3 Ethernet\n");
+				printf("Source MAC address: %s\n", eth3->getSourceMac().toString().c_str());
+				printf("Destination MAC address: %s\n", eth3->getDestMac().toString().c_str());
+				printf("Length: %d\n", (int)ntohs(eth3->getEthHeader()->length));
 			}
 			else if (lay->getProtocol() == pcpp::ARP)
 			{
@@ -170,11 +217,7 @@ int main(int argc, char* argv[])
 				printf("TTL: %d\n", (int)ip4->getIPv4Header()->timeToLive);
 				printf("Fragment offset field: %d\n", (int)ntohs(ip4->getIPv4Header()->fragmentOffset));
 				printf("CheckSum: %d\n", (int)ntohs(ip4->getIPv4Header()->headerChecksum));
-				printf("IP header length: %d\n", (int)ip4->getIPv4Header()->internetHeaderLength);
-				printf("IP version: 0x%X\n", (int)ip4->getIPv4Header()->ipVersion);
 				printf("Protocol: %d\n", (int)ip4->getIPv4Header()->protocol);
-				printf("Total length: %d\n", (int)ntohs(ip4->getIPv4Header()->totalLength));
-				printf("TTL (eight-bit): %d\n", (int)ip4->getIPv4Header()->typeOfService);
 			}
 			else if (lay->getProtocol() == pcpp::IPv6)
 			{
@@ -190,16 +233,34 @@ int main(int argc, char* argv[])
 				printf("Size of payload: %d\n", (int)ntohs(ip6->getIPv6Header()->payloadLength));
 				printf("Traffic class: %d\n", (int)ip6->getIPv6Header()->trafficClass);
 			}
+			else if (lay->getProtocol() == pcpp::PacketTrailer)
+			{
+				pcpp::PacketTrailerLayer* pt = parsedPacket.getLayerOfType<pcpp::PacketTrailerLayer>();
+
+				printf("\n\t\tPacket Trailer\n");
+				printf("Trailer data: %s\n", pt->getTrailerDataAsHexString().c_str());
+				printf("Traile data lenght: %d [Bytes]\n", (int)pt->getTrailerLen());
+			}
+			else if (lay->getProtocol() == pcpp::GenericPayload)
+			{
+				pcpp::PayloadLayer* pay = parsedPacket.getLayerOfType<pcpp::PayloadLayer>();
+
+				printf("\n\t\tGeneric Payload\n");
+				printf("Data length: %d [Bytes]\n", (int)pay->getDataLen());
+			}
 			else
 				printf("\nIDK! But not for a long time\n");
-			++counter;
 		}
 
+		++counter;
 	}
 
-	printf("\nCount of protocols: %d\n", counter);
+	printf("\nCount of packets: %d\n", counter);
 	// close the file
 	reader.close();
+
+	system("pause");
+	system("color 0f");
 
 	return 0;
 }
