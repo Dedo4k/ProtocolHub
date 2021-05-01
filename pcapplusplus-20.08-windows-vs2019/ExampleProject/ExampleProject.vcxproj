@@ -186,6 +186,10 @@ xcopy "1_packet.pcap" "$(OutDir)" /Y</Command>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="outFunc.h" />
+    <ClInclude Include="PacketHelper.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

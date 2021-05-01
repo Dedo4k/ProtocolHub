@@ -10,6 +10,7 @@
 #include <PacketTrailerLayer.h>
 #include <PayloadLayer.h>
 
+#include "PacketHelper.h"
 #include <Layer.h>
 #include <Packet.h>
 #include <PcapFileDevice.h>
@@ -17,78 +18,6 @@
 #include <stdlib.h>
 #include <SystemUtils.h>
 
-//getting tcp flags as string
-std::string printTcpFlags(pcpp::TcpLayer* tcpLayer)
-{
-	std::string result = "";
-	if (tcpLayer->getTcpHeader()->synFlag == 1)
-		result += "SYN ";
-	if (tcpLayer->getTcpHeader()->ackFlag == 1)
-		result += "ACK ";
-	if (tcpLayer->getTcpHeader()->pshFlag == 1)
-		result += "PSH ";
-	if (tcpLayer->getTcpHeader()->cwrFlag == 1)
-		result += "CWR ";
-	if (tcpLayer->getTcpHeader()->urgFlag == 1)
-		result += "URG ";
-	if (tcpLayer->getTcpHeader()->eceFlag == 1)
-		result += "ECE ";
-	if (tcpLayer->getTcpHeader()->rstFlag == 1)
-		result += "RST ";
-	if (tcpLayer->getTcpHeader()->finFlag == 1)
-		result += "FIN ";
-
-	return result;
-}
-
-//getting arp operations as string
-std::string printArpOperation(pcpp::ArpLayer* arpLayer)
-{
-	switch ((int)ntohs(arpLayer->getArpHeader()->opcode))
-	{
-	case 1:
-		return "request";
-		break;
-	case 2:
-		return "reply";
-		break;
-	default:
-		return "error type";
-		break;
-	}
-}
-
-//getting dns operations as string
-std::string printDnsOperation(pcpp::DnsLayer* dnsLayer)
-{
-	switch (ntohs(dnsLayer->getDnsHeader()->opcode))
-	{
-	case 0:
-		return "Query";
-		break;
-	case 1:
-		return "IQuery (Inverse Query, OBSOLETE)";
-		break;
-	case 2:
-		return "Status";
-		break;
-	case 3:
-		return "Unassigned";
-		break;
-	case 4:
-		return "Notify";
-		break;
-	case 5:
-		return "Update";
-		break;
-	case 6:
-		return "DNS Stateful Operations (DSO)";
-		break;
-	default:
-		return "Unassigned";
-		break;
-	}
-}
 
 int main(int argc, char* argv[])
 {
@@ -107,17 +36,18 @@ int main(int argc, char* argv[])
 
 	// read the packets from the file
 	pcpp::RawPacket rawPacket;
-	while (reader.getNextPacket(rawPacket))
+	while (reader.getNextPacket(rawPacket) && counter<50)
 	{
 		// parse the raw packet into a parsed packet
-		pcpp::Packet parsedPacket(&rawPacket);
+		/*pcpp::Packet parsedPacket(&rawPacket);
 		for (pcpp::Layer* lay = parsedPacket.getFirstLayer(); lay != NULL; lay = lay->getNextLayer())
 		{
 			printf("\n%s\n",lay->toString().c_str());
+			
+			
 			if (lay->getProtocol() == pcpp::UDP)
 			{
 				pcpp::UdpLayer* udp = parsedPacket.getLayerOfType<pcpp::UdpLayer>();
-
 				printf("\n\t\tUDP\n");
 				printf("Source UDP port: %d\n", (int)ntohs(udp->getUdpHeader()->portSrc));
 				printf("Destination UDP port: %d\n", (int)ntohs(udp->getUdpHeader()->portDst));
@@ -210,7 +140,7 @@ int main(int argc, char* argv[])
 				pcpp::IPv4Layer* ip4 = parsedPacket.getLayerOfType<pcpp::IPv4Layer>();
 
 				printf("\n\t\tIPv4\n");
-				
+
 				printf("Source IP: %s\n", ip4->getSrcIpAddress().toString().c_str());
 				printf("Destination IP: %s\n", ip4->getDstIpAddress().toString().c_str());
 				printf("IP ID: 0x%X\n", (int)ntohs(ip4->getIPv4Header()->ipId));
@@ -250,8 +180,14 @@ int main(int argc, char* argv[])
 			}
 			else
 				printf("\nIDK! But not for a long time\n");
-		}
-
+		}*/
+		
+		PacketHelper pack(rawPacket);
+		std::cout << std::endl << pack.getSrcIp().toString() << '\t' << pack.getDstIp().toString() << '\t'
+			<< pack.getTtl() << '\t' << pack.getProtocolName() << '\t' << pack.getFirstLayer() << std::endl << std::endl;
+		for (size_t i = 0; i < pack.getProtocols().size(); ++i)
+			std::cout << pack.getProtocols()[i] << std::endl;
+		std::cout << "-----------------------------------------------" << std::endl << std::endl;
 		++counter;
 	}
 
