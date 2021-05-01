@@ -22,7 +22,7 @@
     <ProjectGuid>{48A388AF-9D6D-48BC-9CBE-7D7F04B5C73C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Tutorial-HelloWorld</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -126,6 +126,8 @@ xcopy "1_packet.pcap" "$(OutDir)" /Y</Command>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WINx64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
