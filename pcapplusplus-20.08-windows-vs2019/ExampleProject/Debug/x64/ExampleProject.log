@@ -1,1 +1,23 @@
-﻿
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(504,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(505,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  main.cpp
+D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,12): warning C4200: nonstandard extension used: zero-sized array in struct/union
+D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,12): message : This member will be ignored by a defaulted constructor or copy/move assignment operator
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\main.cpp(76,80): warning C4311: 'type cast': pointer truncation from 'uint8_t *' to 'int'
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\main.cpp(76,80): warning C4302: 'type cast': truncation from 'uint8_t *' to 'int'
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\main.cpp(77,85): warning C4311: 'type cast': pointer truncation from 'uint8_t *' to 'int'
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\main.cpp(77,85): warning C4302: 'type cast': truncation from 'uint8_t *' to 'int'
+Pcap++.lib(light_platform.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_platform.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_pcapng_ext.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_pcapng_ext.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_pcapng.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_pcapng.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_option.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_option.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_null_compression.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_null_compression.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_manipulate.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_manipulate.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_internal.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_internal.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_compression.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_compression.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+Pcap++.lib(light_alloc.obj) : warning LNK4099: PDB 'LightPcapNg.pdb' was not found with 'Pcap++.lib(light_alloc.obj)' or at 'D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\LightPcapNg.pdb'; linking object as if no debug info
+  ExampleProject.vcxproj -> D:\PHub\pcapplusplus-20.08-windows-vs2019\ExampleProject\Debug\x64\ExampleProject.exe
+  D:\PHub\prhread-win32\Pre-built.2\dll\x64\pthreadVC2.dll
+  Скопировано файлов: 1.
+  D:1_packet.pcap
+  Скопировано файлов: 1.

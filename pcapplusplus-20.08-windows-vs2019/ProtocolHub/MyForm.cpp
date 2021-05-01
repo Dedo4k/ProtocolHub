@@ -1,5 +1,4 @@
-#include "MyForm.h"
-#include <IPv4Layer.h>
+#include "FirstForm.h"
 
 using namespace System;
 using namespace System::Windows::Forms;
@@ -9,6 +8,6 @@ void main() {
     Application::EnableVisualStyles();
     Application::SetCompatibleTextRenderingDefault(false);
 
-    Project3::MyForm form; //WinFormsTest - имя вашего проекта
+    curseProject1::FirstForm form; //WinFormsTest - имя вашего проекта
     Application::Run(% form);
 }

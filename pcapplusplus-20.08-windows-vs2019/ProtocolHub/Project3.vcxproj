@@ -128,21 +128,50 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FirstForm.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Repository.cpp" />
+    <ClCompile Include="SecondForm.cpp" />
+    <ClCompile Include="Service.cpp" />
+    <ClCompile Include="ThirdForm1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FirstForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Repository.h" />
+    <ClInclude Include="SecondForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Service.h" />
+    <ClInclude Include="ThirdForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FirstForm.resx">
+      <DependentUpon>FirstForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondForm.resx">
+      <DependentUpon>SecondForm.h</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThirdForm1.resx">
+      <DependentUpon>ThirdForm1.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

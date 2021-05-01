@@ -163,8 +163,6 @@ namespace Project3 {
 				stringFile.push_back(context.marshal_as<std::string>(systemFile));
 			}
 			else label2->Text += systemFile + " не поддерживается\n";
-			
-			
 		}
 	}
 };
