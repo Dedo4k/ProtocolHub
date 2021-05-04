@@ -21,8 +21,6 @@
 class PacketHelper
 {
 private:
-	//raw packet
-	pcpp::RawPacket rawPacket;
 	//parsed packet
 	pcpp::Packet parsedPacket;
 	//name of app
@@ -31,6 +29,8 @@ private:
 	pcpp::IPAddress srcIp;
 	//destenation ip
 	pcpp::IPAddress dstIp;
+	//timestamp
+	tm timestamp;
 	//time to live
 	int ttl;
 	//assigned ip number
@@ -47,7 +47,6 @@ public:
 	{
 		pcpp::Packet tempParsedPacket(&_rawPacket);
 		parsedPacket = tempParsedPacket;
-		rawPacket = _rawPacket;
 		parseAllInfo();
 		parseBasicInfo();
 	}
@@ -55,7 +54,6 @@ public:
 	PacketHelper(pcpp::Packet& _parsedPacket)
 	{
 		parsedPacket = _parsedPacket;
-		rawPacket = *(parsedPacket.getRawPacket());
 		parseAllInfo();
 		parseBasicInfo();
 
@@ -63,6 +61,8 @@ public:
 
 	void parseBasicInfo()
 	{
+		timespec temp = parsedPacket.getRawPacketReadOnly()->getPacketTimeStamp();
+		localtime_s(&timestamp, &temp.tv_sec);
 		setProtocolNameWithAIPN();
 		firstLayer = parsedPacket.getFirstLayer()->toString();
 	}
@@ -205,10 +205,18 @@ public:
 			}
 			case pcpp::SSL:
 			{
+				pcpp::SSLLayer* ssl = parsedPacket.getLayerOfType<pcpp::SSLLayer>();
+
+				temp = "\t\tSSL/TLS 1.2\n";
+				
 				break;
 			}
 			case pcpp::SIP:
 			{
+				pcpp::SipLayer* sip = parsedPacket.getLayerOfType<pcpp::SipLayer>();
+
+				temp = "\t\tSIP\n";
+				
 				break;
 			}
 			case pcpp::IPv4:
@@ -253,9 +261,9 @@ public:
 		protocols.push_back(temp);
 	}
 
-	pcpp::RawPacket getPacket()
+	pcpp::RawPacket* getPacketRaw()
 	{
-		return rawPacket;
+		return parsedPacket.getRawPacket();
 	}
 	pcpp::Packet getParsedPacket()
 	{
@@ -272,6 +280,10 @@ public:
 	pcpp::IPAddress getDstIp()
 	{
 		return dstIp;
+	}
+	tm getTimestamp()
+	{
+		return timestamp;
 	}
 	int getTtl()
 	{
