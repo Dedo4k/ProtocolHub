@@ -171,11 +171,12 @@ public:
 				pcpp::HttpRequestLayer* httpRq = parsedPacket.getLayerOfType<pcpp::HttpRequestLayer>();
 
 				temp = "\t\tHTTP\n";
-				temp += "HTTP URI: " + httpRq->getFirstLine()->getUri() + '\n';
-				temp += "HTTP host: " + httpRq->getFieldByName(PCPP_HTTP_HOST_FIELD)->getFieldValue() + '\n';
-				temp += "HTTP user-agent: " + httpRq->getFieldByName(PCPP_HTTP_USER_AGENT_FIELD)->getFieldValue() + '\n';
-				temp += "HTTP cookie: " + httpRq->getFieldByName(PCPP_HTTP_COOKIE_FIELD)->getFieldValue() + '\n';
-				temp += "HTTP full URL: ", httpRq->getUrl() + '\n';
+				temp += "URI: " + httpRq->getFirstLine()->getUri() + '\n';
+				temp += "Host: " + httpRq->getFieldByName(PCPP_HTTP_HOST_FIELD)->getFieldValue() + '\n';
+				temp += "User-Agent: " + httpRq->getFieldByName(PCPP_HTTP_USER_AGENT_FIELD)->getFieldValue() + '\n';
+				temp += "Cookie: " + httpRq->getFieldByName(PCPP_HTTP_COOKIE_FIELD)->getFieldValue() + '\n';
+				temp += "Full URL: ", httpRq->getUrl() + '\n';
+				temp += "HTTP method: " + printHTTPMethods(httpRq);
 				break;
 			}
 			case pcpp::DNS:
@@ -186,7 +187,7 @@ public:
 				temp += "Authentic data: " + std::to_string((int)ntohs(dns->getDnsHeader()->authenticData)) + '\n';
 				temp += "Transaction ID: " + std::to_string((int)ntohs(dns->getDnsHeader()->transactionID)) + '\n';
 				temp += "Authoritative answer: " + std::to_string((int)ntohs(dns->getDnsHeader()->authoritativeAnswer)) + '\n';
-				temp += "Cheking disabled: " + std::to_string((int)ntohs(dns->getDnsHeader()->checkingDisabled)) + '\n';
+				//temp += "Cheking disabled: " + std::to_string((int)ntohs(dns->getDnsHeader()->checkingDisabled)) + '\n';
 				temp += "Number of additional: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAdditional)) + '\n';
 				temp += "Number of answers: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAnswers)) + '\n';
 				temp += "Number of authority: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAuthority)) + '\n';
@@ -196,8 +197,8 @@ public:
 				temp += "Recursion avaible: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionAvailable)) + '\n';
 				temp += "Recursion desired: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionDesired)) + '\n';
 				temp += "Response code: " + std::to_string((int)ntohs(dns->getDnsHeader()->responseCode)) + '\n';
-				temp += "Truncation: " + std::to_string((int)ntohs(dns->getDnsHeader()->truncation)) + '\n';
-				temp += "Zero: " + std::to_string((int)ntohs(dns->getDnsHeader()->zero)) + '\n';
+				//temp += "Truncation: " + std::to_string((int)ntohs(dns->getDnsHeader()->truncation)) + '\n';
+				//temp += "Zero: " + std::to_string((int)ntohs(dns->getDnsHeader()->zero)) + '\n';
 				break;
 			}
 			/*case pcpp::SSL:

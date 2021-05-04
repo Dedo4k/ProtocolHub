@@ -145,6 +145,47 @@ std::string printIPv4Protocol(pcpp::IPv4Layer* ipLayer)
 	}
 }
 
+//getting http methods as string
+std::string printHTTPMethods (pcpp::HttpRequestLayer* httpRq)
+{
+	switch (httpRq->getFirstLine()->getMethod())
+	{
+	case pcpp::HttpRequestLayer::HttpGET:
+		return "GET";
+		break;
+	case pcpp::HttpRequestLayer::HttpHEAD:
+		return "HEAD";
+		break;
+	case pcpp::HttpRequestLayer::HttpPOST:
+		return "POST";
+		break;
+	case pcpp::HttpRequestLayer::HttpPUT:
+		return "PUT";
+		break;
+	case pcpp::HttpRequestLayer::HttpDELETE:
+		return "DELETE";
+		break;
+	case pcpp::HttpRequestLayer::HttpTRACE:
+		return "TRACE";
+		break;
+	case pcpp::HttpRequestLayer::HttpOPTIONS:
+		return "OPTIONS";
+		break;
+	case pcpp::HttpRequestLayer::HttpCONNECT:
+		return "CONNECT";
+		break;
+	case pcpp::HttpRequestLayer::HttpPATCH:
+		return "PATCH";
+		break;
+	case pcpp::HttpRequestLayer::HttpMethodUnknown:
+		return "Unknown method";
+		break;
+	default:
+		return "Error";
+		break;
+	}
+}
+
 //getting value and convert to hex as string
 std::string dToX(int value)
 {
