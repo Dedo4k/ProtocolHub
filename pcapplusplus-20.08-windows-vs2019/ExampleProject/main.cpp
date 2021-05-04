@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("test2.pcap");
+	pcpp::PcapFileReaderDevice reader("ex.pcap");
 	if (!reader.open())
 	{
 		printf("Error opening the pcap file\n");
@@ -187,6 +187,7 @@ int main(int argc, char* argv[])
 			<< '\t' << pack.getTimestamp().tm_mday << '/' << pack.getTimestamp().tm_mon << '/' << pack.getTimestamp().tm_year + 1900
 			<< '\t' << pack.getTimestamp().tm_hour << ':' << pack.getTimestamp().tm_min << ':' << pack.getTimestamp().tm_sec
 			<< '\t' << pack.getFirstLayer() << std::endl << std::endl;
+
 		for (size_t i = 0; i < pack.getProtocols().size(); ++i)
 			std::cout << pack.getProtocols()[i] << std::endl;
 		std::cout << "-----------------------------------------------" << std::endl << std::endl;

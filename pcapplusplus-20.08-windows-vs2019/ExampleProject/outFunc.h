@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iomanip>
 
 #include <Packet.h>
 #include <TCPLayer.h>
@@ -77,4 +78,85 @@ std::string printDnsOperation(pcpp::DnsLayer* dnsLayer)
 		return "Unassigned";
 		break;
 	}
+}
+
+//getting AIPN as name of protocol
+std::string printIPv4Protocol(pcpp::IPv4Layer* ipLayer)
+{
+	switch (ipLayer->getIPv4Header()->protocol)
+	{
+	case 0:
+		return "HOPOPT";
+		break;
+	case 1:
+		return "ICMP";
+		break;
+	case 2:
+		return "IGMP";
+		break;
+	case 4:
+		return "IPIP";
+		break;
+	case 6:
+		return "TCP";
+		break;
+	case 8:
+		return "EGP";
+		break;
+	case 12:
+		return "PUP";
+		break;
+	case 17:
+		return "UDP";
+		break;
+	case 22:
+		return "XNS-IDP";
+		break;
+	case 41:
+		return "IPv6";
+		break;
+	case 43:
+		return "IPv6-Route";
+		break;
+	case 44:
+		return "IPv6-Frag";
+		break;
+	case 47:
+		return "GRE";
+		break;
+	case 50:
+		return "ESP";
+		break;
+	case 51:
+		return "AH";
+		break;
+	case 58:
+		return "IPv6-ICMP";
+		break;
+	case 59:
+		return "IPv6-NoNxt";
+		break;
+	case 60:
+		return "IPv6-Opts";
+		break;
+	default:
+		return "Reserved";
+		break;
+	}
+}
+
+//getting value and convert to hex as string
+std::string dToX(int value)
+{
+	int temp;
+	std::string result = "";
+	char hex[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+
+	while (value > 0)
+	{
+		temp = value % 16;
+		result = hex[temp] + result;
+		value /= 16;
+	}
+	return result;
 }

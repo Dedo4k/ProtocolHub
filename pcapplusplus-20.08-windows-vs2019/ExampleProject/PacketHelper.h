@@ -133,9 +133,6 @@ public:
 
 	void parseAllInfo()
 	{
-		if (protocols.size() > 1)
-			return;
-
 		std::string temp;
 		for (pcpp::Layer* lay = parsedPacket.getFirstLayer(); lay != NULL; lay = lay->getNextLayer())
 		{
@@ -185,30 +182,30 @@ public:
 			{
 				pcpp::DnsLayer* dns = parsedPacket.getLayerOfType<pcpp::DnsLayer>();
 
-				temp="\t\tDNS\n";
-				temp+="Authentic data: " + std::to_string((int)ntohs(dns->getDnsHeader()->authenticData)) + '\n';
-				temp+="Transaction ID: " + std::to_string((int)ntohs(dns->getDnsHeader()->transactionID)) + '\n';
-				temp+="Authoritative answer: " + std::to_string((int)ntohs(dns->getDnsHeader()->authoritativeAnswer)) + '\n';
-				temp+="Cheking disabled: " + std::to_string((int)ntohs(dns->getDnsHeader()->checkingDisabled)) + '\n';
-				temp+="Number of additional: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAdditional)) + '\n';
-				temp+="Number of answers: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAnswers)) + '\n';
-				temp+="Number of authority: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAuthority)) + '\n';
-				temp+="Number of questions: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfQuestions)) + '\n';
-				temp+="Operation - " + printDnsOperation(dns) + '\n';
-				temp+="Query or response: " + std::to_string((int)ntohs(dns->getDnsHeader()->queryOrResponse)) + '\n';
-				temp+="Recursion avaible: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionAvailable)) + '\n';
-				temp+="Recursion desired: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionDesired)) + '\n';
-				temp+="Response code: " + std::to_string((int)ntohs(dns->getDnsHeader()->responseCode)) + '\n';
-				temp+="Truncation: " + std::to_string((int)ntohs(dns->getDnsHeader()->truncation)) + '\n';
-				temp+="Zero: " + std::to_string((int)ntohs(dns->getDnsHeader()->zero)) + '\n';
+				temp = "\t\tDNS\n";
+				temp += "Authentic data: " + std::to_string((int)ntohs(dns->getDnsHeader()->authenticData)) + '\n';
+				temp += "Transaction ID: " + std::to_string((int)ntohs(dns->getDnsHeader()->transactionID)) + '\n';
+				temp += "Authoritative answer: " + std::to_string((int)ntohs(dns->getDnsHeader()->authoritativeAnswer)) + '\n';
+				temp += "Cheking disabled: " + std::to_string((int)ntohs(dns->getDnsHeader()->checkingDisabled)) + '\n';
+				temp += "Number of additional: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAdditional)) + '\n';
+				temp += "Number of answers: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAnswers)) + '\n';
+				temp += "Number of authority: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfAuthority)) + '\n';
+				temp += "Number of questions: " + std::to_string((int)ntohs(dns->getDnsHeader()->numberOfQuestions)) + '\n';
+				temp += "Operation - " + printDnsOperation(dns) + '\n';
+				temp += "Query or response: " + std::to_string((int)ntohs(dns->getDnsHeader()->queryOrResponse)) + '\n';
+				temp += "Recursion avaible: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionAvailable)) + '\n';
+				temp += "Recursion desired: " + std::to_string((int)ntohs(dns->getDnsHeader()->recursionDesired)) + '\n';
+				temp += "Response code: " + std::to_string((int)ntohs(dns->getDnsHeader()->responseCode)) + '\n';
+				temp += "Truncation: " + std::to_string((int)ntohs(dns->getDnsHeader()->truncation)) + '\n';
+				temp += "Zero: " + std::to_string((int)ntohs(dns->getDnsHeader()->zero)) + '\n';
 				break;
 			}
-			case pcpp::SSL:
+			/*case pcpp::SSL:
 			{
 				pcpp::SSLLayer* ssl = parsedPacket.getLayerOfType<pcpp::SSLLayer>();
 
 				temp = "\t\tSSL/TLS 1.2\n";
-				
+
 				break;
 			}
 			case pcpp::SIP:
@@ -216,9 +213,9 @@ public:
 				pcpp::SipLayer* sip = parsedPacket.getLayerOfType<pcpp::SipLayer>();
 
 				temp = "\t\tSIP\n";
-				
+
 				break;
-			}
+			}*/
 			case pcpp::IPv4:
 			{
 				pcpp::IPv4Layer* ip4 = parsedPacket.getLayerOfType<pcpp::IPv4Layer>();
@@ -231,11 +228,11 @@ public:
 				temp = "\t\tIPv4\n";
 				temp += "Source IP: " + ip4->getSrcIpAddress().toString() + '\n';
 				temp += "Destination IP: " + ip4->getDstIpAddress().toString() + '\n';
-				temp += "IP ID: 0x" + std::to_string((int)ntohs(ip4->getIPv4Header()->ipId)) + '\n';
+				temp += "IP ID: 0x" + dToX((int)ntohs(ip4->getIPv4Header()->ipId)) + '\n';
 				temp += "TTL: " + std::to_string((int)ip4->getIPv4Header()->timeToLive) + '\n';
 				temp += "Fragment offset field: " + std::to_string((int)ntohs(ip4->getIPv4Header()->fragmentOffset)) + '\n';
 				temp += "CheckSum: " + std::to_string((int)ntohs(ip4->getIPv4Header()->headerChecksum)) + '\n';
-				temp += "Protocol: " + std::to_string((int)ip4->getIPv4Header()->protocol) + '\n';
+				temp += "Protocol: " + printIPv4Protocol(ip4) + '\n';
 				break;
 			}
 			case pcpp::IPv6:
@@ -243,22 +240,22 @@ public:
 				pcpp::IPv6Layer* ip6 = parsedPacket.getLayerOfType<pcpp::IPv6Layer>();
 
 				temp = "\t\tIPv6\n";
-				temp+="Source IP: " + ip6->getSrcIpAddress().toString() + '\n';
-				temp+="Destination IP: " + ip6->getDstIpAddress().toString() + '\n';
-				temp+="IP version: 0x" + std::to_string((int)ip6->getIPv6Header()->ipVersion) + '\n';
+				temp += "Source IP: " + ip6->getSrcIpAddress().toString() + '\n';
+				temp += "Destination IP: " + ip6->getDstIpAddress().toString() + '\n';
+				temp += "IP version: 0x" + dToX((int)ip6->getIPv6Header()->ipVersion) + '\n';
 				temp += "Flow label: " + std::to_string((int)ip6->getIPv6Header()->flowLabel) + '\n';
-				temp+="Hop limit: " + std::to_string((int)ip6->getIPv6Header()->hopLimit) + '\n';
-				temp+="Next header type: 0x" + std::to_string((int)ip6->getIPv6Header()->nextHeader) + '\n';
-				temp+="Size of payload: " + std::to_string((int)ntohs(ip6->getIPv6Header()->payloadLength)) + '\n';
-				temp+="Traffic class: " + std::to_string((int)ip6->getIPv6Header()->trafficClass) + '\n';
+				temp += "Hop limit: " + std::to_string((int)ip6->getIPv6Header()->hopLimit) + '\n';
+				temp += "Next header type: 0x" + dToX((int)ip6->getIPv6Header()->nextHeader) + '\n';
+				temp += "Size of payload: " + std::to_string((int)ntohs(ip6->getIPv6Header()->payloadLength)) + '\n';
+				temp += "Traffic class: " + std::to_string((int)ip6->getIPv6Header()->trafficClass) + '\n';
 				break;
 			}
 			default:
-				temp = lay->toString();
+				temp = lay->toString() + '\n';
 				break;
 			}
+			protocols.push_back(temp);
 		}
-		protocols.push_back(temp);
 	}
 
 	pcpp::RawPacket* getPacketRaw()
