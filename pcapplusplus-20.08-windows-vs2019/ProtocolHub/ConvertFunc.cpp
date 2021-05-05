@@ -1,7 +1,5 @@
 #include "ConvertFunc.h"
 
-using namespace System;
-
 std::string& Convert_String_to_string(System::String^ s, std::string& os)
 {
 	using namespace Runtime ::InteropServices;

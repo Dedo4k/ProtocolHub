@@ -161,6 +161,8 @@
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="outFunc.h" />
+    <ClInclude Include="PacketHelper.h" />
     <ClInclude Include="Repository.h" />
     <ClInclude Include="SecondForm.h">
       <FileType>CppForm</FileType>

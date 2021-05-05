@@ -16,6 +16,7 @@ namespace curseProject1 {
 		{
 			this->systemFilePaths = (gcnew System::Collections::ArrayList(systemFilePaths));
 			InitializeComponent();
+			StartParsingFiles(systemFilePaths);
 		}
 
 	protected:
@@ -26,6 +27,7 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ Ù‡ÈÎToolStripMenuItem;
@@ -355,6 +357,9 @@ namespace curseProject1 {
 			this->PerformLayout();
 
 		}
+
+		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
+
 #pragma endregion
 		private: System::Void Ì‡Á‡‰ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	
