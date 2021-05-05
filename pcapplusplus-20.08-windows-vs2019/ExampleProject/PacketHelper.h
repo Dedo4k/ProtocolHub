@@ -164,19 +164,43 @@ public:
 				temp += "Acknowledgment number: " + std::to_string((int)ntohs(tcp->getTcpHeader()->ackNumber)) + '\n';
 				temp += "CheckSum: " + std::to_string((int)ntohs(tcp->getTcpHeader()->headerChecksum)) + '\n';
 				temp += "Urgent point: " + std::to_string((int)ntohs(tcp->getTcpHeader()->urgentPointer)) + '\n';
+				temp += "TCP options:" + printTcpOptionType(tcp) + "\n";
 				break;
 			}
-			case pcpp::HTTP:
+			case pcpp::HTTPRequest:
 			{
 				pcpp::HttpRequestLayer* httpRq = parsedPacket.getLayerOfType<pcpp::HttpRequestLayer>();
-
-				temp = "\t\tHTTP\n";
+				
+				temp = "\t\tHTTP-Request\n";
 				temp += "URI: " + httpRq->getFirstLine()->getUri() + '\n';
-				temp += "Host: " + httpRq->getFieldByName(PCPP_HTTP_HOST_FIELD)->getFieldValue() + '\n';
-				temp += "User-Agent: " + httpRq->getFieldByName(PCPP_HTTP_USER_AGENT_FIELD)->getFieldValue() + '\n';
-				temp += "Cookie: " + httpRq->getFieldByName(PCPP_HTTP_COOKIE_FIELD)->getFieldValue() + '\n';
-				temp += "Full URL: ", httpRq->getUrl() + '\n';
-				temp += "HTTP method: " + printHTTPMethods(httpRq);
+				temp += "HTTP version: " + printHTTPVersion(httpRq) + '\n';
+				temp += "Full URL: " + httpRq->getUrl() + '\n';
+				temp += "HTTP method: " + printHTTPMethods(httpRq) + '\n';
+				temp += "\tFields:\n";
+				pcpp::HeaderField* field = httpRq->getFirstField();
+				temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+				for (size_t i = 1; i < httpRq->getFieldCount(); ++i)
+				{
+					field = httpRq->getNextField(field);
+					temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+				}
+				break;
+			}
+			case pcpp::HTTPResponse:
+			{
+				pcpp::HttpResponseLayer* httpRs = parsedPacket.getLayerOfType<pcpp::HttpResponseLayer>();
+
+				temp = "\t\tHTTP-Response\n";
+				temp += "Status: " + httpRs->getFirstLine()->getStatusCodeString() + '\n';
+				temp += "HTTP version: " + printHTTPVersion(httpRs) + '\n';
+				temp += "\tFields:\n";
+				pcpp::HeaderField* field = httpRs->getFirstField();
+				temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+				for (size_t i = 1; i < httpRs->getFieldCount(); ++i)
+				{
+					field = httpRs->getNextField(field);
+					temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+				}
 				break;
 			}
 			case pcpp::DNS:

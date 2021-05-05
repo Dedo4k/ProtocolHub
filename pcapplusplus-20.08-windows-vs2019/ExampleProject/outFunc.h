@@ -31,21 +31,99 @@ std::string printTcpFlags(pcpp::TcpLayer* tcpLayer)
 	return result;
 }
 
-//getting arp operations as string
-std::string printArpOperation(pcpp::ArpLayer* arpLayer)
+//getting tcp option type as string
+std::string printTcpOptionType(pcpp::TcpLayer* tcp)
 {
-	switch ((int)ntohs(arpLayer->getArpHeader()->opcode))
+	std::string result = "";
+	for (pcpp::TcpOption tcpOption = tcp->getFirstTcpOption(); tcpOption.isNotNull(); tcpOption = tcp->getNextTcpOption(tcpOption))
 	{
-	case 1:
-		return "request";
-		break;
-	case 2:
-		return "reply";
-		break;
-	default:
-		return "error type";
-		break;
+		switch (tcpOption.getTcpOptionType())
+		{
+		case pcpp::PCPP_TCPOPT_NOP:
+			result += " Padding;";
+			break;
+		case pcpp::PCPP_TCPOPT_EOL:
+			result += " End of options;";
+			break;
+		case pcpp::TCPOPT_MSS:
+			result += " Segment size negotiating;";
+			break;
+		case pcpp::PCPP_TCPOPT_WINDOW:
+			result += " Window scaling;";
+			break;
+		case pcpp::TCPOPT_SACK_PERM:
+			result += " SACK permitted;";
+			break;
+		case pcpp::PCPP_TCPOPT_SACK:
+			result += " SACK block;";
+			break;
+		case pcpp::TCPOPT_ECHO:
+			result += " Echo";
+			break;
+		case pcpp::TCPOPT_ECHOREPLY:
+			result += " Echo reply;";
+			break;
+		case pcpp::PCPP_TCPOPT_TIMESTAMP:
+			result += " Timestamps;";
+			break;
+		case pcpp::TCPOPT_CC:
+			result += " CC;";
+			break;
+		case pcpp::TCPOPT_CCNEW:
+			result += " CC.NEW;";
+			break;
+		case pcpp::TCPOPT_CCECHO:
+			result += " CC.ECHO;";
+			break;
+		case pcpp::TCPOPT_MD5:
+			result += " MD5;";
+			break;
+		case pcpp::TCPOPT_MPTCP:
+			result += " Multipath;";
+			break;
+		case pcpp::TCPOPT_SCPS:
+			result += " SCPS capabilities;";
+			break;
+		case pcpp::TCPOPT_SNACK:
+			result += " SCPS SNACK;";
+			break;
+		case pcpp::TCPOPT_RECBOUND:
+			result += " SCPS record boundary;";
+			break;
+		case pcpp::TCPOPT_CORREXP:
+			result += " SCPS corruption experienced;";
+			break;
+		case pcpp::TCPOPT_QS:
+			result += " Quick-Start response;";
+			break;
+		case pcpp::TCPOPT_USER_TO:
+			result += " User time-out;";
+			break;
+		case pcpp::TCPOPT_EXP_FD:
+			result += " RFC3692-style Experiment 1;";
+			break;
+		case pcpp::TCPOPT_EXP_FE:
+			result += " RFC3692-style Experiment 2;";
+			break;
+		case pcpp::TCPOPT_RVBD_PROBE:
+			result += " Riverbed probe, non IANA registered option number;";
+			break;
+		case pcpp::TCPOPT_RVBD_TRPY:
+			result += " Riverbed transparency, non IANA registered option number;";
+			break;
+		case pcpp::TCPOPT_Unknown:
+			result += " Unknown option;";
+			break;
+		default:
+			result += " Error;";
+			break;
+		}
 	}
+
+	if (result == "")
+		return " No options";
+	else
+		return result;
 }
 
 //getting dns operations as string
@@ -179,6 +257,52 @@ std::string printHTTPMethods (pcpp::HttpRequestLayer* httpRq)
 		break;
 	case pcpp::HttpRequestLayer::HttpMethodUnknown:
 		return "Unknown method";
+		break;
+	default:
+		return "Error";
+		break;
+	}
+}
+
+//getting http version as string
+std::string printHTTPVersion(pcpp::HttpRequestLayer* httpRq)
+{
+	switch (httpRq->getFirstLine()->getVersion())
+	{
+	case pcpp::ZeroDotNine:
+		return "0.9";
+		break;
+	case pcpp::OneDotZero:
+		return "1.0";
+		break;
+	case pcpp::OneDotOne:
+		return "1.1";
+		break;
+	case pcpp::HttpVersionUnknown:
+		return "Unknown version";
+		break;
+	default:
+		return "Error";
+		break;
+	}
+}
+
+//getting http version as string
+std::string printHTTPVersion(pcpp::HttpResponseLayer* httpRs)
+{
+	switch (httpRs->getFirstLine()->getVersion())
+	{
+	case pcpp::ZeroDotNine:
+		return "0.9";
+		break;
+	case pcpp::OneDotZero:
+		return "1.0";
+		break;
+	case pcpp::OneDotOne:
+		return "1.1";
+		break;
+	case pcpp::HttpVersionUnknown:
+		return "Unknown version";
 		break;
 	default:
 		return "Error";

@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("1_packet.pcap");
+	pcpp::PcapFileReaderDevice reader("http.pcap");
 	if (!reader.open())
 	{
 		printf("Error opening the pcap file\n");
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
 
 	// read the packets from the file
 	pcpp::RawPacket rawPacket;
-	while (reader.getNextPacket(rawPacket) && counter<50)
+	while (reader.getNextPacket(rawPacket) && counter < 50)
 	{
 		PacketHelper pack(rawPacket);
 		std::cout << std::endl << pack.getSrcIp().toString() << '\t' << pack.getDstIp().toString() << '\t'
