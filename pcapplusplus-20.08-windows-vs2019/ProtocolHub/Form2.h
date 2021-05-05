@@ -33,9 +33,9 @@ namespace curseProject1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ Ù‡ÈÎToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ Ì‡Á‡‰ToolStripMenuItem;
 	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Label^ label1;
+
 	private: System::Windows::Forms::Panel^ panel2;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::Panel^ panel3;
 
 	private: System::Windows::Forms::Panel^ panel4;
@@ -58,6 +58,12 @@ namespace curseProject1 {
 	private: System::Windows::Forms::ToolStripLabel^ toolStripLabel1;
 	private: System::Windows::Forms::ToolStripSeparator^ toolStripSeparator8;
 	private: System::Windows::Forms::ToolStripDropDownButton^ toolStripDropDownButton1;
+	private: System::Windows::Forms::Label^ packetsInfo;
+	private: System::Windows::Forms::Label^ moreInfo;
+	private: System::Windows::Forms::RadioButton^ radioButton4;
+	private: System::Windows::Forms::RadioButton^ radioButton3;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
 
 	protected:
 
@@ -71,30 +77,34 @@ namespace curseProject1 {
 			this->Ù‡ÈÎToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Ì‡Á‡‰ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel3 = (gcnew System::Windows::Forms::Panel());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripButton2 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripButton5 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripComboBox1 = (gcnew System::Windows::Forms::ToolStripComboBox());
-			this->toolStripButton6 = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripLabel1 = (gcnew System::Windows::Forms::ToolStripLabel());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton2 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton4 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator4 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton5 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator5 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripComboBox1 = (gcnew System::Windows::Forms::ToolStripComboBox());
 			this->toolStripSeparator6 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripButton6 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator7 = (gcnew System::Windows::Forms::ToolStripSeparator());
+			this->toolStripLabel1 = (gcnew System::Windows::Forms::ToolStripLabel());
 			this->toolStripSeparator8 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->toolStripDropDownButton1 = (gcnew System::Windows::Forms::ToolStripDropDownButton());
+			this->packetsInfo = (gcnew System::Windows::Forms::Label());
+			this->moreInfo = (gcnew System::Windows::Forms::Label());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
 			this->menuStrip1->SuspendLayout();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -131,43 +141,23 @@ namespace curseProject1 {
 			// 
 			// panel1
 			// 
+			this->panel1->AutoScroll = true;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Controls->Add(this->label1);
+			this->panel1->Controls->Add(this->packetsInfo);
 			this->panel1->Location = System::Drawing::Point(13, 52);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1239, 286);
 			this->panel1->TabIndex = 1;
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(396, 140);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(344, 39);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"¬˚‚Ó‰ ‚ÒÂı Ô‡ÍÂÚÓ‚";
-			// 
 			// panel2
 			// 
+			this->panel2->AutoScroll = true;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->label2);
+			this->panel2->Controls->Add(this->moreInfo);
 			this->panel2->Location = System::Drawing::Point(13, 345);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(1239, 154);
 			this->panel2->TabIndex = 2;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(446, 57);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(684, 39);
-			this->label2->TabIndex = 1;
-			this->label2->Text = L"¬˚‚Ó‰ ËÌÙ˚ Ô‡ÍÂÚ‡ ÔË Ì‡Ê‡ÚËË Ì‡ ÌÂ„Ó";
 			// 
 			// panel3
 			// 
@@ -180,6 +170,10 @@ namespace curseProject1 {
 			// panel4
 			// 
 			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel4->Controls->Add(this->radioButton4);
+			this->panel4->Controls->Add(this->radioButton3);
+			this->panel4->Controls->Add(this->radioButton2);
+			this->panel4->Controls->Add(this->radioButton1);
 			this->panel4->Controls->Add(this->label4);
 			this->panel4->Location = System::Drawing::Point(639, 506);
 			this->panel4->Name = L"panel4";
@@ -191,7 +185,7 @@ namespace curseProject1 {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(133, 61);
+			this->label4->Location = System::Drawing::Point(339, 63);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(173, 39);
 			this->label4->TabIndex = 1;
@@ -221,6 +215,11 @@ namespace curseProject1 {
 			this->toolStripButton1->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton1->Text = L"toolStripButton1";
 			// 
+			// toolStripSeparator1
+			// 
+			this->toolStripSeparator1->Name = L"toolStripSeparator1";
+			this->toolStripSeparator1->Size = System::Drawing::Size(6, 25);
+			// 
 			// toolStripButton2
 			// 
 			this->toolStripButton2->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
@@ -229,6 +228,11 @@ namespace curseProject1 {
 			this->toolStripButton2->Name = L"toolStripButton2";
 			this->toolStripButton2->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton2->Text = L"toolStripButton2";
+			// 
+			// toolStripSeparator2
+			// 
+			this->toolStripSeparator2->Name = L"toolStripSeparator2";
+			this->toolStripSeparator2->Size = System::Drawing::Size(6, 25);
 			// 
 			// toolStripButton3
 			// 
@@ -239,6 +243,11 @@ namespace curseProject1 {
 			this->toolStripButton3->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton3->Text = L"toolStripButton3";
 			// 
+			// toolStripSeparator3
+			// 
+			this->toolStripSeparator3->Name = L"toolStripSeparator3";
+			this->toolStripSeparator3->Size = System::Drawing::Size(6, 25);
+			// 
 			// toolStripButton4
 			// 
 			this->toolStripButton4->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
@@ -247,6 +256,11 @@ namespace curseProject1 {
 			this->toolStripButton4->Name = L"toolStripButton4";
 			this->toolStripButton4->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton4->Text = L"toolStripButton4";
+			// 
+			// toolStripSeparator4
+			// 
+			this->toolStripSeparator4->Name = L"toolStripSeparator4";
+			this->toolStripSeparator4->Size = System::Drawing::Size(6, 25);
 			// 
 			// toolStripButton5
 			// 
@@ -257,11 +271,21 @@ namespace curseProject1 {
 			this->toolStripButton5->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton5->Text = L"toolStripButton5";
 			// 
+			// toolStripSeparator5
+			// 
+			this->toolStripSeparator5->Name = L"toolStripSeparator5";
+			this->toolStripSeparator5->Size = System::Drawing::Size(6, 25);
+			// 
 			// toolStripComboBox1
 			// 
 			this->toolStripComboBox1->Name = L"toolStripComboBox1";
 			this->toolStripComboBox1->Size = System::Drawing::Size(121, 25);
 			this->toolStripComboBox1->Text = L"dfdf";
+			// 
+			// toolStripSeparator6
+			// 
+			this->toolStripSeparator6->Name = L"toolStripSeparator6";
+			this->toolStripSeparator6->Size = System::Drawing::Size(6, 25);
 			// 
 			// toolStripButton6
 			// 
@@ -272,46 +296,16 @@ namespace curseProject1 {
 			this->toolStripButton6->Size = System::Drawing::Size(23, 22);
 			this->toolStripButton6->Text = L"toolStripButton6";
 			// 
+			// toolStripSeparator7
+			// 
+			this->toolStripSeparator7->Name = L"toolStripSeparator7";
+			this->toolStripSeparator7->Size = System::Drawing::Size(6, 25);
+			// 
 			// toolStripLabel1
 			// 
 			this->toolStripLabel1->Name = L"toolStripLabel1";
 			this->toolStripLabel1->Size = System::Drawing::Size(86, 22);
 			this->toolStripLabel1->Text = L"toolStripLabel1";
-			// 
-			// toolStripSeparator1
-			// 
-			this->toolStripSeparator1->Name = L"toolStripSeparator1";
-			this->toolStripSeparator1->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator2
-			// 
-			this->toolStripSeparator2->Name = L"toolStripSeparator2";
-			this->toolStripSeparator2->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator3
-			// 
-			this->toolStripSeparator3->Name = L"toolStripSeparator3";
-			this->toolStripSeparator3->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator4
-			// 
-			this->toolStripSeparator4->Name = L"toolStripSeparator4";
-			this->toolStripSeparator4->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator5
-			// 
-			this->toolStripSeparator5->Name = L"toolStripSeparator5";
-			this->toolStripSeparator5->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator6
-			// 
-			this->toolStripSeparator6->Name = L"toolStripSeparator6";
-			this->toolStripSeparator6->Size = System::Drawing::Size(6, 25);
-			// 
-			// toolStripSeparator7
-			// 
-			this->toolStripSeparator7->Name = L"toolStripSeparator7";
-			this->toolStripSeparator7->Size = System::Drawing::Size(6, 25);
 			// 
 			// toolStripSeparator8
 			// 
@@ -326,6 +320,66 @@ namespace curseProject1 {
 			this->toolStripDropDownButton1->Name = L"toolStripDropDownButton1";
 			this->toolStripDropDownButton1->Size = System::Drawing::Size(29, 22);
 			this->toolStripDropDownButton1->Text = L"toolStripDropDownButton1";
+			// 
+			// packetsInfo
+			// 
+			this->packetsInfo->AutoSize = true;
+			this->packetsInfo->Location = System::Drawing::Point(0, 0);
+			this->packetsInfo->Name = L"packetsInfo";
+			this->packetsInfo->Size = System::Drawing::Size(0, 13);
+			this->packetsInfo->TabIndex = 1;
+			// 
+			// moreInfo
+			// 
+			this->moreInfo->AutoSize = true;
+			this->moreInfo->Location = System::Drawing::Point(0, 0);
+			this->moreInfo->Name = L"moreInfo";
+			this->moreInfo->Size = System::Drawing::Size(0, 13);
+			this->moreInfo->TabIndex = 2;
+			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(25, 15);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(46, 17);
+			this->radioButton1->TabIndex = 2;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"TCP";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(25, 38);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(48, 17);
+			this->radioButton2->TabIndex = 3;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"UDP";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
+			// radioButton3
+			// 
+			this->radioButton3->AutoSize = true;
+			this->radioButton3->Location = System::Drawing::Point(25, 61);
+			this->radioButton3->Name = L"radioButton3";
+			this->radioButton3->Size = System::Drawing::Size(48, 17);
+			this->radioButton3->TabIndex = 4;
+			this->radioButton3->TabStop = true;
+			this->radioButton3->Text = L"DNS";
+			this->radioButton3->UseVisualStyleBackColor = true;
+			// 
+			// radioButton4
+			// 
+			this->radioButton4->AutoSize = true;
+			this->radioButton4->Location = System::Drawing::Point(25, 82);
+			this->radioButton4->Name = L"radioButton4";
+			this->radioButton4->Size = System::Drawing::Size(47, 17);
+			this->radioButton4->TabIndex = 5;
+			this->radioButton4->TabStop = true;
+			this->radioButton4->Text = L"IPv4";
+			this->radioButton4->UseVisualStyleBackColor = true;
 			// 
 			// Form2
 			// 
@@ -358,10 +412,10 @@ namespace curseProject1 {
 
 		}
 
-		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
 
 #pragma endregion
 		private: System::Void Ì‡Á‡‰ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 	
+		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
 };
 }

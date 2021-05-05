@@ -1,15 +1,3 @@
-#include <IPv4Layer.h>
-#include <IPv6Layer.h>
-#include <DNSLayer.h>
-#include <UDPLayer.h>
-#include <EthLayer.h>
-#include <TcpLayer.h>
-#include <HttpLayer.h>
-#include <ArpLayer.h>
-#include <EthDot3Layer.h>
-#include <PacketTrailerLayer.h>
-#include <PayloadLayer.h>
-
 #include "PacketHelper.h"
 #include <Layer.h>
 #include <Packet.h>
@@ -23,7 +11,7 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("http.pcap");
+	pcpp::PcapFileReaderDevice reader("my.pcap");
 	if (!reader.open())
 	{
 		printf("Error opening the pcap file\n");

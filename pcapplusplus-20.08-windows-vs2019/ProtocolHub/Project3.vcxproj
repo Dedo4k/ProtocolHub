@@ -142,6 +142,8 @@
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Form2.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="outFunc.cpp" />
+    <ClCompile Include="PacketHelper.cpp" />
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="SecondForm.cpp" />
     <ClCompile Include="Service.cpp" />

@@ -2,6 +2,69 @@
 #include "Service.h"
 #include "ConvertFunc.h"
 
+std::vector<PacketHelper> Service::getAllPackets(std::vector<std::string> stringFilePaths)
+{
+	std::vector<PacketHelper> packets;
+	for (auto filepath : stringFilePaths)
+	{
+		//приводи к си стрингу, так как функция не принимает обычный стринг
+		pcpp::PcapFileReaderDevice reader(filepath.c_str());
+		if (!reader.open())
+		{
+			//выводим сообщение об ошибке
+			std::cout << "Open error." << std::endl;
+			//return 1;
+		}
+		//счетчик пакетов, чтобы не считывать все, а только первые N пакетов (я вывожу 50)
+		int counter = 0;
+		pcpp::RawPacket rawPacket;
+		while (reader.getNextPacket(rawPacket) && counter < 50)
+		{
+			++counter;
+			PacketHelper packet(rawPacket);
+			packets.push_back(packet);
+		}
+	}
+	return packets;
+}
+
+System::Collections::ArrayList^ Service::parseAll(System::Collections::ArrayList^ systemFilePaths)
+{
+	
+	System::Collections::ArrayList^ packets = (gcnew System::Collections::ArrayList);
+	for each (String^ systemFilePath in systemFilePaths)
+	{
+		std::string stringFilePath;
+		Convert_String_to_string(systemFilePath, stringFilePath);
+		pcpp::PcapFileReaderDevice reader(stringFilePath.c_str());
+		if (!reader.open()) {
+			std::cout << "Open error file." << std::endl;
+		}
+		int counter = 0;
+		pcpp::RawPacket rawPacket;
+		while (reader.getNextPacket(rawPacket) && counter < 50)
+		{
+			++counter;
+			//PacketHelper packet(rawPacket);
+			//packets->Add();
+			//packets.push_back(packet);
+		}
+	}
+	return packets;
+}
+
+std::vector<std::string> Service::convertToString(System::Collections::ArrayList^ systemFilePaths)
+{
+	std::vector<std::string> stringFilePaths;
+	for each (String^ systemFilePath in systemFilePaths)
+	{
+		std::string stringFilePath;
+		Convert_String_to_string(systemFilePath, stringFilePath);
+		stringFilePaths.push_back(stringFilePath);
+	}
+	return stringFilePaths;
+}
+
 void Service::parseFilesInList(System::Collections::ArrayList^ systemFilePaths)
 {
 	for each (String^ systemFilePath in systemFilePaths)

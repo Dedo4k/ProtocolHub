@@ -185,6 +185,8 @@ xcopy "1_packet.pcap" "$(OutDir)" /Y</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="outFunc.cpp" />
+    <ClCompile Include="PacketHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="outFunc.h" />
