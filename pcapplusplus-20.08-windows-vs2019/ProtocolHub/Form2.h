@@ -33,12 +33,12 @@ namespace curseProject1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ íàçàäToolStripMenuItem;
 
 
-	private: System::Windows::Forms::Panel^ panel2;
 
-	private: System::Windows::Forms::Panel^ panel3;
 
-	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Label^ label4;
+
+
+
+
 	private: System::Windows::Forms::ToolStrip^ toolStrip1;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton1;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton2;
@@ -58,19 +58,27 @@ namespace curseProject1 {
 	private: System::Windows::Forms::ToolStripSeparator^ toolStripSeparator8;
 	private: System::Windows::Forms::ToolStripDropDownButton^ toolStripDropDownButton1;
 
-	private: System::Windows::Forms::Label^ moreInfo;
-	private: System::Windows::Forms::RadioButton^ radioButton4;
-	private: System::Windows::Forms::RadioButton^ radioButton3;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
+
+
+
+
+
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Source;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Destination;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Length;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Info;
+	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::Label^ moreInfo;
+
+
+
+
+
+
+
 
 
 
@@ -91,15 +99,6 @@ namespace curseProject1 {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->íàçàäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->moreInfo = (gcnew System::Windows::Forms::Label());
-			this->panel3 = (gcnew System::Windows::Forms::Panel());
-			this->panel4 = (gcnew System::Windows::Forms::Panel());
-			this->radioButton4 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
@@ -124,13 +123,13 @@ namespace curseProject1 {
 			this->Source = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Destination = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Protocol = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Length = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Info = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->moreInfo = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
-			this->panel2->SuspendLayout();
-			this->panel4->SuspendLayout();
 			this->toolStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
@@ -144,7 +143,7 @@ namespace curseProject1 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1685, 30);
+			this->menuStrip1->Size = System::Drawing::Size(1685, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -161,109 +160,6 @@ namespace curseProject1 {
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::íàçàäToolStripMenuItem_Click);
 			// 
-			// panel2
-			// 
-			this->panel2->AutoScroll = true;
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->moreInfo);
-			this->panel2->Location = System::Drawing::Point(17, 425);
-			this->panel2->Margin = System::Windows::Forms::Padding(4);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(1651, 189);
-			this->panel2->TabIndex = 2;
-			// 
-			// moreInfo
-			// 
-			this->moreInfo->AutoSize = true;
-			this->moreInfo->Location = System::Drawing::Point(0, 0);
-			this->moreInfo->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->moreInfo->Name = L"moreInfo";
-			this->moreInfo->Size = System::Drawing::Size(0, 17);
-			this->moreInfo->TabIndex = 2;
-			// 
-			// panel3
-			// 
-			this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel3->Location = System::Drawing::Point(17, 623);
-			this->panel3->Margin = System::Windows::Forms::Padding(4);
-			this->panel3->Name = L"panel3";
-			this->panel3->Size = System::Drawing::Size(825, 200);
-			this->panel3->TabIndex = 3;
-			// 
-			// panel4
-			// 
-			this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel4->Controls->Add(this->radioButton4);
-			this->panel4->Controls->Add(this->radioButton3);
-			this->panel4->Controls->Add(this->radioButton2);
-			this->panel4->Controls->Add(this->radioButton1);
-			this->panel4->Controls->Add(this->label4);
-			this->panel4->Location = System::Drawing::Point(852, 623);
-			this->panel4->Margin = System::Windows::Forms::Padding(4);
-			this->panel4->Name = L"panel4";
-			this->panel4->Size = System::Drawing::Size(817, 200);
-			this->panel4->TabIndex = 4;
-			// 
-			// radioButton4
-			// 
-			this->radioButton4->AutoSize = true;
-			this->radioButton4->Location = System::Drawing::Point(33, 101);
-			this->radioButton4->Margin = System::Windows::Forms::Padding(4);
-			this->radioButton4->Name = L"radioButton4";
-			this->radioButton4->Size = System::Drawing::Size(56, 21);
-			this->radioButton4->TabIndex = 5;
-			this->radioButton4->TabStop = true;
-			this->radioButton4->Text = L"IPv4";
-			this->radioButton4->UseVisualStyleBackColor = true;
-			// 
-			// radioButton3
-			// 
-			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(33, 75);
-			this->radioButton3->Margin = System::Windows::Forms::Padding(4);
-			this->radioButton3->Name = L"radioButton3";
-			this->radioButton3->Size = System::Drawing::Size(58, 21);
-			this->radioButton3->TabIndex = 4;
-			this->radioButton3->TabStop = true;
-			this->radioButton3->Text = L"DNS";
-			this->radioButton3->UseVisualStyleBackColor = true;
-			// 
-			// radioButton2
-			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(33, 47);
-			this->radioButton2->Margin = System::Windows::Forms::Padding(4);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(58, 21);
-			this->radioButton2->TabIndex = 3;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"UDP";
-			this->radioButton2->UseVisualStyleBackColor = true;
-			// 
-			// radioButton1
-			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(33, 18);
-			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(56, 21);
-			this->radioButton1->TabIndex = 2;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"TCP";
-			this->radioButton1->UseVisualStyleBackColor = true;
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 26.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(452, 78);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(218, 52);
-			this->label4->TabIndex = 1;
-			this->label4->Text = L"Êíîïî÷êè";
-			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
@@ -274,9 +170,9 @@ namespace curseProject1 {
 					this->toolStripSeparator6, this->toolStripButton6, this->toolStripSeparator7, this->toolStripLabel1, this->toolStripSeparator8,
 					this->toolStripDropDownButton1
 			});
-			this->toolStrip1->Location = System::Drawing::Point(0, 30);
+			this->toolStrip1->Location = System::Drawing::Point(0, 28);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1685, 31);
+			this->toolStrip1->Size = System::Drawing::Size(1685, 28);
 			this->toolStrip1->TabIndex = 5;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
@@ -286,7 +182,7 @@ namespace curseProject1 {
 			this->toolStripButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton1.Image")));
 			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton1->Name = L"toolStripButton1";
-			this->toolStripButton1->Size = System::Drawing::Size(29, 28);
+			this->toolStripButton1->Size = System::Drawing::Size(29, 25);
 			this->toolStripButton1->Text = L"toolStripButton1";
 			// 
 			// toolStripSeparator1
@@ -400,17 +296,17 @@ namespace curseProject1 {
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
 				this->Time, this->Source,
-					this->Destination, this->Protocol, this->Length, this->Info
+					this->Destination, this->Protocol, this->Info
 			});
-			this->dataGridView1->Location = System::Drawing::Point(17, 60);
+			this->dataGridView1->Location = System::Drawing::Point(22, 60);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView1->Size = System::Drawing::Size(1651, 358);
+			this->dataGridView1->Size = System::Drawing::Size(1651, 442);
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form2::dataGridView1_CellClick);
 			// 
@@ -419,6 +315,7 @@ namespace curseProject1 {
 			this->Time->HeaderText = L"Time";
 			this->Time->MinimumWidth = 6;
 			this->Time->Name = L"Time";
+			this->Time->ReadOnly = true;
 			this->Time->Width = 125;
 			// 
 			// Source
@@ -426,6 +323,7 @@ namespace curseProject1 {
 			this->Source->HeaderText = L"Source";
 			this->Source->MinimumWidth = 6;
 			this->Source->Name = L"Source";
+			this->Source->ReadOnly = true;
 			this->Source->Width = 125;
 			// 
 			// Destination
@@ -433,6 +331,7 @@ namespace curseProject1 {
 			this->Destination->HeaderText = L"Destination";
 			this->Destination->MinimumWidth = 6;
 			this->Destination->Name = L"Destination";
+			this->Destination->ReadOnly = true;
 			this->Destination->Width = 125;
 			// 
 			// Protocol
@@ -440,14 +339,8 @@ namespace curseProject1 {
 			this->Protocol->HeaderText = L"Protocol";
 			this->Protocol->MinimumWidth = 6;
 			this->Protocol->Name = L"Protocol";
+			this->Protocol->ReadOnly = true;
 			this->Protocol->Width = 125;
-			// 
-			// Length
-			// 
-			this->Length->HeaderText = L"Length";
-			this->Length->MinimumWidth = 6;
-			this->Length->Name = L"Length";
-			this->Length->Width = 125;
 			// 
 			// Info
 			// 
@@ -455,17 +348,34 @@ namespace curseProject1 {
 			this->Info->HeaderText = L"Info";
 			this->Info->MinimumWidth = 6;
 			this->Info->Name = L"Info";
+			this->Info->ReadOnly = true;
+			// 
+			// panel1
+			// 
+			this->panel1->AutoScroll = true;
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Controls->Add(this->moreInfo);
+			this->panel1->Location = System::Drawing::Point(22, 508);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(1651, 318);
+			this->panel1->TabIndex = 7;
+			// 
+			// moreInfo
+			// 
+			this->moreInfo->AutoSize = true;
+			this->moreInfo->Location = System::Drawing::Point(0, 0);
+			this->moreInfo->Name = L"moreInfo";
+			this->moreInfo->Size = System::Drawing::Size(0, 17);
+			this->moreInfo->TabIndex = 0;
 			// 
 			// Form2
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1685, 838);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->toolStrip1);
-			this->Controls->Add(this->panel4);
-			this->Controls->Add(this->panel3);
-			this->Controls->Add(this->panel2);
 			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
@@ -475,13 +385,11 @@ namespace curseProject1 {
 			this->Text = L"ProtocolHub";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
-			this->panel2->ResumeLayout(false);
-			this->panel2->PerformLayout();
-			this->panel4->ResumeLayout(false);
-			this->panel4->PerformLayout();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
