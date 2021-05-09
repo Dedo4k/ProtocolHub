@@ -65,6 +65,16 @@ std::vector<std::string> Service::convertToString(System::Collections::ArrayList
 	return stringFilePaths;
 }
 
+System::Collections::ArrayList^ Service::convertToSysString(std::vector<std::string> stringPackets)
+{
+	System::Collections::ArrayList^ systemPackets = gcnew System::Collections::ArrayList;
+	for each (std::string stringPacket in stringPackets)
+	{
+		systemPackets->Add(Convert_string_to_String(stringPacket));
+	}
+	return systemPackets;
+}
+
 void Service::parseFilesInList(System::Collections::ArrayList^ systemFilePaths)
 {
 	for each (String^ systemFilePath in systemFilePaths)

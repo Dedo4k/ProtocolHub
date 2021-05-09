@@ -1,7 +1,8 @@
 #include "Form2.h"
 #include "Service.h"
-#include "PacketHelper.h"
 #include "ConvertFunc.h"
+#include "Sessions.h"
+#include "PacketHelper.h"
 
 std::vector<PacketHelper> packets;
 
@@ -24,11 +25,27 @@ void curseProject1::Form2::StartParsingFiles(System::Collections::ArrayList^ sys
 
 System::Void curseProject1::Form2::dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
 {
-    moreInfo->Text = "";
+    int i = 0;
+    dataGridView2->Columns->Clear();
     for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
     {
-        moreInfo->Text += Convert_string_to_String(info) + "\n";
+        dataGridView2->Columns->Add(i.ToString(), Convert_string_to_String(info));
+        i++;
     }
+    //moreInfo->Text = "";
+    //for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
+    //{
+    //    moreInfo->Text += Convert_string_to_String(info) + "\n";
+    //}
+    return System::Void();
+}
+
+System::Void curseProject1::Form2::ñåññèèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    this->Hide();
+    Sessions^ sessions = gcnew Sessions(systemFilePaths);
+    sessions->ShowDialog();
+    this->Show();
     return System::Void();
 }
 

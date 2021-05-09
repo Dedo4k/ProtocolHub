@@ -3,6 +3,7 @@
   curseProject1.Form2.resources - Embedded, ContainedInManifestFile, 
   curseProject1.MyForm.resources - Embedded, ContainedInManifestFile, 
   curseProject1.SecondForm.resources - Embedded, ContainedInManifestFile, 
+  curseProject1.Sessions.resources - Embedded, ContainedInManifestFile, 
   curseProject1.ThirdForm1.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly ProtocolHub, Version=0.0.*, Culture=Инвариантный язык (Инвариантная страна): 
@@ -41,6 +42,11 @@ Class curseProject1.Form2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class curseProject1.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
 Class Project3.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

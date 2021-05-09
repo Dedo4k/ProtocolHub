@@ -23,6 +23,8 @@ public:
 	static System::Collections::ArrayList^ parseAll(System::Collections::ArrayList^ systemFilePaths);
 
 	static std::vector<std::string> convertToString(System::Collections::ArrayList^ systemFilePaths);
+	
+	static System::Collections::ArrayList^ convertToSysString(std::vector<std::string> stringFilePaths);
 
 	static void parseFilesInList(System::Collections::ArrayList^ systemFilePaths);
 
