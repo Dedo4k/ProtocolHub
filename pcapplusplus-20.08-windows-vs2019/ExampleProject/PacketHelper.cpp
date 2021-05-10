@@ -95,7 +95,11 @@ void PacketHelper::parseAllInfo()
 		{
 		case pcpp::UDP:
 		{
+			this->udp = true;
 			pcpp::UdpLayer* udp = parsedPacket.getLayerOfType<pcpp::UdpLayer>();
+
+			srcPort = (int)ntohs(udp->getUdpHeader()->portSrc);
+			dstPort = (int)ntohs(udp->getUdpHeader()->portDst);
 
 			temp = "\t\tUDP\n";
 			temp += "Source UDP port:" + std::to_string((int)ntohs(udp->getUdpHeader()->portSrc)) + '\n';
@@ -106,7 +110,11 @@ void PacketHelper::parseAllInfo()
 		}
 		case pcpp::TCP:
 		{
+			this->tcp = true;
 			pcpp::TcpLayer* tcp = parsedPacket.getLayerOfType<pcpp::TcpLayer>();
+
+			srcPort = (int)ntohs(tcp->getTcpHeader()->portSrc);
+			dstPort = (int)ntohs(tcp->getTcpHeader()->portDst);
 
 			temp = "\t\tTCP\n";
 			temp += "Source TCP port: " + std::to_string((int)ntohs(tcp->getTcpHeader()->portSrc)) + '\n';
@@ -124,6 +132,7 @@ void PacketHelper::parseAllInfo()
 		}
 		case pcpp::HTTPRequest:
 		{
+			this->http = true;
 			pcpp::HttpRequestLayer* httpRq = parsedPacket.getLayerOfType<pcpp::HttpRequestLayer>();
 
 			temp = "\t\tHTTP-Request\n";
@@ -143,6 +152,7 @@ void PacketHelper::parseAllInfo()
 		}
 		case pcpp::HTTPResponse:
 		{
+			this->http = true;
 			pcpp::HttpResponseLayer* httpRs = parsedPacket.getLayerOfType<pcpp::HttpResponseLayer>();
 
 			temp = "\t\tHTTP-Response\n";
@@ -160,6 +170,7 @@ void PacketHelper::parseAllInfo()
 		}
 		case pcpp::DNS:
 		{
+			this->dns = true;
 			pcpp::DnsLayer* dns = parsedPacket.getLayerOfType<pcpp::DnsLayer>();
 
 			temp = "\t\tDNS\n";
@@ -182,15 +193,19 @@ void PacketHelper::parseAllInfo()
 		}
 		case pcpp::SSL:
 		{
+			this->tls = true;
 			pcpp::SSLLayer* ssl = parsedPacket.getLayerOfType<pcpp::SSLLayer>();
 
 			temp = "\t\t" + ssl->sslVersionToString(ssl->getRecordVersion()) + '\n';
 			temp += "Record type: " + printSslRecordType(ssl) + '\n';
 			temp += "Message: " + printSslMessage(parsedPacket, ssl) + '\n';
+			if (printSslRecordType(ssl) == "Handshake")
+				handshake = true;
 			break;
 		}
 		case pcpp::SIP:
 		{
+			this->sip = true;
 			pcpp::SipLayer* sip = parsedPacket.getLayerOfType<pcpp::SipLayer>();
 			
 			temp = "\t\tSIP\n";
@@ -261,6 +276,14 @@ pcpp::IPAddress PacketHelper::getDstIp()
 {
 	return dstIp;
 }
+int PacketHelper::getSrcPort()
+{
+	return srcPort;
+}
+int PacketHelper::getDstPort()
+{
+	return dstPort;
+}
 tm PacketHelper::getTimestamp()
 {
 	return timestamp;
@@ -289,4 +312,40 @@ std::string PacketHelper::getProtocolName()
 std::vector<std::string> PacketHelper::getProtocols()
 {
 	return protocols;
+}
+bool PacketHelper::inSession()
+{
+	return session;
+}
+void PacketHelper::setSession(bool value)
+{
+	session = value;
+}
+bool PacketHelper::isTcp()
+{
+	return tcp;
+}
+bool PacketHelper::isHttp()
+{
+	return http;
+}
+bool PacketHelper::isTls()
+{
+	return tls;
+}
+bool PacketHelper::isUdp()
+{
+	return udp;
+}
+bool PacketHelper::isDns()
+{
+	return dns;
+}
+bool PacketHelper::isSip()
+{
+	return sip;
+}
+bool PacketHelper::isHandshake()
+{
+	return handshake;
 }
