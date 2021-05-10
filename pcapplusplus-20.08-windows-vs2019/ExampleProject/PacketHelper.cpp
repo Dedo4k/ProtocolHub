@@ -20,7 +20,6 @@ void PacketHelper::parseBasicInfo()
 	timespec temp = parsedPacket.getRawPacketReadOnly()->getPacketTimeStamp();
 	localtime_s(&timestamp, &temp.tv_sec);
 	setProtocolNameWithAIPN();
-	firstLayer = parsedPacket.getFirstLayer()->toString();
 }
 
 void PacketHelper::setProtocolNameWithAIPN()
@@ -111,7 +110,7 @@ void PacketHelper::parseAllInfo()
 
 			temp = "\t\tTCP\n";
 			temp += "Source TCP port: " + std::to_string((int)ntohs(tcp->getTcpHeader()->portSrc)) + '\n';
-			temp += "Destination TCP port: " + std::to_string((int)ntohs(tcp->getTcpHeader()->portDst));
+			temp += "Destination TCP port: " + std::to_string((int)ntohs(tcp->getTcpHeader()->portDst)) + '\n';
 			temp += "Data offset: " + std::to_string((int)ntohs(tcp->getTcpHeader()->dataOffset)) + '\n';
 			temp += "Reserved: " + std::to_string((int)ntohs(tcp->getTcpHeader()->reserved)) + '\n';
 			temp += "TCP flags:" + printTcpFlags(tcp) + '\n';
@@ -190,22 +189,27 @@ void PacketHelper::parseAllInfo()
 			temp += "Message: " + printSslMessage(parsedPacket, ssl) + '\n';
 			break;
 		}
-		/*case pcpp::SIP:
+		case pcpp::SIP:
 		{
 			pcpp::SipLayer* sip = parsedPacket.getLayerOfType<pcpp::SipLayer>();
-
+			
 			temp = "\t\tSIP\n";
-			sip->
+			pcpp::HeaderField* field = sip->getFirstField();
+			temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+			for (size_t i = 1; i < sip->getFieldCount(); ++i)
+			{
+				field = sip->getNextField(field);
+				temp += field->getFieldName() + ": " + field->getFieldValue() + '\n';
+			}
 
 			break;
-		}*/
+		}
 		case pcpp::IPv4:
 		{
 			pcpp::IPv4Layer* ip4 = parsedPacket.getLayerOfType<pcpp::IPv4Layer>();
 
 			srcIp = ip4->getSrcIpAddress();
 			dstIp = ip4->getDstIpAddress();
-			ttl = ip4->getIPv4Header()->timeToLive;
 			AIPN = ip4->getIPv4Header()->protocol;
 
 			temp = "\t\tIPv4\n";
@@ -249,10 +253,6 @@ pcpp::Packet PacketHelper::getParsedPacket()
 {
 	return parsedPacket;
 }
-std::string PacketHelper::getAppName()
-{
-	return appName;
-}
 pcpp::IPAddress PacketHelper::getSrcIp()
 {
 	return srcIp;
@@ -265,9 +265,18 @@ tm PacketHelper::getTimestamp()
 {
 	return timestamp;
 }
-int PacketHelper::getTtl()
+std::string PacketHelper::getTimestampAsString()
 {
-	return ttl;
+	std::string result="";
+	
+	result += std::to_string(timestamp.tm_mday) + '/';
+	result += std::to_string(timestamp.tm_mon + 1) + '/';
+	result += std::to_string(timestamp.tm_year + 1900) + '\t';
+	result += std::to_string(timestamp.tm_sec) + ':';
+	result += std::to_string(timestamp.tm_min + 1) + ':';
+	result += std::to_string(timestamp.tm_hour + 1900);
+
+	return result;
 }
 int PacketHelper::getAIPN()
 {
@@ -276,10 +285,6 @@ int PacketHelper::getAIPN()
 std::string PacketHelper::getProtocolName()
 {
 	return protocolName;
-}
-std::string PacketHelper::getFirstLayer()
-{
-	return firstLayer;
 }
 std::vector<std::string> PacketHelper::getProtocols()
 {

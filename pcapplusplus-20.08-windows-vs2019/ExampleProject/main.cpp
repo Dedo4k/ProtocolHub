@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("my.pcap");
+	pcpp::PcapFileReaderDevice reader("http.pcap");
 	if (!reader.open())
 	{
 		printf("Error opening the pcap file\n");
@@ -26,11 +26,9 @@ int main(int argc, char* argv[])
 	while (reader.getNextPacket(rawPacket) && counter < 50)
 	{
 		PacketHelper pack(rawPacket);
-		std::cout << std::endl << pack.getSrcIp().toString() << '\t' << pack.getDstIp().toString() << '\t'
-			<< pack.getTtl() << '\t' << pack.getProtocolName()
-			<< '\t' << pack.getTimestamp().tm_mday << '/' << pack.getTimestamp().tm_mon << '/' << pack.getTimestamp().tm_year + 1900
-			<< '\t' << pack.getTimestamp().tm_hour << ':' << pack.getTimestamp().tm_min << ':' << pack.getTimestamp().tm_sec
-			<< '\t' << pack.getFirstLayer() << std::endl << std::endl;
+		std::cout << std::endl << pack.getSrcIp().toString() << '\t' << pack.getDstIp().toString()
+			<< '\t' << pack.getProtocolName() << '\t'<<pack.getTimestampAsString()<<'\t'
+			<< std::endl << std::endl;
 
 		for (size_t i = 0; i < pack.getProtocols().size(); ++i)
 			std::cout << pack.getProtocols()[i] << std::endl;
