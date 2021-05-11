@@ -15,14 +15,14 @@ std::vector<PacketHelper> Service::getAllPackets(std::vector<std::string> string
 			std::cout << "Open error." << std::endl;
 			//return 1;
 		}
-		//счетчик пакетов, чтобы не считывать все, а только первые N пакетов (я вывожу 50)
-		int counter = 0;
 		pcpp::RawPacket rawPacket;
-		while (reader.getNextPacket(rawPacket) && counter < 50)
+		while (reader.getNextPacket(rawPacket))
 		{
-			++counter;
-			PacketHelper packet(rawPacket);
-			packets.push_back(packet);
+			PacketHelper pack(rawPacket);
+			if (pack.getSrcIp().toString() == "0.0.0.0" || pack.getDstIp().toString() == "0.0.0.0")
+				continue;
+			else
+				packets.push_back(pack);
 		}
 	}
 	return packets;

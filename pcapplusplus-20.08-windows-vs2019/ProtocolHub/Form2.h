@@ -31,19 +31,17 @@ namespace curseProject1 {
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ íàçàäToolStripMenuItem;
-
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Source;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Destination;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Info;
-
-
-
 	private: System::Windows::Forms::ToolStripMenuItem^ ñåññèèToolStripMenuItem;
 	private: System::Windows::Forms::DataGridView^ dataGridView2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Source;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ SrcPort;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Destination;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DstPort;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
+
 	private: System::ComponentModel::IContainer^ components;
 
 	protected:
@@ -59,12 +57,13 @@ namespace curseProject1 {
 			this->ñåññèèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Time = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Source = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Destination = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Protocol = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Info = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->Source = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->SrcPort = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Destination = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->DstPort = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Protocol = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Time = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -81,27 +80,27 @@ namespace curseProject1 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1902, 30);
+			this->menuStrip1->Size = System::Drawing::Size(1902, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// ôàéëToolStripMenuItem
 			// 
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 26);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 26);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::íàçàäToolStripMenuItem_Click);
 			// 
 			// ñåññèèToolStripMenuItem
 			// 
 			this->ñåññèèToolStripMenuItem->Name = L"ñåññèèToolStripMenuItem";
-			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(72, 26);
+			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(72, 24);
 			this->ñåññèèToolStripMenuItem->Text = L"Ñåññèè";
 			this->ñåññèèToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::ñåññèèToolStripMenuItem_Click);
 			// 
@@ -109,11 +108,12 @@ namespace curseProject1 {
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::Control;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(5) {
-				this->Time, this->Source,
-					this->Destination, this->Protocol, this->Info
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(6) {
+				this->Source,
+					this->SrcPort, this->Destination, this->DstPort, this->Protocol, this->Time
 			});
 			this->dataGridView1->Location = System::Drawing::Point(22, 41);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -124,46 +124,6 @@ namespace curseProject1 {
 			this->dataGridView1->Size = System::Drawing::Size(1868, 691);
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form2::dataGridView1_CellClick);
-			// 
-			// Time
-			// 
-			this->Time->HeaderText = L"Time";
-			this->Time->MinimumWidth = 6;
-			this->Time->Name = L"Time";
-			this->Time->ReadOnly = true;
-			this->Time->Width = 125;
-			// 
-			// Source
-			// 
-			this->Source->HeaderText = L"Source";
-			this->Source->MinimumWidth = 6;
-			this->Source->Name = L"Source";
-			this->Source->ReadOnly = true;
-			this->Source->Width = 125;
-			// 
-			// Destination
-			// 
-			this->Destination->HeaderText = L"Destination";
-			this->Destination->MinimumWidth = 6;
-			this->Destination->Name = L"Destination";
-			this->Destination->ReadOnly = true;
-			this->Destination->Width = 125;
-			// 
-			// Protocol
-			// 
-			this->Protocol->HeaderText = L"Protocol";
-			this->Protocol->MinimumWidth = 6;
-			this->Protocol->Name = L"Protocol";
-			this->Protocol->ReadOnly = true;
-			this->Protocol->Width = 125;
-			// 
-			// Info
-			// 
-			this->Info->AutoSizeMode = System::Windows::Forms::DataGridViewAutoSizeColumnMode::Fill;
-			this->Info->HeaderText = L"Info";
-			this->Info->MinimumWidth = 6;
-			this->Info->Name = L"Info";
-			this->Info->ReadOnly = true;
 			// 
 			// dataGridView2
 			// 
@@ -180,6 +140,48 @@ namespace curseProject1 {
 			this->dataGridView2->RowTemplate->Height = 24;
 			this->dataGridView2->Size = System::Drawing::Size(1868, 283);
 			this->dataGridView2->TabIndex = 7;
+			// 
+			// Source
+			// 
+			this->Source->HeaderText = L"Source";
+			this->Source->MinimumWidth = 6;
+			this->Source->Name = L"Source";
+			this->Source->ReadOnly = true;
+			// 
+			// SrcPort
+			// 
+			this->SrcPort->HeaderText = L"SrcPort";
+			this->SrcPort->MinimumWidth = 6;
+			this->SrcPort->Name = L"SrcPort";
+			this->SrcPort->ReadOnly = true;
+			// 
+			// Destination
+			// 
+			this->Destination->HeaderText = L"Destination";
+			this->Destination->MinimumWidth = 6;
+			this->Destination->Name = L"Destination";
+			this->Destination->ReadOnly = true;
+			// 
+			// DstPort
+			// 
+			this->DstPort->HeaderText = L"DstPort";
+			this->DstPort->MinimumWidth = 6;
+			this->DstPort->Name = L"DstPort";
+			this->DstPort->ReadOnly = true;
+			// 
+			// Protocol
+			// 
+			this->Protocol->HeaderText = L"Protocol";
+			this->Protocol->MinimumWidth = 6;
+			this->Protocol->Name = L"Protocol";
+			this->Protocol->ReadOnly = true;
+			// 
+			// Time
+			// 
+			this->Time->HeaderText = L"Time";
+			this->Time->MinimumWidth = 6;
+			this->Time->Name = L"Time";
+			this->Time->ReadOnly = true;
 			// 
 			// Form2
 			// 

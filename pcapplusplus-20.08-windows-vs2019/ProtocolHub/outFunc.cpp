@@ -478,3 +478,14 @@ std::string dToX(int value)
 	}
 	return result;
 }
+
+size_t tmToSec(tm &value)
+{
+	size_t result = 0;
+
+	result = value.tm_hour * 3600;
+	result += value.tm_min * 60;
+	result += value.tm_sec;	
+
+	return result;
+}

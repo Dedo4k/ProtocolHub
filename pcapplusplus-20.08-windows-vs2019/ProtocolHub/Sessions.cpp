@@ -2,8 +2,10 @@
 #include "Service.h"
 #include "ConvertFunc.h"
 #include "PacketHelper.h"
+#include "SessionHelper.h"
 
 std::vector<PacketHelper> packets1;
+std::vector<SessionHelper> sessions;
 
 void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayList^ systemFilePaths)
 {
@@ -14,6 +16,30 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
 
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
     packets1 = Service::getAllPackets(stringFilePaths);
+    
+    bool flag = true;
+    while (flag && sessions.size() < 40)
+    {
+        SessionHelper session(packets1);
+        if (session.isSession())
+            sessions.push_back(session);
+        else
+            flag = false;
+    }
+
+    int min = sessions[0].getTimeStart();
+    int max = (sessions[0].getTimeEnd() + sessions[0].getTimeStart());
+    for each (SessionHelper session in sessions)
+    {
+        if (session.getTimeStart() < min)
+            min = session.getTimeStart();
+        if ((session.getTimeEnd() + session.getTimeStart()) > max)
+            max = session.getTimeEnd() + session.getTimeStart();
+    }
+
+    trackBar1->Maximum = 41;
+    trackBar2->Maximum = max - min;
+
     // Set automatic zooming
     chart1->ChartAreas[0]->AxisX->ScaleView->Zoomable = true;
     chart1->ChartAreas[0]->AxisY->ScaleView->Zoomable = true;
@@ -25,36 +51,39 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     //// Allow user selection for Zoom
     chart1->ChartAreas[0]->CursorX->IsUserSelectionEnabled = true;
     chart1->ChartAreas[0]->CursorY->IsUserSelectionEnabled = true;
-    for each (PacketHelper packet in packets1)
+    for each (SessionHelper session in sessions)
     {  
-        String^ temp = Convert_string_to_String(packet.getProtocolName());
-        if (temp->Equals("UDP")) {
-            temp += UDP;
-            UDP++;
-        }
-        if (temp->Equals("TCP")) {
-            temp += TCP;
-            TCP++;
-        }
-        if (temp->Equals("DNS")) {
-            temp += DNS;
-            DNS++;
-        }
-        int x0 = std::rand() % 50;
-        int x1 = std::rand() % 100;
+        //String^ temp = Convert_string_to_String(packet.getProtocolName());
+        //if (temp->Equals("UDP")) {
+        //    temp += UDP;
+        //    UDP++;
+        //}
+        //if (temp->Equals("TCP")) {
+        //    temp += TCP;
+        //    TCP++;
+        //}
+        //if (temp->Equals("DNS")) {
+        //    temp += DNS;
+        //    DNS++;
+        //}
+        //int x0 = std::rand() % 50;
+        //int x1 = std::rand() % 100;
+        String^ temp = i.ToString();
         chart1->Series->Add(temp);
-        chart1->Series[temp]->LabelToolTip = Convert_string_to_String(packet.getFirstLayer());
+        chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd()+session.getTimeStart());
         chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
         chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
         chart1->Series[temp]->BorderWidth = 5;
-        chart1->Series[temp]->Points->AddXY(i++, x1, x0);
-        chart1->Series[temp]->ToolTip = "Протокол: " + temp + " Начало: " + x1 + "c Конец: " + x0 + "c";
-        chart1->Series[temp]->LegendToolTip = "Протокол: " + temp + " Начало: " + x1 + "c Конец: " + x0 + "c";
+        chart1->Series[temp]->Points->AddXY(i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+        chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+        chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
     }
 }
 
 System::Void curseProject1::Sessions::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
+    sessions.clear();
+    packets1.clear();
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
     return System::Void();
@@ -81,6 +110,24 @@ System::Void curseProject1::Sessions::button1_Click(System::Object^ sender, Syst
     chart1->Series->Clear();
     chart1->ChartAreas[0]->AxisX->ScaleView->ZoomReset();
     chart1->ChartAreas[0]->AxisY->ScaleView->ZoomReset();
+    trackBar1->Value = trackBar1->Minimum;
+    trackBar2->Value = trackBar2->Minimum;
+    startDrawingSessions(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::trackBar1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    chart1->Series->Clear();
+    chart1->ChartAreas[0]->AxisX->ScaleView->Size = trackBar1->Maximum - trackBar1->Value;
+    startDrawingSessions(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::trackBar2_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e)
+{
+    chart1->Series->Clear();
+    chart1->ChartAreas[0]->AxisY->ScaleView->Size = trackBar2->Maximum - trackBar2->Value;
     startDrawingSessions(systemFilePaths);
     return System::Void();
 }

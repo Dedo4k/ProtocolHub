@@ -24,12 +24,18 @@
     <ClCompile Include="outFunc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SessionHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PacketHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="outFunc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

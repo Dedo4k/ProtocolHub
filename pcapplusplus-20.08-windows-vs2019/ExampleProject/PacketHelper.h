@@ -23,25 +23,32 @@ class PacketHelper
 private:
 	//parsed packet
 	pcpp::Packet parsedPacket;
-	//name of app
-	std::string appName = "";
 	//source ip
 	pcpp::IPAddress srcIp;
 	//destenation ip
 	pcpp::IPAddress dstIp;
+	//source port
+	int srcPort;
+	//destination port
+	int dstPort;
 	//timestamp
 	tm timestamp;
-	//time to live
-	int ttl;
 	//assigned ip number
 	int AIPN;
 	//name of protocol (with AIPN)
 	std::string protocolName;
-	//first layer info
-	std::string firstLayer;
 	//info as string about all protocols
 	std::vector<std::string> protocols;
-
+	//flag is it object is part of session
+	bool session = false;
+	//flags
+	bool tcp = false;
+	bool http = false;
+	bool tls = false;
+	bool udp = false;
+	bool dns = false;
+	bool sip = false;
+	bool handshake = false;
 public:
 	PacketHelper(pcpp::RawPacket& _rawPacket);
 
@@ -55,13 +62,22 @@ public:
 
 	pcpp::RawPacket* getPacketRaw();
 	pcpp::Packet getParsedPacket();
-	std::string getAppName();
 	pcpp::IPAddress getSrcIp();
 	pcpp::IPAddress getDstIp();
+	int getSrcPort();
+	int getDstPort();
 	tm getTimestamp();
-	int getTtl();
+	std::string getTimestampAsString();
 	int getAIPN();
 	std::string getProtocolName();
-	std::string getFirstLayer();
 	std::vector<std::string> getProtocols();
+	bool inSession();
+	void setSession(bool value);
+	bool isTcp();
+	bool isHttp();
+	bool isTls();
+	bool isUdp();
+	bool isDns();
+	bool isSip();
+	bool isHandshake();
 };

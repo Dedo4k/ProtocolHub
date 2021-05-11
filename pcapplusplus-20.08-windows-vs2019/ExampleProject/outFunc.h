@@ -41,3 +41,5 @@ std::string printSslMessage(pcpp::Packet& parsedPacket, pcpp::SSLLayer* ssl);
 
 //getting value and convert to hex as string
 std::string dToX(int value);
+
+size_t tmToSec(tm &value);

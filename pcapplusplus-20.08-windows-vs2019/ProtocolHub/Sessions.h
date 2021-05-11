@@ -48,8 +48,8 @@ namespace curseProject1 {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Legend^ legend2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Legend^ legend1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Legend());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Sessions::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -105,17 +105,23 @@ namespace curseProject1 {
 			// 
 			// chart1
 			// 
+			this->chart1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->chart1->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Solid;
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
-			legend2->Docking = System::Windows::Forms::DataVisualization::Charting::Docking::Left;
-			legend2->ItemColumnSeparator = System::Windows::Forms::DataVisualization::Charting::LegendSeparatorStyle::Line;
-			legend2->LegendStyle = System::Windows::Forms::DataVisualization::Charting::LegendStyle::Column;
-			legend2->Name = L"Legend1";
-			legend2->TableStyle = System::Windows::Forms::DataVisualization::Charting::LegendTableStyle::Tall;
-			this->chart1->Legends->Add(legend2);
+			chartArea1->BackColor = System::Drawing::Color::DimGray;
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
+			legend1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			legend1->Docking = System::Windows::Forms::DataVisualization::Charting::Docking::Left;
+			legend1->ItemColumnSeparator = System::Windows::Forms::DataVisualization::Charting::LegendSeparatorStyle::Line;
+			legend1->LegendStyle = System::Windows::Forms::DataVisualization::Charting::LegendStyle::Column;
+			legend1->Name = L"Legend1";
+			legend1->TableStyle = System::Windows::Forms::DataVisualization::Charting::LegendTableStyle::Tall;
+			this->chart1->Legends->Add(legend1);
 			this->chart1->Location = System::Drawing::Point(12, 91);
 			this->chart1->Name = L"chart1";
+			this->chart1->Palette = System::Windows::Forms::DataVisualization::Charting::ChartColorPalette::Light;
 			this->chart1->Size = System::Drawing::Size(1878, 930);
 			this->chart1->TabIndex = 1;
 			this->chart1->Text = L"chart1";
@@ -128,7 +134,7 @@ namespace curseProject1 {
 			this->trackBar1->Name = L"trackBar1";
 			this->trackBar1->Size = System::Drawing::Size(104, 56);
 			this->trackBar1->TabIndex = 2;
-			this->trackBar1->Scroll += gcnew System::EventHandler(this, &Sessions::trackBar1_Scroll);
+			this->trackBar1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Sessions::trackBar1_MouseUp);
 			// 
 			// label1
 			// 
@@ -160,7 +166,7 @@ namespace curseProject1 {
 			this->trackBar2->Name = L"trackBar2";
 			this->trackBar2->Size = System::Drawing::Size(104, 56);
 			this->trackBar2->TabIndex = 1;
-			this->trackBar2->Scroll += gcnew System::EventHandler(this, &Sessions::trackBar2_Scroll);
+			this->trackBar2->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Sessions::trackBar2_MouseUp);
 			// 
 			// button1
 			// 
@@ -208,5 +214,7 @@ namespace curseProject1 {
 		private: System::Void trackBar1_Scroll(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void trackBar2_Scroll(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void trackBar1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		private: System::Void trackBar2_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
 };
 }

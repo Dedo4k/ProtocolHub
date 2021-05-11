@@ -147,6 +147,7 @@
     <ClCompile Include="Repository.cpp" />
     <ClCompile Include="SecondForm.cpp" />
     <ClCompile Include="Service.cpp" />
+    <ClCompile Include="SessionHelper.cpp" />
     <ClCompile Include="Sessions.cpp" />
     <ClCompile Include="ThirdForm1.cpp" />
   </ItemGroup>
@@ -171,6 +172,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Service.h" />
+    <ClInclude Include="SessionHelper.h" />
     <ClInclude Include="Sessions.h">
       <FileType>CppForm</FileType>
     </ClInclude>
