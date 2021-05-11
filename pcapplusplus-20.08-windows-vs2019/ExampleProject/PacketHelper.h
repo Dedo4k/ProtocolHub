@@ -1,5 +1,8 @@
 #pragma once
 #include <Packet.h>
+#include <Layer.h>
+#include <PcapFileDevice.h>
+#include <SystemUtils.h>
 
 #include <HTTPLayer.h>
 #include <TcpLayer.h>

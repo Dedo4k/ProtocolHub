@@ -21,7 +21,7 @@ private:
 	//vector of packets
 	std::vector<PacketHelper> packets;
 	//vector of bytes
-	std::vector<std::string> bytes;
+	std::string bytes;
 	//flags
 	bool is = true;
 	bool tcp = false;
@@ -41,6 +41,8 @@ public:
 	int getDstPort();
 	int getTimeStart();
 	size_t getTimeEnd();
+	std::vector<PacketHelper> getPackets();
+	std::string getBytes();
 	bool isSession();
 	bool isTcp();
 	bool isHttp();

@@ -184,12 +184,14 @@ xcopy "1_packet.pcap" "$(OutDir)" /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="findFunc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="outFunc.cpp" />
     <ClCompile Include="PacketHelper.cpp" />
     <ClCompile Include="SessionHelper.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="findFunc.h" />
     <ClInclude Include="outFunc.h" />
     <ClInclude Include="PacketHelper.h" />
     <ClInclude Include="SessionHelper.h" />

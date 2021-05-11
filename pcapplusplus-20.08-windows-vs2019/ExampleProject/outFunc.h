@@ -1,16 +1,5 @@
 #pragma once
-#include <string>
-#include <iomanip>
-
-#include <Packet.h>
-#include <HTTPLayer.h>
-#include <TcpLayer.h>
-#include <UdpLayer.h>
-#include <IPv4Layer.h>
-#include <IPv6Layer.h>
-#include <DNSLayer.h>
-#include <SSLLayer.h>
-#include <SipLayer.h>
+#include "PacketHelper.h"
 
 //getting tcp flags as string
 std::string printTcpFlags(pcpp::TcpLayer* tcp);
@@ -43,3 +32,5 @@ std::string printSslMessage(pcpp::Packet& parsedPacket, pcpp::SSLLayer* ssl);
 std::string dToX(int value);
 
 size_t tmToSec(tm &value);
+
+std::string charToAscii(char value);

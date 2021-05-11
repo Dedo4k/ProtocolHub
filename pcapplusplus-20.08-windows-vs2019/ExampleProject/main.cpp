@@ -1,18 +1,12 @@
-#include "PacketHelper.h"
 #include "SessionHelper.h"
-#include <Layer.h>
-#include <Packet.h>
-#include <PcapFileDevice.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <SystemUtils.h>
+#include "findFunc.h"
 
 int main(int argc, char* argv[])
 {
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("ex.pcap");
+	pcpp::PcapFileReaderDevice reader("http.pcap");
 	if (!reader.open())
 	{
 		printf("Error opening the pcap file\n");
@@ -23,6 +17,7 @@ int main(int argc, char* argv[])
 	std::vector<SessionHelper> sessions;
 	// read the packets from the file
 	pcpp::RawPacket rawPacket;
+
 	while (reader.getNextPacket(rawPacket))
 	{
 		PacketHelper pack(rawPacket);
@@ -31,12 +26,6 @@ int main(int argc, char* argv[])
 		else
 			packets.push_back(pack);
 	}
-	/*for (size_t i = 0; i < 40; i++)
-	{
-		std::cout << packets[i].getSrcIp().toString() << ':' << packets[i].getSrcPort()
-			<< '\t' << packets[i].getDstIp().toString() << ':' << packets[i].getDstPort();
-		std::cout << "\n-------------------------------------------\n";
-	}*/
 	bool flag = true;
 	while (flag && sessions.size() < 40)
 	{
@@ -47,12 +36,25 @@ int main(int argc, char* argv[])
 			flag = false;
 	}
 
+	//find unusing packets and delete them
+	std::cout << packets.size() << std::endl;
+	findUnusingPackets(packets);
+	std::cout << packets.size();
+
+	int startPoint = findStartPoint(sessions);
 	for (size_t i = 0; i < sessions.size(); i++)
 	{
 		std::cout << "\n-------------------------------------------\n";
 		std::cout << sessions[i].getSrcIp().toString() << ':' << sessions[i].getSrcPort()
 			<< '\t' << sessions[i].getDstIp().toString() << ':' << sessions[i].getDstPort()
-			<< '\n' << sessions[i].getTimeStart() << "->" << sessions[i].getTimeStart() + sessions[i].getTimeEnd();
+			<< '\n' << sessions[i].getTimeStart()-startPoint << "->" << sessions[i].getTimeStart()
+			+ sessions[i].getTimeEnd() - startPoint;
+		std::cout << "\n-------------------------------------------\n";
+		for (size_t j = 0; j < sessions[i].getBytes().size(); j++)
+		{
+			if (charToAscii((char)sessions[i].getBytes()[j]) != "")
+				std::cout << charToAscii((char)sessions[i].getBytes()[j]) << ' ';
+		}
 		std::cout << "\n-------------------------------------------\n";
 	}
 
