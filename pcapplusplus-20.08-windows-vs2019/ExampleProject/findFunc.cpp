@@ -15,17 +15,12 @@ int findStartPoint(std::vector<SessionHelper>& sessions)
 //find and delete packets, that unusing at sessions
 void findUnusingPackets(std::vector<PacketHelper>& packets)
 {
-	std::vector<PacketHelper>::iterator it = packets.begin();
-	while (it != packets.end())
-	{
-		if (!it->inSession())
+	for (size_t i = 0; i < packets.size(); ++i)
+		if (!packets[i].inSession())
 		{
-			packets.erase(it);
-			it=packets.begin();
+			packets.erase(packets.begin()+i);
+			--i;
 		}
-		else
-			++it;
-	}
 }
 
 //find positions of substrings in sessions

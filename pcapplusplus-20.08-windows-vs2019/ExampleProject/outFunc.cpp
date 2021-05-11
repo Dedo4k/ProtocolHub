@@ -469,6 +469,9 @@ std::string dToX(int value)
 	int temp;
 	std::string result = "";
 	char hex[] = { '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F' };
+	
+	if (value == 0)
+		return "00";
 
 	while (value > 0)
 	{
@@ -476,8 +479,8 @@ std::string dToX(int value)
 		result = hex[temp] + result;
 		value /= 16;
 	}
-	if (result.length() < 2 && result != "")
-		result = '0' + result[0];
+	if (result.length() < 2)
+		result = "0" + result;
 	return result;
 }
 
@@ -494,7 +497,6 @@ size_t tmToSec(tm &value)
 
 std::string charToAscii(char ch)
 {
-	//std::cout << ch << ' ';
 	std::string result = "";
 	if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || ch == ':' || ch == ';' || ch == '/' || ch == '.' || ch == ','
 		|| ch == '`' || ch == '<' || ch == '>' || ch == '!' || ch == '?' || ch == '@' || ch == '#'

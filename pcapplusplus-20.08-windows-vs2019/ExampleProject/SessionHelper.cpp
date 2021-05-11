@@ -96,14 +96,16 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 			}
 		}
 	}
-	++timeEnd;
+	if (timeEnd == timeStart)
+		++timeEnd;
 	//getting data as bytes
 	for (size_t i = 0; i < packets.size(); ++i)
 	{
 		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
 		{
 			char ch = packets[i].getPacketRaw()->getRawData()[j];
-			bytes += ch;
+			if (ch<257 && ch>-1)
+				bytes += ch;
 		}
 	}
 }
