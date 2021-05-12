@@ -6,8 +6,8 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::PcapFileReaderDevice reader("my.pcap");
-	if (!reader.open())
+	pcpp::IFileReaderDevice* reader = pcpp::IFileReaderDevice::getReader("ng.pcapng");
+	if (!reader->open())
 	{
 		printf("Error opening the pcap file\n");
 		return 1;
@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
 	// read the packets from the file
 	pcpp::RawPacket rawPacket;
 
-	while (reader.getNextPacket(rawPacket))
+	while (reader->getNextPacket(rawPacket))
 	{
 		PacketHelper pack(rawPacket);
 		if (pack.getSrcIp().toString() == "0.0.0.0" || pack.getDstIp().toString() == "0.0.0.0")
@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
 
 	std::cout<<"\nCount of session: " << sessions.size() << '\n';
 	// close the file
-	reader.close();
+	reader->close();
 
 	system("pause");
 	system("color 0f");
