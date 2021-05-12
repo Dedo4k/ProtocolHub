@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConvertFunc.cpp" />
+    <ClCompile Include="findFunc.cpp" />
     <ClCompile Include="FirstForm.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="Form2.cpp" />
@@ -153,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertFunc.h" />
+    <ClInclude Include="findFunc.h" />
     <ClInclude Include="FirstForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

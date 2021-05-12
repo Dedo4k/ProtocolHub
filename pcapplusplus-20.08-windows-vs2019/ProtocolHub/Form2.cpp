@@ -3,6 +3,7 @@
 #include "ConvertFunc.h"
 #include "Sessions.h"
 #include "PacketHelper.h"
+#include "findFunc.h"
 
 std::vector<PacketHelper> packets;
 
@@ -33,11 +34,6 @@ System::Void curseProject1::Form2::dataGridView1_CellClick(System::Object^ sende
         dataGridView2->Columns->Add(i.ToString(), Convert_string_to_String(info));
         i++;
     }
-    //moreInfo->Text = "";
-    //for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
-    //{
-    //    moreInfo->Text += Convert_string_to_String(info) + "\n";
-    //}
     return System::Void();
 }
 

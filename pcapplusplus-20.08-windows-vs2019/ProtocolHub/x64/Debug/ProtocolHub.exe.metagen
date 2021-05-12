@@ -47,6 +47,7 @@ Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
+    startFinding(): PrivateScope, Public, HideBySig
 Class Project3.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

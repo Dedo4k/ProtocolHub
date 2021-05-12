@@ -96,6 +96,18 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 			}
 		}
 	}
+	if (timeEnd == timeStart)
+		++timeEnd;
+	//getting data as bytes
+	for (size_t i = 0; i < packets.size(); ++i)
+	{
+		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
+		{
+			char ch = packets[i].getPacketRaw()->getRawData()[j];
+			if (ch<257 && ch>-1)
+				bytes += ch;
+		}
+	}
 }
 
 std::string SessionHelper::getAppName()
@@ -125,6 +137,14 @@ int SessionHelper::getTimeStart()
 size_t SessionHelper::getTimeEnd()
 {
 	return timeEnd;
+}
+std::vector<PacketHelper> SessionHelper::getPackets()
+{
+	return packets;
+}
+std::string SessionHelper::getBytes()
+{
+	return bytes;
 }
 bool SessionHelper::isSession()
 {

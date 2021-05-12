@@ -3,12 +3,19 @@
 #include "ConvertFunc.h"
 #include "PacketHelper.h"
 #include "SessionHelper.h"
+#include "findFunc.h"
+#include <thread>
 
 std::vector<PacketHelper> packets1;
 std::vector<SessionHelper> sessions;
 
+void treadFunc(void) {
+    findUnusingPackets(packets1);
+}
+
 void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayList^ systemFilePaths)
 {
+
     int i = 0;
     int UDP = 0;
     int TCP = 0;
@@ -26,6 +33,8 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         else
             flag = false;
     }
+
+    //std::thread th(&findUnusingPackets, packets1);
 
     int min = sessions[0].getTimeStart();
     int max = (sessions[0].getTimeEnd() + sessions[0].getTimeStart());
@@ -53,21 +62,6 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     chart1->ChartAreas[0]->CursorY->IsUserSelectionEnabled = true;
     for each (SessionHelper session in sessions)
     {  
-        //String^ temp = Convert_string_to_String(packet.getProtocolName());
-        //if (temp->Equals("UDP")) {
-        //    temp += UDP;
-        //    UDP++;
-        //}
-        //if (temp->Equals("TCP")) {
-        //    temp += TCP;
-        //    TCP++;
-        //}
-        //if (temp->Equals("DNS")) {
-        //    temp += DNS;
-        //    DNS++;
-        //}
-        //int x0 = std::rand() % 50;
-        //int x1 = std::rand() % 100;
         String^ temp = i.ToString();
         chart1->Series->Add(temp);
         chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd()+session.getTimeStart());
@@ -78,10 +72,17 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
         chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
     }
+    //th.join();
+}
+
+void curseProject1::Sessions::startFinding()
+{
+    findUnusingPackets(packets1);
 }
 
 System::Void curseProject1::Sessions::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
+    this->thread->Join();
     sessions.clear();
     packets1.clear();
     this->Close();
@@ -93,6 +94,7 @@ System::Void curseProject1::Sessions::trackBar1_Scroll(System::Object^ sender, S
 {
     chart1->Series->Clear();
     chart1->ChartAreas[0]->AxisX->ScaleView->Size = trackBar1->Maximum - trackBar1->Value;
+    this->thread->Join();
     startDrawingSessions(systemFilePaths);
     return System::Void();
 }
@@ -101,6 +103,7 @@ System::Void curseProject1::Sessions::trackBar2_Scroll(System::Object^ sender, S
 {
     chart1->Series->Clear();
     chart1->ChartAreas[0]->AxisY->ScaleView->Size = trackBar2->Maximum - trackBar2->Value;
+    this->thread->Join();
     startDrawingSessions(systemFilePaths);
     return System::Void();
 }
@@ -112,6 +115,7 @@ System::Void curseProject1::Sessions::button1_Click(System::Object^ sender, Syst
     chart1->ChartAreas[0]->AxisY->ScaleView->ZoomReset();
     trackBar1->Value = trackBar1->Minimum;
     trackBar2->Value = trackBar2->Minimum;
+    this->thread->Join();
     startDrawingSessions(systemFilePaths);
     return System::Void();
 }
@@ -120,6 +124,7 @@ System::Void curseProject1::Sessions::trackBar1_MouseUp(System::Object^ sender, 
 {
     chart1->Series->Clear();
     chart1->ChartAreas[0]->AxisX->ScaleView->Size = trackBar1->Maximum - trackBar1->Value;
+    this->thread->Join();
     startDrawingSessions(systemFilePaths);
     return System::Void();
 }
@@ -128,6 +133,13 @@ System::Void curseProject1::Sessions::trackBar2_MouseUp(System::Object^ sender, 
 {
     chart1->Series->Clear();
     chart1->ChartAreas[0]->AxisY->ScaleView->Size = trackBar2->Maximum - trackBar2->Value;
+    this->thread->Join();
     startDrawingSessions(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::Sessions_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e)
+{
+    this->thread->Join();
     return System::Void();
 }
