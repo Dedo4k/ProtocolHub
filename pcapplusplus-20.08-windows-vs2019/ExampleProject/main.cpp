@@ -62,6 +62,11 @@ int main(int argc, char* argv[])
 	reader->close();
 
 	system("pause");
+	
+	/*fwriteSessionsPcapng("write.pcapng", sessions);
+
+	system("pause");*/
+
 	system("color 0f");
 
 	return 0;

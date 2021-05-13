@@ -51,3 +51,23 @@ int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
 		return value;
 	}
 }
+
+void fwriteSessionsPcapng(std::string filepath, std::vector<SessionHelper>& sessions)
+{
+	pcpp::PcapNgFileWriterDevice writer(filepath.c_str());
+
+	if (!writer.open())
+	{
+		std::cout << "File open error!\n";
+		return;
+	}
+
+	for (size_t i = 0; i < sessions.size(); ++i)
+	{
+		for (size_t j = 0; j < sessions[i].getPackets().size(); ++j)
+		{
+			writer.writePacket(*sessions[i].getPackets()[j].getPacketRaw());
+		}
+	}
+	writer.close();
+}
