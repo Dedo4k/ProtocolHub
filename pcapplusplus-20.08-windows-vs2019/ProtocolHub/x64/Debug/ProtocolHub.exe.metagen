@@ -1,3 +1,4 @@
+  curseProject1.Bytes.resources - Embedded, ContainedInManifestFile, 
   curseProject1.filterButtons.resources - Embedded, ContainedInManifestFile, 
   curseProject1.Filters.resources - Embedded, ContainedInManifestFile, 
   curseProject1.FirstForm.resources - Embedded, ContainedInManifestFile, 
@@ -26,6 +27,11 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class curseProject1.Bytes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    startDrawingBytes(ArrayList): PrivateScope, Public, HideBySig
 Class curseProject1.filterButtons: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

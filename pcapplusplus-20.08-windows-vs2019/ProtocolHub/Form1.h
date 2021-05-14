@@ -43,6 +43,7 @@ namespace curseProject1 {
 
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	private: System::Windows::Forms::ToolStripMenuItem^ äàëååToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ çàêğûòüÏğèëîæåíèåToolStripMenuItem;
 
 	private: System::ComponentModel::Container ^components;
 
@@ -53,6 +54,7 @@ namespace curseProject1 {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îòêğûòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->î÷èñòèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îÏğîãğàììåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->äàëååToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -81,17 +83,30 @@ namespace curseProject1 {
 			// 
 			// ôàéëToolStripMenuItem
 			// 
-			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->îòêğûòüToolStripMenuItem });
+			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->îòêğûòüToolStripMenuItem,
+					this->çàêğûòüÏğèëîæåíèåToolStripMenuItem
+			});
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
 			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// îòêğûòüToolStripMenuItem
 			// 
+			this->îòêğûòüToolStripMenuItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->îòêğûòüToolStripMenuItem->ImageScaling = System::Windows::Forms::ToolStripItemImageScaling::None;
 			this->îòêğûòüToolStripMenuItem->Name = L"îòêğûòüToolStripMenuItem";
-			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(121, 22);
+			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(193, 22);
 			this->îòêğûòüToolStripMenuItem->Text = L"Îòêğûòü";
 			this->îòêğûòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::îòêğûòüToolStripMenuItem_Click);
+			// 
+			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
+			// 
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// î÷èñòèòüToolStripMenuItem
 			// 
@@ -116,6 +131,7 @@ namespace curseProject1 {
 			// 
 			// infoLabel
 			// 
+			this->infoLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->infoLabel->AutoSize = true;
 			this->infoLabel->Location = System::Drawing::Point(13, 236);
 			this->infoLabel->Name = L"infoLabel";
@@ -125,6 +141,8 @@ namespace curseProject1 {
 			// 
 			// outPanel
 			// 
+			this->outPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->outPanel->AutoScroll = true;
 			this->outPanel->Controls->Add(this->outLabel);
 			this->outPanel->Location = System::Drawing::Point(16, 28);
@@ -142,7 +160,7 @@ namespace curseProject1 {
 			// 
 			// numberLabel
 			// 
-			this->numberLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->numberLabel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
 			this->numberLabel->AutoEllipsis = true;
 			this->numberLabel->AutoSize = true;
 			this->numberLabel->Location = System::Drawing::Point(208, 236);
@@ -166,6 +184,7 @@ namespace curseProject1 {
 			this->Controls->Add(this->outPanel);
 			this->Controls->Add(this->infoLabel);
 			this->Controls->Add(this->menuStrip1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Form1";
@@ -198,5 +217,6 @@ namespace curseProject1 {
 
 	private: System::Void äàëååToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 
+	private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

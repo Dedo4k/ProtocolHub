@@ -41,6 +41,7 @@ namespace curseProject1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ DstPort;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
+	private: System::Windows::Forms::ToolStripMenuItem^ çàêğûòüÏğèëîæåíèåToolStripMenuItem;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -53,6 +54,7 @@ namespace curseProject1 {
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form2::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->íàçàäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñåññèèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
@@ -87,9 +89,17 @@ namespace curseProject1 {
 			// 
 			// ôàéëToolStripMenuItem
 			// 
+			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêğûòüÏğèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
 			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
+			// 
+			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
+			// 
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
@@ -109,6 +119,8 @@ namespace curseProject1 {
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->BackgroundColor = System::Drawing::SystemColors::Control;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
@@ -173,10 +185,14 @@ namespace curseProject1 {
 			// 
 			this->dataGridView2->AllowUserToAddRows = false;
 			this->dataGridView2->AllowUserToDeleteRows = false;
+			this->dataGridView2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView2->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::Control;
-			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->EnableHeadersVisualStyles = false;
+			this->dataGridView2->GridColor = System::Drawing::SystemColors::WindowText;
 			this->dataGridView2->Location = System::Drawing::Point(16, 600);
 			this->dataGridView2->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView2->Name = L"dataGridView2";
@@ -215,5 +231,6 @@ namespace curseProject1 {
 		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
 		private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 		private: System::Void ñåññèèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

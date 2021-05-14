@@ -46,18 +46,22 @@ namespace curseProject1 {
 
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocols;
+	private: System::Windows::Forms::ToolStripMenuItem^ áàéòîâêàToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ çàêğûòüÏğèëîæåíèåToolStripMenuItem;
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Sessions::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->íàçàäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ôèëüòğûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->áàéòîâêàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->chart1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->trackBar1 = (gcnew System::Windows::Forms::TrackBar());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -81,9 +85,9 @@ namespace curseProject1 {
 			this->menuStrip1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->ôàéëToolStripMenuItem,
-					this->íàçàäToolStripMenuItem, this->ôèëüòğûToolStripMenuItem
+					this->íàçàäToolStripMenuItem, this->ôèëüòğûToolStripMenuItem, this->áàéòîâêàToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
@@ -94,9 +98,17 @@ namespace curseProject1 {
 			// 
 			// ôàéëToolStripMenuItem
 			// 
+			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêğûòüÏğèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
 			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
+			// 
+			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
+			// 
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
@@ -112,14 +124,24 @@ namespace curseProject1 {
 			this->ôèëüòğûToolStripMenuItem->Text = L"Ôèëüòğû";
 			this->ôèëüòğûToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::ôèëüòğûToolStripMenuItem_Click);
 			// 
+			// áàéòîâêàToolStripMenuItem
+			// 
+			this->áàéòîâêàToolStripMenuItem->Name = L"áàéòîâêàToolStripMenuItem";
+			this->áàéòîâêàToolStripMenuItem->Size = System::Drawing::Size(69, 20);
+			this->áàéòîâêàToolStripMenuItem->Text = L"Áàéòîâêà";
+			this->áàéòîâêàToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::áàéòîâêàToolStripMenuItem_Click);
+			// 
 			// chart1
 			// 
+			this->chart1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->chart1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->chart1->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Solid;
-			chartArea1->BackColor = System::Drawing::Color::DimGray;
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
+			chartArea2->BackColor = System::Drawing::Color::DimGray;
+			chartArea2->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea2);
 			this->chart1->Location = System::Drawing::Point(172, 74);
 			this->chart1->Margin = System::Windows::Forms::Padding(2);
 			this->chart1->Name = L"chart1";
@@ -130,6 +152,7 @@ namespace curseProject1 {
 			// 
 			// trackBar1
 			// 
+			this->trackBar1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->trackBar1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->trackBar1->Location = System::Drawing::Point(1340, 25);
 			this->trackBar1->Margin = System::Windows::Forms::Padding(2);
@@ -141,6 +164,7 @@ namespace curseProject1 {
 			// 
 			// label1
 			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
@@ -153,6 +177,7 @@ namespace curseProject1 {
 			// 
 			// label2
 			// 
+			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
@@ -165,6 +190,7 @@ namespace curseProject1 {
 			// 
 			// trackBar2
 			// 
+			this->trackBar2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->trackBar2->Cursor = System::Windows::Forms::Cursors::Default;
 			this->trackBar2->Location = System::Drawing::Point(1257, 25);
 			this->trackBar2->Margin = System::Windows::Forms::Padding(2);
@@ -176,6 +202,7 @@ namespace curseProject1 {
 			// 
 			// button1
 			// 
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
 			this->button1->Location = System::Drawing::Point(1196, 25);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
@@ -189,6 +216,8 @@ namespace curseProject1 {
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToDeleteRows = false;
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left));
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(1) { this->Protocols });
 			this->dataGridView1->Location = System::Drawing::Point(10, 74);
@@ -210,6 +239,7 @@ namespace curseProject1 {
 			// 
 			// button2
 			// 
+			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
 			this->button2->Location = System::Drawing::Point(1136, 25);
 			this->button2->Margin = System::Windows::Forms::Padding(2);
@@ -269,5 +299,7 @@ namespace curseProject1 {
 		private: System::Void Sessions_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
 		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void ôèëüòğûToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void áàéòîâêàToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

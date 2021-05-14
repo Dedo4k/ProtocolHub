@@ -34,6 +34,8 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::RadioButton^ radioButton1;
+	private: System::Windows::Forms::RadioButton^ radioButton2;
 	private:
 		System::ComponentModel::Container ^components;
 
@@ -47,6 +49,8 @@ namespace curseProject1 {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
+			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->SuspendLayout();
 			// 
 			// checkedListBox1
@@ -77,7 +81,7 @@ namespace curseProject1 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(109, 146);
+			this->button1->Location = System::Drawing::Point(130, 146);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(91, 23);
 			this->button1->TabIndex = 2;
@@ -96,7 +100,7 @@ namespace curseProject1 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(124, 9);
+			this->button3->Location = System::Drawing::Point(146, 9);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 4;
@@ -106,7 +110,7 @@ namespace curseProject1 {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(124, 39);
+			this->button4->Location = System::Drawing::Point(146, 39);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(75, 23);
 			this->button4->TabIndex = 5;
@@ -114,20 +118,45 @@ namespace curseProject1 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &Filters::button4_Click);
 			// 
+			// radioButton1
+			// 
+			this->radioButton1->AutoSize = true;
+			this->radioButton1->Location = System::Drawing::Point(97, 68);
+			this->radioButton1->Name = L"radioButton1";
+			this->radioButton1->Size = System::Drawing::Size(124, 17);
+			this->radioButton1->TabIndex = 6;
+			this->radioButton1->TabStop = true;
+			this->radioButton1->Text = L"По времени начала";
+			this->radioButton1->UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this->radioButton2->AutoSize = true;
+			this->radioButton2->Location = System::Drawing::Point(96, 91);
+			this->radioButton2->Name = L"radioButton2";
+			this->radioButton2->Size = System::Drawing::Size(125, 17);
+			this->radioButton2->TabIndex = 7;
+			this->radioButton2->TabStop = true;
+			this->radioButton2->Text = L"По количеству байт";
+			this->radioButton2->UseVisualStyleBackColor = true;
+			// 
 			// Filters
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
-			this->ClientSize = System::Drawing::Size(208, 181);
-			this->ControlBox = false;
+			this->ClientSize = System::Drawing::Size(233, 181);
+			this->Controls->Add(this->radioButton2);
+			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->checkedListBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Location = System::Drawing::Point(96, 47);
 			this->Name = L"Filters";
+			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Filters";
 			this->ResumeLayout(false);

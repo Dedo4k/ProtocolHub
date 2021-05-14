@@ -137,6 +137,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bytes.cpp" />
     <ClCompile Include="ConvertFunc.cpp" />
     <ClCompile Include="filterButtons.cpp" />
     <ClCompile Include="Filters.cpp" />
@@ -155,6 +156,9 @@
     <ClCompile Include="ThirdForm1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bytes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="ConvertFunc.h" />
     <ClInclude Include="filterButtons.h" />
     <ClInclude Include="Filters.h">
@@ -189,6 +193,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Bytes.resx">
+      <DependentUpon>Bytes.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="filterButtons.resx" />
     <EmbeddedResource Include="Filters.resx">
       <DependentUpon>Filters.h</DependentUpon>

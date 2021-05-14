@@ -46,6 +46,12 @@ System::Void curseProject1::Form2::ñåññèèToolStripMenuItem_Click(System::Object^
     return System::Void();
 }
 
+System::Void curseProject1::Form2::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    Environment::Exit(0);
+    return System::Void();
+}
+
 System::Void curseProject1::Form2::íàçàäToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     packets.clear();

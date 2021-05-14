@@ -80,3 +80,9 @@ System::Void curseProject1::Form1::äàëååToolStripMenuItem_Click(System::Object^ 
 	this->Show();
 	return System::Void();
 }
+
+System::Void curseProject1::Form1::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	Environment::Exit(0);
+	return System::Void();
+}
