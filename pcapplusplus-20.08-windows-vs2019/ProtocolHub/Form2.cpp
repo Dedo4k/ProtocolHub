@@ -41,7 +41,7 @@ System::Void curseProject1::Form2::ñåññèèToolStripMenuItem_Click(System::Object^
 {
     this->Hide();
     Sessions^ sessions = gcnew Sessions(systemFilePaths);
-    sessions->ShowDialog();
+    sessions->ShowDialog(this);
     this->Show();
     return System::Void();
 }

@@ -150,6 +150,25 @@
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>152, 17</value>
   </metadata>
+  <metadata name="Protocols.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAkpJREFUOE99k8trE1EUh2dhtY2m837cPOuiiDQPM0nMux2j4CZIRSitikIUoUSl
+        WEWpuHDhTnAbAq78G9y5yqZUFyoqYpSCCIII4jqbn+femVATwQMfN9zz/U5Owow0WYacdg15oavLqQGd
+        Q07wuct7gfZvMZYPmUqmR8BU0v8h0+NuEPNLhOVs31KzMFV/gKGkJhBhcIfojw0xlVzPUnPUOIZ5JYcP
+        U8t4M72GnVAb/XAHL5TbeK49QEe/JBybXJ4RYWa4rq258MlhQXHxe98qfhxo42voBj6F7+Kt8hAv9cfY
+        MtaFM/J5VrK1QtfRC/DJ04A8fk1dxOeZNupyBTWlgaq6hIrWxBGtJpyRz7OSoxUGTC/Cp4CUWsTP/Zfx
+        PnSV1s2QRCvTt/Eg7zNj5BbBs/QTSsOIUYLPcaS0klh/N3Qdz+QreKp20NU3UTNOi/6eW6JhpaEUMcvD
+        qFlG1KwQZRpQxvfpa9g9uIGPs1t4rT7CtvEEZ8xzoj/yODwrxazqgACHN9N6Fd9m1vEuvIHzWgur+lms
+        mCs4anrCmWAgxcx6N2bVESdiVg0Zoy7+/Vezt8TKUasi5LhdI0ZeAGWlBGu4cbuBBMGFjNkQ6+/Id0iq
+        iDve8/vj8Kx4FuL2Yi/pLCHhLCJrefhyaBPbyj2SauIuIXrj8IwI82KsFUo6Xj/JPMzbHu5ra7hpXECS
+        wvxO4AQnx/boUW5Nvg80JNLszbETGCPSpHOPpNOkl2ki/HclWNM9zE52SR7MsVNDn+aA3/FeoAUlSX8A
+        JwtFgTDy2E0AAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>36</value>
   </metadata>

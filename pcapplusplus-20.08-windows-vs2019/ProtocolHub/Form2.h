@@ -57,13 +57,13 @@ namespace curseProject1 {
 			this->ñåññèèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->Source = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->SrcPort = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Destination = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->DstPort = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Protocol = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Time = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
@@ -80,27 +80,28 @@ namespace curseProject1 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1902, 28);
+			this->menuStrip1->Padding = System::Windows::Forms::Padding(4, 2, 0, 2);
+			this->menuStrip1->Size = System::Drawing::Size(1426, 24);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
 			// ôàéëToolStripMenuItem
 			// 
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 24);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(51, 20);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::íàçàäToolStripMenuItem_Click);
 			// 
 			// ñåññèèToolStripMenuItem
 			// 
 			this->ñåññèèToolStripMenuItem->Name = L"ñåññèèToolStripMenuItem";
-			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(72, 24);
+			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(59, 20);
 			this->ñåññèèToolStripMenuItem->Text = L"Ñåññèè";
 			this->ñåññèèToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::ñåññèèToolStripMenuItem_Click);
 			// 
@@ -115,31 +116,16 @@ namespace curseProject1 {
 				this->Source,
 					this->SrcPort, this->Destination, this->DstPort, this->Protocol, this->Time
 			});
-			this->dataGridView1->Location = System::Drawing::Point(22, 41);
+			this->dataGridView1->Location = System::Drawing::Point(16, 33);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(2);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowHeadersWidth = 51;
 			this->dataGridView1->RowTemplate->Height = 24;
 			this->dataGridView1->SelectionMode = System::Windows::Forms::DataGridViewSelectionMode::FullRowSelect;
-			this->dataGridView1->Size = System::Drawing::Size(1868, 691);
+			this->dataGridView1->Size = System::Drawing::Size(1401, 561);
 			this->dataGridView1->TabIndex = 6;
 			this->dataGridView1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Form2::dataGridView1_CellClick);
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->AllowUserToDeleteRows = false;
-			this->dataGridView2->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
-			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::Control;
-			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Location = System::Drawing::Point(22, 738);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->ReadOnly = true;
-			this->dataGridView2->RowHeadersWidth = 51;
-			this->dataGridView2->RowTemplate->Height = 24;
-			this->dataGridView2->Size = System::Drawing::Size(1868, 283);
-			this->dataGridView2->TabIndex = 7;
 			// 
 			// Source
 			// 
@@ -183,17 +169,33 @@ namespace curseProject1 {
 			this->Time->Name = L"Time";
 			this->Time->ReadOnly = true;
 			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->AllowUserToAddRows = false;
+			this->dataGridView2->AllowUserToDeleteRows = false;
+			this->dataGridView2->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dataGridView2->BackgroundColor = System::Drawing::SystemColors::Control;
+			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Location = System::Drawing::Point(16, 600);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(2);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->ReadOnly = true;
+			this->dataGridView2->RowHeadersWidth = 51;
+			this->dataGridView2->RowTemplate->Height = 24;
+			this->dataGridView2->Size = System::Drawing::Size(1401, 230);
+			this->dataGridView2->TabIndex = 7;
+			// 
 			// Form2
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1902, 1033);
+			this->ClientSize = System::Drawing::Size(1426, 839);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->menuStrip1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MainMenuStrip = this->menuStrip1;
-			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Form2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ProtocolHub";
@@ -210,7 +212,6 @@ namespace curseProject1 {
 
 #pragma endregion
 		private: System::Void íàçàäToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	
 		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
 		private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 		private: System::Void ñåññèèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);

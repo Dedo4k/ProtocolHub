@@ -1,3 +1,5 @@
+  curseProject1.filterButtons.resources - Embedded, ContainedInManifestFile, 
+  curseProject1.Filters.resources - Embedded, ContainedInManifestFile, 
   curseProject1.FirstForm.resources - Embedded, ContainedInManifestFile, 
   curseProject1.Form1.resources - Embedded, ContainedInManifestFile, 
   curseProject1.Form2.resources - Embedded, ContainedInManifestFile, 
@@ -24,6 +26,21 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class curseProject1.filterButtons: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class curseProject1.Filters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
+    startFinding(): PrivateScope, Public, HideBySig
+    setFilters(ArrayList): PrivateScope, Public, HideBySig
+    addSession(Int32): PrivateScope, Public, HideBySig
+    getSystemFilePaths(): PrivateScope, Public, HideBySig
 Class curseProject1.SecondForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -42,12 +59,6 @@ Class curseProject1.Form2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
 Class curseProject1.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
-    startFinding(): PrivateScope, Public, HideBySig
 Class Project3.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
