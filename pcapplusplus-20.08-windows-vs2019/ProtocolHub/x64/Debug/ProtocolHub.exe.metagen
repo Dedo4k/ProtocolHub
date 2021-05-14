@@ -31,7 +31,9 @@ Class curseProject1.filterButtons: AutoLayout, AnsiClass, Class, Public, BeforeF
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class curseProject1.Filters: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    initFilters(): PrivateScope, Public, HideBySig
 Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

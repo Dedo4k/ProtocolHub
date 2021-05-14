@@ -18,7 +18,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
 
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
     packets1 = Service::getAllPackets(stringFilePaths);
-    
+    sessions.clear();
     bool flag = true;
     while (flag && sessions.size() < 40)
     {
@@ -58,126 +58,183 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     dataGridView1->Rows->Clear();
     chart1->Series->Clear();
     int filter = 0;
-    for each (Object^ filterFlag in filters)
+    for (size_t i = 0; i < filters->Count; i++)
     {
-        if (filterFlag->Equals("True"))
+        if (filters[i]->Equals("True") && i!=6)
             filter++;
     }
 
     for each (SessionHelper session in sessions)
     {  
         if (filter) {
+            int counter = filter;
             if ((filters[0]->Equals("True")) && session.isTcp()) {
-                String^ temp = i.ToString();
-                chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
-                chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
-                chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-
-                int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                continue;
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
             }
             if ((filters[1]->Equals("True")) && session.isUdp()) {
-                String^ temp = i.ToString();
-                chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
-                chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
-                chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-
-                int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                continue;
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
             }
             if ((filters[2]->Equals("True")) && session.isTls()) {
-                String^ temp = i.ToString();
-                chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
-                chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
-                chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-
-                int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                continue;
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
             }
             if ((filters[3]->Equals("True")) && session.isDns()) {
-                String^ temp = i.ToString();
-                chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
-                chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
-                chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-
-                int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                continue;
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
             }
             if ((filters[4]->Equals("True")) && session.isHttp()) {
-                String^ temp = i.ToString();
-                chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
-                chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
-                chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-
-                int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                continue;
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
             }
             if ((filters[5]->Equals("True")) && session.isSip()) {
+                counter--;
+                //String^ temp = i.ToString();
+                //chart1->Series->Add(temp);
+                //chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                //chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                //chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
+                //chart1->Series[temp]->BorderWidth = 5;
+                //chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //int a = dataGridView1->Rows->Add();
+                //dataGridView1->Rows[a]->Cells[0]->Value = i;
+                //dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                //continue;
+            }
+            if (!counter) {
                 String^ temp = i.ToString();
                 chart1->Series->Add(temp);
-                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+                chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                                     "\nРазмер: " + session.getBytes().length() +
+                                                     "\nTCP: " + session.isTcp() +
+                                                     "\nUDP: " + session.isUdp() +
+                                                     "\nTLS: " + session.isTls() +
+                                                     "\nDNS: " + session.isDns() +
+                                                     "\nHTTP: " + session.isHttp() +
+                                                     "\nSIP: " + session.isSip();
                 chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
                 chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
                 chart1->Series[temp]->BorderWidth = 5;
                 chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-                chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                                "\nРазмер: " + session.getBytes().length() +
+                                                "\nTCP: " + session.isTcp() +
+                                                "\nUDP: " + session.isUdp() +
+                                                "\nTLS: " + session.isTls() +
+                                                "\nDNS: " + session.isDns() +
+                                                "\nHTTP: " + session.isHttp() +
+                                                "\nSIP: " + session.isSip();
 
                 int a = dataGridView1->Rows->Add();
                 dataGridView1->Rows[a]->Cells[0]->Value = i;
-                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+                dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                                                "\nРазмер: " + session.getBytes().length() +
+                                                                "\nTCP: " + session.isTcp() +
+                                                                "\nUDP: " + session.isUdp() +
+                                                                "\nTLS: " + session.isTls() +
+                                                                "\nDNS: " + session.isDns() +
+                                                                "\nHTTP: " + session.isHttp() +
+                                                                "\nSIP: " + session.isSip();
                 continue;
             }
-            continue;
+            else continue;
         }
             String^ temp = i.ToString();
             chart1->Series->Add(temp);
-            chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + session.getTimeStart() + " Конец: " + (session.getTimeEnd() + session.getTimeStart());
+            chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                                 "\nРазмер: " + session.getBytes().length() +
+                                                 "\nTCP: " + session.isTcp() +
+                                                 "\nUDP: " + session.isUdp() +
+                                                 "\nTLS: " + session.isTls() +
+                                                 "\nDNS: " + session.isDns() +
+                                                 "\nHTTP: " + session.isHttp() +
+                                                 "\nSIP: " + session.isSip();
             chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
             chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
             chart1->Series[temp]->BorderWidth = 5;
             chart1->Series[temp]->Points->AddXY(sessions.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
-            chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
-            chart1->Series[temp]->LegendToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);
+            chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                            "\nРазмер: " + session.getBytes().length() +
+                                            "\nTCP: " + session.isTcp() +
+                                            "\nUDP: " + session.isUdp() +
+                                            "\nTLS: " + session.isTls() +
+                                            "\nDNS: " + session.isDns() +
+                                            "\nHTTP: " + session.isHttp() +
+                                            "\nSIP: " + session.isSip();
 
             int a = dataGridView1->Rows->Add();
             dataGridView1->Rows[a]->Cells[0]->Value = i;
-            dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min);        
+            dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
+                                                            "\nРазмер: " + session.getBytes().length() +
+                                                            "\nTCP: " + session.isTcp() +
+                                                            "\nUDP: " + session.isUdp() +
+                                                            "\nTLS: " + session.isTls() +
+                                                            "\nDNS: " + session.isDns() +
+                                                            "\nHTTP: " + session.isHttp() +
+                                                            "\nSIP: " + session.isSip();
     }
 }
 
@@ -258,6 +315,6 @@ System::Void curseProject1::Sessions::button2_Click(System::Object^ sender, Syst
 
 System::Void curseProject1::Sessions::фильтрыToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    Filters^ filters = gcnew Filters;
+    Filters^ filters = gcnew Filters(this->filters);
     filters->ShowDialog(this);
 }

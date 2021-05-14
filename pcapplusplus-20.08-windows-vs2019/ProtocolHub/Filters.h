@@ -9,24 +9,17 @@ namespace curseProject1 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// —водка дл€ Filters
-	/// </summary>
 	public ref class Filters : public System::Windows::Forms::Form
 	{
 	public:
-		Filters(void)
+		Filters(System::Collections::ArrayList^ filters)
 		{
+			this->filters = gcnew System::Collections::ArrayList(filters);
 			InitializeComponent();
-			//
-			//TODO: добавьте код конструктора
-			//
+			initFilters();
 		}
 
 	protected:
-		/// <summary>
-		/// ќсвободить все используемые ресурсы.
-		/// </summary>
 		~Filters()
 		{
 			if (components)
@@ -34,30 +27,17 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+	private: System::Collections::ArrayList^ filters;
 	private: System::Windows::Forms::CheckedListBox^ checkedListBox1;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
-
-
-
-	protected:
-
-	protected:
-
 	private:
-		/// <summary>
-		/// ќб€зательна€ переменна€ конструктора.
-		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
-		/// содержимое этого метода с помощью редактора кода.
-		/// </summary>
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Filters::typeid));
@@ -146,13 +126,16 @@ namespace curseProject1 {
 			this->Controls->Add(this->checkBox1);
 			this->Controls->Add(this->checkedListBox1);
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
+			this->Location = System::Drawing::Point(96, 47);
 			this->Name = L"Filters";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
 			this->Text = L"Filters";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+		public: void initFilters();
 		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void checkBox1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
