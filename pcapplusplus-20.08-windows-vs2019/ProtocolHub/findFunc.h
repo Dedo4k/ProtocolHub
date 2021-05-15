@@ -9,3 +9,5 @@ void findUnusingPackets(std::vector<PacketHelper>& packets);
 std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::string str);
 
 int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str);
+
+void fwriteSessionsPcapng(std::string fileapth, std::vector<SessionHelper>& sessions);

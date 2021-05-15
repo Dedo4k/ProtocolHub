@@ -68,26 +68,33 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     for each (SessionHelper session in sessions1)
     {  
         if (filter) {
-            int counter = filter;
+            //int counter = filter;
+            int counter = 0;
             if ((filters[0]->Equals("True")) && session.isTcp()) {
-                counter--;
+                //counter--;
+                counter++;
             }
             if ((filters[1]->Equals("True")) && session.isUdp()) {
-                counter--;
+                //counter--;
+                counter++;
             }
             if ((filters[2]->Equals("True")) && session.isTls()) {
-                counter--;
+                //counter--;
+                counter++;
             }
             if ((filters[3]->Equals("True")) && session.isDns()) {
-                counter--;
+                //counter--;
+                counter++;
             }
             if ((filters[4]->Equals("True")) && session.isHttp()) {
-                counter--;
+                //counter--;
+                counter++;
             }
             if ((filters[5]->Equals("True")) && session.isSip()) {
-                counter--;
+                //counter--;
+                counter++;
             }
-            if (!counter) {
+            if (counter) {
                 String^ temp = i.ToString();
                 chart1->Series->Add(temp);
                 chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
@@ -138,7 +145,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
             chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
             chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
             chart1->Series[temp]->BorderWidth = 5;
-            chart1->Series[temp]->Points->AddXY(sessions1.size() - i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+            chart1->Series[temp]->Points->AddXY(sessions1.size() - i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
             chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                             "\nРазмер: " + session.getBytes().length() +
                                             "\nTCP: " + session.isTcp() +
@@ -149,7 +156,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                             "\nSIP: " + session.isSip();
 
             int a = dataGridView1->Rows->Add();
-            dataGridView1->Rows[a]->Cells[0]->Value = i;
+            dataGridView1->Rows[a]->Cells[0]->Value = i++;
             dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                             "\nРазмер: " + session.getBytes().length() +
                                                             "\nTCP: " + session.isTcp() +

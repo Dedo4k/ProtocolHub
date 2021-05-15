@@ -132,7 +132,7 @@ namespace curseProject1 {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(96, 91);
+			this->radioButton2->Location = System::Drawing::Point(97, 91);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(125, 17);
 			this->radioButton2->TabIndex = 7;

@@ -8,15 +8,15 @@ std::vector<PacketHelper> Service::getAllPackets(std::vector<std::string> string
 	for (auto filepath : stringFilePaths)
 	{
 		//приводи к си стрингу, так как функция не принимает обычный стринг
-		pcpp::PcapFileReaderDevice reader(filepath.c_str());
-		if (!reader.open())
+		pcpp::IFileReaderDevice* reader = pcpp::IFileReaderDevice::getReader(filepath.c_str());
+		if (!reader->open())
 		{
 			//выводим сообщение об ошибке
 			std::cout << "Open error." << std::endl;
 			//return 1;
 		}
 		pcpp::RawPacket rawPacket;
-		while (reader.getNextPacket(rawPacket))
+		while (reader->getNextPacket(rawPacket))
 		{
 			PacketHelper pack(rawPacket);
 			if (pack.getSrcIp().toString() == "0.0.0.0" || pack.getDstIp().toString() == "0.0.0.0")
@@ -24,6 +24,7 @@ std::vector<PacketHelper> Service::getAllPackets(std::vector<std::string> string
 			else
 				packets.push_back(pack);
 		}
+		reader->close();
 	}
 	return packets;
 }

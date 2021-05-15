@@ -96,8 +96,7 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 			}
 		}
 	}
-	if (timeEnd == timeStart)
-		++timeEnd;
+	++timeEnd;
 	//getting data as bytes
 	for (size_t i = 0; i < packets.size(); ++i)
 	{
