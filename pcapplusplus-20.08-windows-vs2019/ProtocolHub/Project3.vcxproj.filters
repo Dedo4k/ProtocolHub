@@ -18,10 +18,111 @@
     <ClCompile Include="MyForm.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
+    <ClCompile Include="FirstForm.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Repository.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondForm.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="ThirdForm1.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Service.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Form1.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Form2.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvertFunc.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="outFunc.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHelper.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Sessions.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="SessionHelper.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="findFunc.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="filterButtons.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Filters.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Bytes.cpp">
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
       <Filter>Файлы ресурсов</Filter>
     </ClInclude>
+    <ClInclude Include="FirstForm.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="Repository.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondForm.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="ThirdForm1.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="Service.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Form1.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="Form2.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvertFunc.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="outFunc.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHelper.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Sessions.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="SessionHelper.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="findFunc.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="filterButtons.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="Filters.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+    <ClInclude Include="Bytes.h">
+      <Filter>Файлы ресурсов</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="filterButtons.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

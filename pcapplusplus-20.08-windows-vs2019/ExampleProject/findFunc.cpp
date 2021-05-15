@@ -18,7 +18,7 @@ void findUnusingPackets(std::vector<PacketHelper>& packets)
 	for (size_t i = 0; i < packets.size(); ++i)
 		if (!packets[i].inSession())
 		{
-			packets.erase(packets.begin()+i);
+			packets.erase(packets.begin() + i);
 			--i;
 		}
 }
@@ -28,9 +28,12 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 {
 	std::vector<size_t> result;
 	for (size_t i = 0; i < sessions.size(); ++i)
-		for (size_t j = 0; j < sessions[j].getBytes().length() - str.length(); ++j)
+		for (size_t j = 0; j < sessions[i].getBytes().length() - str.length(); ++j)
 			if (sessions[i].getBytes().substr(j, j + str.length()) == str)
+			{
 				result.push_back(j);
+				break;
+			}
 	return result;
 }
 
