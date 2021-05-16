@@ -161,6 +161,11 @@ System::Void curseProject1::Bytes::íàçàäToolStripMenuItem_Click(System::Object^ 
 {
     packets2.clear();
     sessions2.clear();
+    box = 0;
+    counter1 = 0;
+    counter2 = 1;
+    counter3 = 2;
+    counter4 = 3;
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
     return System::Void();
@@ -176,7 +181,7 @@ System::Void curseProject1::Bytes::button1_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1++;
-    if (counter1 == 40)
+    if (counter1 == sessions2.size() || counter1 == 40)
         counter1 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -186,8 +191,8 @@ System::Void curseProject1::Bytes::button2_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1--;
-    if (counter1 == -1)
-        counter1 = 39;
+    if (counter1 == sessions2.size() || counter1 == -1)
+        counter1 = sessions2.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -196,8 +201,8 @@ System::Void curseProject1::Bytes::button3_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2--;
-    if (counter2 == -1)
-        counter2 = 39;
+    if (counter2 == sessions2.size() || counter2 == -1)
+        counter2 = sessions2.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -206,7 +211,7 @@ System::Void curseProject1::Bytes::button4_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2++;
-    if (counter2 == 40)
+    if (counter2 == sessions2.size() || counter2 == 40)
         counter2 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -216,8 +221,8 @@ System::Void curseProject1::Bytes::button5_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3--;
-    if (counter3 == -1)
-        counter3 = 39;
+    if (counter3 == sessions2.size() || counter3 == -1)
+        counter3 = sessions2.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -226,7 +231,7 @@ System::Void curseProject1::Bytes::button6_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3++;
-    if (counter3 == 40)
+    if (counter3 == sessions2.size() || counter3 == 40)
         counter3 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -236,8 +241,8 @@ System::Void curseProject1::Bytes::button7_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4--;
-    if (counter4 == -1)
-        counter4 = 39;
+    if (counter4 == sessions2.size() || counter4 == -1)
+        counter4 = sessions2.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -246,7 +251,7 @@ System::Void curseProject1::Bytes::button8_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4++;
-    if (counter4 == 40)
+    if (counter4 == sessions2.size() || counter4 == 40)
         counter4 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -258,7 +263,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
     Convert_String_to_string(textBox1->Text,str);
     std::vector<SessionHelper> sessions;// {sessions2[counter1], sessions2[counter2], sessions2[counter3], sessions2[counter4]};
     int i = 0, f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-    for (size_t i = 0; i < sessions2.size(),i<4; i++)
+    for (size_t i = 0; i < sessions2.size()&&i<4; i++)
     {
         switch (i)
         {

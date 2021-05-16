@@ -90,6 +90,8 @@ namespace curseProject1 {
 			// 
 			// menuStrip1
 			// 
+			this->menuStrip1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->ôàéëToolStripMenuItem,
 					this->íàçàäToolStripMenuItem
@@ -256,7 +258,7 @@ namespace curseProject1 {
 			// 
 			this->button9->Location = System::Drawing::Point(279, 385);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(75, 23);
+			this->button9->Size = System::Drawing::Size(75, 20);
 			this->button9->TabIndex = 16;
 			this->button9->Text = L"Íàéòè";
 			this->button9->UseVisualStyleBackColor = true;
@@ -267,36 +269,32 @@ namespace curseProject1 {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(9, 66);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(35, 13);
+			this->label2->Size = System::Drawing::Size(0, 13);
 			this->label2->TabIndex = 17;
-			this->label2->Text = L"label2";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Location = System::Drawing::Point(314, 66);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(35, 13);
+			this->label3->Size = System::Drawing::Size(0, 13);
 			this->label3->TabIndex = 18;
-			this->label3->Text = L"label3";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Location = System::Drawing::Point(619, 66);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(35, 13);
+			this->label4->Size = System::Drawing::Size(0, 13);
 			this->label4->TabIndex = 19;
-			this->label4->Text = L"label4";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Location = System::Drawing::Point(924, 66);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(35, 13);
+			this->label5->Size = System::Drawing::Size(0, 13);
 			this->label5->TabIndex = 20;
-			this->label5->Text = L"label5";
 			// 
 			// radioButton1
 			// 
