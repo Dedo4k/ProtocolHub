@@ -34,8 +34,11 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::RadioButton^ radioButton1;
-	private: System::Windows::Forms::RadioButton^ radioButton2;
+	private: System::Windows::Forms::CheckBox^ checkBox2;
+	private: System::Windows::Forms::CheckBox^ checkBox3;
+
+
+
 	private:
 		System::ComponentModel::Container ^components;
 
@@ -49,8 +52,8 @@ namespace curseProject1 {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
-			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->checkBox2 = (gcnew System::Windows::Forms::CheckBox());
+			this->checkBox3 = (gcnew System::Windows::Forms::CheckBox());
 			this->SuspendLayout();
 			// 
 			// checkedListBox1
@@ -118,34 +121,34 @@ namespace curseProject1 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &Filters::button4_Click);
 			// 
-			// radioButton1
+			// checkBox2
 			// 
-			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(97, 68);
-			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(124, 17);
-			this->radioButton1->TabIndex = 6;
-			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"По времени начала";
-			this->radioButton1->UseVisualStyleBackColor = true;
+			this->checkBox2->AutoSize = true;
+			this->checkBox2->Location = System::Drawing::Point(96, 68);
+			this->checkBox2->Name = L"checkBox2";
+			this->checkBox2->Size = System::Drawing::Size(125, 17);
+			this->checkBox2->TabIndex = 6;
+			this->checkBox2->Text = L"По времени начала";
+			this->checkBox2->UseVisualStyleBackColor = true;
+			this->checkBox2->CheckedChanged += gcnew System::EventHandler(this, &Filters::checkBox2_CheckedChanged);
 			// 
-			// radioButton2
+			// checkBox3
 			// 
-			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(97, 91);
-			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(125, 17);
-			this->radioButton2->TabIndex = 7;
-			this->radioButton2->TabStop = true;
-			this->radioButton2->Text = L"По количеству байт";
-			this->radioButton2->UseVisualStyleBackColor = true;
+			this->checkBox3->AutoSize = true;
+			this->checkBox3->Location = System::Drawing::Point(95, 92);
+			this->checkBox3->Name = L"checkBox3";
+			this->checkBox3->Size = System::Drawing::Size(126, 17);
+			this->checkBox3->TabIndex = 7;
+			this->checkBox3->Text = L"По количеству байт";
+			this->checkBox3->UseVisualStyleBackColor = true;
+			this->checkBox3->CheckedChanged += gcnew System::EventHandler(this, &Filters::checkBox3_CheckedChanged);
 			// 
 			// Filters
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
 			this->ClientSize = System::Drawing::Size(233, 181);
-			this->Controls->Add(this->radioButton2);
-			this->Controls->Add(this->radioButton1);
+			this->Controls->Add(this->checkBox3);
+			this->Controls->Add(this->checkBox2);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
@@ -169,5 +172,7 @@ namespace curseProject1 {
 		private: System::Void checkBox1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 };
 }

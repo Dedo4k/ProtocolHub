@@ -8,6 +8,7 @@
 #include "Form2.h"
 #include "Filters.h"
 #include "Bytes.h"
+#include "SortFunc.h"
 
 std::vector<PacketHelper> packets1;
 std::vector<SessionHelper> sessions1;
@@ -61,8 +62,15 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     int filter = 0;
     for (size_t i = 0; i < filters->Count; i++)
     {
-        if (filters[i]->Equals("True") && i!=6)
+        if (filters[i]->Equals("True") && i<6)
             filter++;
+    }
+
+    if (filters->Count && filters[7]->Equals("True")) {
+        sortByTimeStart(sessions1);
+    }
+    else if (filters->Count && filters[8]->Equals("True")) {
+        sortByByte(sessions1);
     }
 
     for each (SessionHelper session in sessions1)
@@ -99,6 +107,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 chart1->Series->Add(temp);
                 chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                      "\nРазмер: " + session.getBytes().length() +
+                                                     "\nHandshake: " + session.isHandshake() +
                                                      "\nTCP: " + session.isTcp() +
                                                      "\nUDP: " + session.isUdp() +
                                                      "\nTLS: " + session.isTls() +
@@ -106,11 +115,12 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                      "\nHTTP: " + session.isHttp() +
                                                      "\nSIP: " + session.isSip();
                 chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
+                chart1->Series[temp]->Points->AddXY(sessions1.size() - i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
                 chart1->Series[temp]->BorderColor = chart1->Series[temp]->Color;
                 chart1->Series[temp]->BorderWidth = 5;
-                chart1->Series[temp]->Points->AddXY(sessions1.size() - i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
                 chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                 "\nРазмер: " + session.getBytes().length() +
+                                                "\nHandshake: " + session.isHandshake() +
                                                 "\nTCP: " + session.isTcp() +
                                                 "\nUDP: " + session.isUdp() +
                                                 "\nTLS: " + session.isTls() +
@@ -119,9 +129,12 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                 "\nSIP: " + session.isSip();
 
                 int a = dataGridView1->Rows->Add();
+                //if (session.isHandshake())
+                //    dataGridView1->Rows[a]->Cells[0]->Style->BackColor = System::Drawing::Color::Blue;
                 dataGridView1->Rows[a]->Cells[0]->Value = i++;
                 dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                                 "\nРазмер: " + session.getBytes().length() +
+                                                                "\nHandshake: " + session.isHandshake() +
                                                                 "\nTCP: " + session.isTcp() +
                                                                 "\nUDP: " + session.isUdp() +
                                                                 "\nTLS: " + session.isTls() +
@@ -136,6 +149,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
             chart1->Series->Add(temp);
             chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                  "\nРазмер: " + session.getBytes().length() +
+                                                 "\nHandshake: " + session.isHandshake() +
                                                  "\nTCP: " + session.isTcp() +
                                                  "\nUDP: " + session.isUdp() +
                                                  "\nTLS: " + session.isTls() +
@@ -148,6 +162,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
             chart1->Series[temp]->Points->AddXY(sessions1.size() - i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
             chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                             "\nРазмер: " + session.getBytes().length() +
+                                            "\nHandshake: " + session.isHandshake() +
                                             "\nTCP: " + session.isTcp() +
                                             "\nUDP: " + session.isUdp() +
                                             "\nTLS: " + session.isTls() +
@@ -159,6 +174,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
             dataGridView1->Rows[a]->Cells[0]->Value = i++;
             dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                             "\nРазмер: " + session.getBytes().length() +
+                                                            "\nHandshake: " + session.isHandshake() +
                                                             "\nTCP: " + session.isTcp() +
                                                             "\nUDP: " + session.isUdp() +
                                                             "\nTLS: " + session.isTls() +

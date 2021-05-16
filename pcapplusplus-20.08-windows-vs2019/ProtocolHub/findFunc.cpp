@@ -28,9 +28,13 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 {
 	std::vector<size_t> result;
 	for (size_t i = 0; i < sessions.size(); ++i)
-		for (size_t j = 0; j < sessions[j].getBytes().length() - str.length(); ++j)
-			if (sessions[i].getBytes().substr(j, j + str.length()) == str)
-				result.push_back(j);
+	{
+		size_t pos = sessions[i].getBytes().find(str);
+		if (pos != std::string::npos)
+			result.push_back(pos);
+		else
+			result.push_back(-1);
+	}
 	return result;
 }
 
@@ -38,18 +42,13 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
 {
 	std::vector<size_t> temp = findSubstring(sessions, str);
-	if (temp.size() != sessions.size())
-		return -1;
-	else
+	size_t value = temp[0];
+	for (size_t i = 0; i < temp.size(); ++i)
 	{
-		size_t value = temp[0];
-		for (size_t i = 0; i < temp.size(); ++i)
-		{
-			if (value != temp[i])
-				return -1;
-		}
-		return value;
+		if (value != temp[i])
+			return -1;
 	}
+	return value;
 }
 
 void fwriteSessionsPcapng(std::string filepath, std::vector<SessionHelper>& sessions)

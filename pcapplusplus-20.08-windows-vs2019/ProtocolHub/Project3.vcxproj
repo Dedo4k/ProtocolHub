@@ -153,6 +153,7 @@
     <ClCompile Include="Service.cpp" />
     <ClCompile Include="SessionHelper.cpp" />
     <ClCompile Include="Sessions.cpp" />
+    <ClCompile Include="SortFunc.cpp" />
     <ClCompile Include="ThirdForm1.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,7 @@
     <ClInclude Include="Sessions.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SortFunc.h" />
     <ClInclude Include="ThirdForm1.h">
       <FileType>CppForm</FileType>
     </ClInclude>

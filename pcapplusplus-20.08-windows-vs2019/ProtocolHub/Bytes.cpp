@@ -35,88 +35,121 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         min = findStartPoint(sessions2);
     }
     String^ str;
-    SessionHelper session1 = sessions2[counter1];
-    SessionHelper session2 = sessions2[counter2];
-    SessionHelper session3 = sessions2[counter3];
-    SessionHelper session4 = sessions2[counter4];
+    std::vector<SessionHelper> sessions;
+    int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
+    for (size_t i = 0; i < sessions2.size()&&i<4; i++)
+    {
+        switch (i)
+        {
+        case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
+        case 1: sessions.push_back(sessions2[counter2]); f2 = 2; break;
+        case 2: sessions.push_back(sessions2[counter3]); f3 = 3; break;
+        case 3: sessions.push_back(sessions2[counter4]); f4 = 4; break;
+        }
+    }
+    //SessionHelper session1 = sessions2[counter1];
+    //SessionHelper session2 = sessions2[counter2];
+    //SessionHelper session3 = sessions2[counter3];
+    //SessionHelper session4 = sessions2[counter4];
     switch (box)
     {
     case 0:
     {
-        for (size_t i = 0; i < session1.getBytes().size(); i++)
+        if (f1)
         {
-            str += Convert_string_to_String(charToAscii(session1.getBytes()[i])) + " ";
+            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[i])) + " ";
+            }
+            richTextBox1->Text = str;
+            label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
-        richTextBox1->Text = str;
-        label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(session1.getSrcIp().toString()) + ":" + session1.getSrcPort() + "->" + Convert_string_to_String(session1.getDstIp().toString()) + ":" + session1.getDstPort();
-
-        str = "";
-        for (size_t i = 0; i < session2.getBytes().size(); i++)
+        if (f2)
         {
-            str += Convert_string_to_String(charToAscii(session2.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[i])) + " ";
+            }
+            richTextBox2->Text = str;
+            label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
-        richTextBox2->Text = str;
-        label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(session2.getSrcIp().toString()) + ":" + session2.getSrcPort() + "->" + Convert_string_to_String(session2.getDstIp().toString()) + ":" + session2.getDstPort();
-        
-        str = "";
-        for (size_t i = 0; i < session3.getBytes().size(); i++)
+        if (f3)
         {
-            str += Convert_string_to_String(charToAscii(session3.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[i])) + " ";
+            }
+            richTextBox3->Text = str;
+            label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
-        richTextBox3->Text = str;
-        label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(session3.getSrcIp().toString()) + ":" + session3.getSrcPort() + "->" + Convert_string_to_String(session3.getDstIp().toString()) + ":" + session3.getDstPort();
-       
-        str = "";
-        for (size_t i = 0; i < session4.getBytes().size(); i++)
+        if (f4)
         {
-            str += Convert_string_to_String(charToAscii(session4.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[i])) + " ";
+            }
+            richTextBox4->Text = str;
+            label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
         }
-        richTextBox4->Text = str;
-        label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(session4.getSrcIp().toString()) + ":" + session4.getSrcPort() + "->" + Convert_string_to_String(session4.getDstIp().toString()) + ":" + session4.getDstPort();
         break;
     }
     case 1:
     {
-        str = "";
-        for (size_t i = 0; i < session1.getBytes().size(); i++)
+        if (f1)
         {
-            str += Convert_string_to_String(charToAscii(session1.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[i])) + " ";
+            }
+            richTextBox1->Text = str;
+            label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
-        richTextBox1->Text = str;
-        label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(session1.getSrcIp().toString()) + ":" + session1.getSrcPort() + "->" + Convert_string_to_String(session1.getDstIp().toString()) + ":" + session1.getDstPort();
         break;
     }
     case 2:
     {
-        str = "";
-        for (size_t i = 0; i < session2.getBytes().size(); i++)
+        if (f2)
         {
-            str += Convert_string_to_String(charToAscii(session2.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[i])) + " ";
+            }
+            richTextBox2->Text = str;
+            label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
-        richTextBox2->Text = str;
-        label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(session2.getSrcIp().toString()) + ":" + session2.getSrcPort() + "->" + Convert_string_to_String(session2.getDstIp().toString()) + ":" + session2.getDstPort();
         break;
     }
     case 3:
     {
-        str = "";
-        for (size_t i = 0; i < session3.getBytes().size(); i++)
+        if (f3)
         {
-            str += Convert_string_to_String(charToAscii(session3.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[i])) + " ";
+            }
+            richTextBox3->Text = str;
+            label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
-        richTextBox3->Text = str;
-        label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(session3.getSrcIp().toString()) + ":" + session3.getSrcPort() + "->" + Convert_string_to_String(session3.getDstIp().toString()) + ":" + session3.getDstPort();
         break;
     }
     case 4:
     {
-        str = "";
-        for (size_t i = 0; i < session4.getBytes().size(); i++)
+        if (f4)
         {
-            str += Convert_string_to_String(charToAscii(session4.getBytes()[i])) + " ";
+            str = "";
+            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            {
+                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[i])) + " ";
+            }
+            richTextBox4->Text = str;
+            label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
         }
-        richTextBox4->Text = str;
-        label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(session4.getSrcIp().toString()) + ":" + session4.getSrcPort() + "->" + Convert_string_to_String(session4.getDstIp().toString()) + ":" + session4.getDstPort();
         break;
     }
     default:
@@ -223,12 +256,243 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
 {
     std::string str;
     Convert_String_to_string(textBox1->Text,str);
-    std::vector<SessionHelper> sessions {sessions2[counter1], sessions2[counter2], sessions2[counter3], sessions2[counter4]};
+    std::vector<SessionHelper> sessions;// {sessions2[counter1], sessions2[counter2], sessions2[counter3], sessions2[counter4]};
+    int i = 0, f1 = 0, f2 = 0, f3 = 0, f4 = 0;
+    for (size_t i = 0; i < sessions2.size(),i<4; i++)
+    {
+        switch (i)
+        {
+        case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
+        case 1: sessions.push_back(sessions2[counter2]); f2 = 1; break;
+        case 2: sessions.push_back(sessions2[counter3]); f3 = 1; break;
+        case 3: sessions.push_back(sessions2[counter4]); f4 = 1; break;
+        }
+    }
     if (radioButton1->Checked) {
-        int start = findSubstringAt(sessions, str);
+        int txtStart = 0, txtEnd = 0;
+        int fl = 0, start = findSubstringAt(sessions, str), length = str.length(),
+            fl1 = 0, fl0 = 0;
+        if (start == -1)
+            fl1 = 1;
+        if (length == 0)
+            fl0 = 1;
+        String^ temp = richTextBox1->Text;
+        for (size_t i = 0; i < temp->Length; i++)
+        {
+            if (fl1 == 1 || fl0 == 1)
+                break;
+            if (length == 0) {
+                txtEnd = i;
+                break;
+            }
+            if (!fl && start == 0) {
+                txtStart = i;
+                fl = 1;
+            }
+            if (!fl && temp[i].Equals(' '))
+                start--;
+            if (fl) {
+                if (temp[i].Equals(' '))
+                    length--;
+            }
+        }
+
+        if (f1)
+        {
+            richTextBox1->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox1->SelectionStart = txtStart;
+            richTextBox1->ScrollToCaret();
+            richTextBox1->SelectionLength = txtEnd - txtStart;
+            richTextBox1->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f2)
+        {
+            richTextBox2->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox2->SelectionStart = txtStart;
+            richTextBox2->ScrollToCaret();
+            richTextBox2->SelectionLength = txtEnd - txtStart;
+            richTextBox2->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f3)
+        {
+            richTextBox3->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox3->SelectionStart = txtStart;
+            richTextBox3->ScrollToCaret();
+            richTextBox3->SelectionLength = txtEnd - txtStart;
+            richTextBox3->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f4)
+        {
+            richTextBox4->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox4->SelectionStart = txtStart;
+            richTextBox4->ScrollToCaret();
+            richTextBox4->SelectionLength = txtEnd - txtStart;
+            richTextBox4->SelectionBackColor = System::Drawing::Color::Blue;
+        }
     }
     else if (radioButton2->Checked) {
         std::vector<size_t> startPoints = findSubstring(sessions, str);
+        int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
+        for (size_t i = 0; i < startPoints.size(); i++)
+        {
+            switch (i)
+            {
+            case 0: f1 = 1; break;
+            case 1: f2 = 2; break;
+            case 2: f3 = 3; break;
+            case 3: f4 = 4; break;
+            }
+        }
+
+        int txtStart1 = 0, txtEnd1 = 0,
+            txtStart2 = 0, txtEnd2 = 0,
+            txtStart3 = 0, txtEnd3 = 0,
+            txtStart4 = 0, txtEnd4 = 0,
+            fl = 0, fl0 = 0, fl1 = 0, fl2 = 0, fl3 = 0, fl4 = 0;
+        String^ temp; int start; int length;
+        if (f1)
+        {
+            start = startPoints[0], length = str.length();
+
+            if (start == -1)
+                fl1 = 1;
+            if (length == 0)
+                fl0 = 1;
+            temp = richTextBox1->Text;
+            for (size_t i = 0; i < temp->Length; i++)
+            {
+                if (fl1 == 1 || fl0 == 1)
+                    break;
+                if (length == 0) {
+                    txtEnd1 = i;
+                    break;
+                }
+                if (!fl && start == 0) {
+                    txtStart1 = i;
+                    fl = 1;
+                }
+                if (!fl && temp[i].Equals(' '))
+                    start--;
+                if (fl) {
+                    if (temp[i].Equals(' '))
+                        length--;
+                }
+            }
+        }
+        if (f2)
+        {
+            start = startPoints[1]; length = str.length();
+            fl = 0;
+            if (start == -1)
+                fl2 = 1;
+            temp = richTextBox2->Text;
+            for (size_t i = 0; i < temp->Length; i++)
+            {
+                if (fl2 == 1 || fl0 == 1)
+                    break;
+                if (length == 0) {
+                    txtEnd2 = i;
+                    break;
+                }
+                if (!fl && start == 0) {
+                    txtStart2 = i;
+                    fl = 1;
+                }
+                if (!fl && temp[i].Equals(' '))
+                    start--;
+                if (fl) {
+                    if (temp[i].Equals(' '))
+                        length--;
+                }
+            }
+        }
+        if (f3)
+        {
+            start = startPoints[2]; length = str.length();
+            fl = 0;
+            if (start == -1)
+                fl3 = 1;
+            temp = richTextBox3->Text;
+            for (size_t i = 0; i < temp->Length; i++)
+            {
+                if (fl3 == 1 || fl0 == 1)
+                    break;
+                if (length == 0) {
+                    txtEnd3 = i;
+                    break;
+                }
+                if (!fl && start == 0) {
+                    txtStart3 = i;
+                    fl = 1;
+                }
+                if (!fl && temp[i].Equals(' '))
+                    start--;
+                if (fl) {
+                    if (temp[i].Equals(' '))
+                        length--;
+                }
+            }
+        }
+        if (f4)
+        {
+            start = startPoints[3]; length = str.length();
+            fl = 0;
+            if (start == -1)
+                fl4 = 1;
+            temp = richTextBox4->Text;
+            for (size_t i = 0; i < temp->Length; i++)
+            {
+                if (fl4 == 1 || fl0 == 1)
+                    break;
+                if (length == 0) {
+                    txtEnd4 = i;
+                    break;
+                }
+                if (!fl && start == 0) {
+                    txtStart4 = i;
+                    fl = 1;
+                }
+                if (!fl && temp[i].Equals(' '))
+                    start--;
+                if (fl) {
+                    if (temp[i].Equals(' '))
+                        length--;
+                }
+            }
+        }
+        
+        if (f1)
+        {
+            richTextBox1->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox1->SelectionStart = txtStart1;
+            richTextBox1->ScrollToCaret();
+            richTextBox1->SelectionLength = txtEnd1 - txtStart1;
+            richTextBox1->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f2)
+        {
+            richTextBox2->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox2->SelectionStart = txtStart2;
+            richTextBox2->ScrollToCaret();
+            richTextBox2->SelectionLength = txtEnd2 - txtStart2;
+            richTextBox2->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f3)
+        {
+            richTextBox3->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox3->SelectionStart = txtStart3;
+            richTextBox3->ScrollToCaret();
+            richTextBox3->SelectionLength = txtEnd3 - txtStart3;
+            richTextBox3->SelectionBackColor = System::Drawing::Color::Blue;
+        }
+        if (f4)
+        {
+            richTextBox4->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox4->SelectionStart = txtStart4;
+            richTextBox4->ScrollToCaret();
+            richTextBox4->SelectionLength = txtEnd4 - txtStart4;
+            richTextBox4->SelectionBackColor = System::Drawing::Color::Blue;
+        }
     }
     return System::Void();
 }
