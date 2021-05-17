@@ -4,23 +4,23 @@
 class SessionHelper
 {
 private:
-	//name of app
+	//имя приложения
 	std::string appName = "";
-	//source ip
+	//айпи источника
 	pcpp::IPAddress srcIp;
-	//destination ip
+	//айпи приемника
 	pcpp::IPAddress dstIp;
-	//source port
+	//порт источника
 	int srcPort;
-	//desination port
+	//порт приемника
 	int dstPort;
-	//seconds of start
+	//время начала
 	int timeStart = 86400;
-	//seconds from "timeStart" of end
+	//время конца (количество секунд после начала)
 	size_t timeEnd=0;
-	//vector of packets
+	//пакеты сессии
 	std::vector<PacketHelper> packets;
-	//vector of bytes
+	//байты сессии
 	std::string bytes;
 	//flags
 	bool is = true;
@@ -32,8 +32,9 @@ private:
 	bool sip = false;
 	bool handshake = false;
 public:
+	//конструктор
 	SessionHelper(std::vector<PacketHelper> &packets);
-	
+	//начало блока геттеров
 	std::string getAppName();
 	pcpp::IPAddress getSrcIp();
 	pcpp::IPAddress getDstIp();
@@ -51,5 +52,6 @@ public:
 	bool isDns();
 	bool isSip();
 	bool isHandshake();
+	//конец блока геттеров
 };
 

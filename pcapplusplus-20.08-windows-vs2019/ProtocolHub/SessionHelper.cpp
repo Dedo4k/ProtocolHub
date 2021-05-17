@@ -1,5 +1,6 @@
 #include "SessionHelper.h"
 
+//конструктор
 SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 {
 	bool flag = true;
@@ -109,6 +110,7 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 	}
 }
 
+//начало блока геттеров
 std::string SessionHelper::getAppName()
 {
 	return appName;
@@ -177,3 +179,4 @@ bool SessionHelper::isHandshake()
 {
 	return handshake;
 }
+//конец блока геттеров

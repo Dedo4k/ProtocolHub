@@ -1,5 +1,6 @@
 #include "PacketHelper.h"
 
+//конструктор
 PacketHelper::PacketHelper(pcpp::RawPacket& _rawPacket)
 {
 	pcpp::Packet tempParsedPacket(&_rawPacket);
@@ -8,6 +9,7 @@ PacketHelper::PacketHelper(pcpp::RawPacket& _rawPacket)
 	parseBasicInfo();
 }
 
+//конструктор
 PacketHelper::PacketHelper(pcpp::Packet& _parsedPacket)
 {
 	parsedPacket = _parsedPacket;
@@ -15,6 +17,7 @@ PacketHelper::PacketHelper(pcpp::Packet& _parsedPacket)
 	parseBasicInfo();
 }
 
+//парсинг общей информации
 void PacketHelper::parseBasicInfo()
 {
 	timespec temp = parsedPacket.getRawPacketReadOnly()->getPacketTimeStamp();
@@ -22,6 +25,7 @@ void PacketHelper::parseBasicInfo()
 	setProtocolNameWithAIPN();
 }
 
+//получение имени протокола
 void PacketHelper::setProtocolNameWithAIPN()
 {
 	switch (AIPN)
@@ -86,6 +90,7 @@ void PacketHelper::setProtocolNameWithAIPN()
 	}
 }
 
+//парсинг всей информации
 void PacketHelper::parseAllInfo()
 {
 	std::string temp;
@@ -260,6 +265,7 @@ void PacketHelper::parseAllInfo()
 	}
 }
 
+//начало блока геттеров и сеттеров
 pcpp::RawPacket* PacketHelper::getPacketRaw()
 {
 	return parsedPacket.getRawPacket();
@@ -288,6 +294,7 @@ tm PacketHelper::getTimestamp()
 {
 	return timestamp;
 }
+//вывод времени и даты как строки
 std::string PacketHelper::getTimestampAsString()
 {
 	std::string result="";
@@ -349,3 +356,4 @@ bool PacketHelper::isHandshake()
 {
 	return handshake;
 }
+//конец блока геттеров и сеттеров

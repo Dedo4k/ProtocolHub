@@ -20,31 +20,30 @@
 
 #include "outFunc.h"
 
-//class for working with inteface
+//класс для работы с пакетами
 class PacketHelper
 {
 private:
-	//parsed packet
+	//распарсенный пакет
 	pcpp::Packet parsedPacket;
-	//source ip
+	//айпи источника
 	pcpp::IPAddress srcIp;
-	//destenation ip
+	//айпи приемника
 	pcpp::IPAddress dstIp;
-	//source port
+	//порт источника
 	int srcPort;
-	//destination port
+	//порт приемника
 	int dstPort;
-	//timestamp
+	//временные рамки
 	tm timestamp;
-	//assigned ip number
+	//зарегистрированный айпи номер
 	int AIPN;
-	//name of protocol (with AIPN)
+	//имя протокола
 	std::string protocolName;
-	//info as string about all protocols
+	//информация о протоколах
 	std::vector<std::string> protocols;
-	//flag is it object is part of session
+	//флаги
 	bool session = false;
-	//flags
 	bool tcp = false;
 	bool http = false;
 	bool tls = false;
@@ -53,16 +52,17 @@ private:
 	bool sip = false;
 	bool handshake = false;
 public:
+	//конструктор
 	PacketHelper(pcpp::RawPacket& _rawPacket);
-
+	//конструктор
 	PacketHelper(pcpp::Packet& _parsedPacket);
-
+	//парсинг общей информации
 	void parseBasicInfo();
-
+	//получение имени протокола
 	void setProtocolNameWithAIPN();
-
+	//парсинг всей информации
 	void parseAllInfo();
-
+	//начало блока геттеров и сеттеров 
 	pcpp::RawPacket* getPacketRaw();
 	pcpp::Packet getParsedPacket();
 	pcpp::IPAddress getSrcIp();
@@ -83,4 +83,5 @@ public:
 	bool isDns();
 	bool isSip();
 	bool isHandshake();
+	//конец блока геттеров и сеттеров
 };

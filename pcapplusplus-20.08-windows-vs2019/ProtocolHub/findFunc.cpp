@@ -1,6 +1,6 @@
 #include "findFunc.h"
 
-//find minimal time of start
+//поиск минимального времени начала
 int findStartPoint(std::vector<SessionHelper>& sessions)
 {
 	int result = 86400;
@@ -12,7 +12,7 @@ int findStartPoint(std::vector<SessionHelper>& sessions)
 	return result;
 }
 
-//find and delete packets, that unusing at sessions
+//поиск и удаление неиспользуемых пакетов
 void findUnusingPackets(std::vector<PacketHelper>& packets)
 {
 	for (size_t i = 0; i < packets.size(); ++i)
@@ -23,7 +23,7 @@ void findUnusingPackets(std::vector<PacketHelper>& packets)
 		}
 }
 
-//find positions of substrings in sessions
+//поиск позиций подстрок в байтах
 std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::string str)
 {
 	std::vector<size_t> result;
@@ -38,7 +38,7 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 	return result;
 }
 
-//find position of substrings in sessions at the same position, returning -1 if not found
+//поиск одинаовой позиции подстрок в байтах 
 int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
 {
 	std::vector<size_t> temp = findSubstring(sessions, str);
@@ -51,6 +51,7 @@ int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
 	return value;
 }
 
+//запись пакетов в pcapng файл
 void fwriteSessionsPcapng(std::string filepath, std::vector<SessionHelper>& sessions)
 {
 	pcpp::PcapNgFileWriterDevice writer(filepath.c_str());

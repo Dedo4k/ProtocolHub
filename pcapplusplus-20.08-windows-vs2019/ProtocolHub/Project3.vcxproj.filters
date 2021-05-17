@@ -125,4 +125,7 @@
       <Filter>Файлы ресурсов</Filter>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
 </Project>
