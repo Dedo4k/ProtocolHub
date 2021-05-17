@@ -6,21 +6,23 @@
 #include "ConvertFunc.h"
 #include "findFunc.h"
 
-std::vector<PacketHelper> packets2;
-std::vector<SessionHelper> sessions2;
+std::vector<PacketHelper> packets2;                                                                         //вектор пакетов
+std::vector<SessionHelper> sessions2;                                                                       //вектор сессий
 
-int counter1 = 0;
-int counter2 = 1;
-int counter3 = 2;
-int counter4 = 3;
+int counter1 = 0;                                                                                           //номер сессии для "richTextBox1"
+int counter2 = 1;                                                                                           //номер сессии для "richTextBox2"
+int counter3 = 2;                                                                                           //номер сессии для "richTextBox3"
+int counter4 = 3;                                                                                           //номер сессии для "richTextBox4"
 
-int box = 0;
+int box = 0;                                                                                                //номер "richTextBox", который был изменён
 
-int min;
-
+/*
+Вывод информации в "richTextBox" в зависимости от того, какие номера сессий были выставлены для каждого
+*/
 void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ systemFilePaths)
 {
-    if (sessions2.empty()) {
+    if (sessions2.empty())                                                                                  //если вектор сессий пуст, то формируем его 
+    {
         std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
         packets2 = Service::getAllPackets(stringFilePaths);
         bool flag = true;
@@ -32,13 +34,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             else
                 flag = false;
         }
-        min = findStartPoint(sessions2);
     }
+
     String^ str;
     std::vector<SessionHelper> sessions;
     int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-    for (size_t i = 0; i < sessions2.size()&&i<4; i++)
-    {
+    for (size_t i = 0; i < sessions2.size()&&i<4; i++)                                                      //формируем вектор сессий для вывода в "richTextBox"
+    {                                                                                                       //выставляем флаги для вывода сессий в "richTextBox"
         switch (i)
         {
         case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
@@ -47,15 +49,11 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         case 3: sessions.push_back(sessions2[counter4]); f4 = 4; break;
         }
     }
-    //SessionHelper session1 = sessions2[counter1];
-    //SessionHelper session2 = sessions2[counter2];
-    //SessionHelper session3 = sessions2[counter3];
-    //SessionHelper session4 = sessions2[counter4];
-    switch (box)
+    switch (box)                                                                                            //изменяем "richTextBox" в зависимости от того, какой был изменён
     {
-    case 0:
+    case 0:                                                                                                 //первоначальная инициализация
     {
-        if (f1)
+        if (f1)                                                                                             //проверка существования
         {
             for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
             {
@@ -64,7 +62,7 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             richTextBox1->Text = str;
             label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
-        if (f2)
+        if (f2)                                                                                             //проверка существования
         {
             str = "";
             for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
@@ -74,7 +72,7 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             richTextBox2->Text = str;
             label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
-        if (f3)
+        if (f3)                                                                                             //проверка существования
         {
             str = "";
             for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
@@ -84,7 +82,7 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             richTextBox3->Text = str;
             label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
-        if (f4)
+        if (f4)                                                                                             //проверка существования
         {
             str = "";
             for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
@@ -96,9 +94,9 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         }
         break;
     }
-    case 1:
+    case 1:                                                                                                 //если был изменён "richTextBox1"
     {
-        if (f1)
+        if (f1)                                                                                             //проверка существования
         {
             str = "";
             for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
@@ -110,9 +108,9 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         }
         break;
     }
-    case 2:
+    case 2:                                                                                                 //если был изменён "richTextBox2"
     {
-        if (f2)
+        if (f2)                                                                                             //первоначальная инициализация
         {
             str = "";
             for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
@@ -124,9 +122,9 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         }
         break;
     }
-    case 3:
+    case 3:                                                                                                 //если был изменён "richTextBox3"
     {
-        if (f3)
+        if (f3)                                                                                             //первоначальная инициализация
         {
             str = "";
             for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
@@ -138,9 +136,9 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         }
         break;
     }
-    case 4:
+    case 4:                                                                                                 //если был изменён "richTextBox4"
     {
-        if (f4)
+        if (f4)                                                                                             //первоначальная инициализация
         {
             str = "";
             for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
@@ -157,6 +155,9 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
     }
 }
 
+/*
+Закрывает текущее окно при нажатии на кнопку "Назад" из панели меню
+*/
 System::Void curseProject1::Bytes::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     packets2.clear();
@@ -171,12 +172,19 @@ System::Void curseProject1::Bytes::назадToolStripMenuItem_Click(System::Object^ 
     return System::Void();
 }
 
+/*
+Закрывает приложение при нажатии на кнопку "Закрыть приложение" из панели меню
+*/
 System::Void curseProject1::Bytes::закрытьПриложениеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     Environment::Exit(0);
     return System::Void();
 }
 
+/*
+Увеличивает номер сессии для "richTextBox1" при нажатии на кнопку "button1"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 1;
@@ -187,6 +195,10 @@ System::Void curseProject1::Bytes::button1_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Умегьшает номер сессии для "richTextBox1" при нажатии на кнопку "button2"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 1;
@@ -197,6 +209,10 @@ System::Void curseProject1::Bytes::button2_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Умегьшает номер сессии для "richTextBox2" при нажатии на кнопку "button3"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button3_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 2;
@@ -207,6 +223,10 @@ System::Void curseProject1::Bytes::button3_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Увеличивает номер сессии для "richTextBox2" при нажатии на кнопку "button4"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button4_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 2;
@@ -217,6 +237,10 @@ System::Void curseProject1::Bytes::button4_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Умегьшает номер сессии для "richTextBox3" при нажатии на кнопку "button5"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button5_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 3;
@@ -227,6 +251,10 @@ System::Void curseProject1::Bytes::button5_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Увеличивает номер сессии для "richTextBox3" при нажатии на кнопку "button6"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button6_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 3;
@@ -237,6 +265,10 @@ System::Void curseProject1::Bytes::button6_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Умегьшает номер сессии для "richTextBox4" при нажатии на кнопку "button7"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button7_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 4;
@@ -247,6 +279,10 @@ System::Void curseProject1::Bytes::button7_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Увеличивает номер сессии для "richTextBox4" при нажатии на кнопку "button8"
+Вызывает метод "startDrawingBytes"
+*/
 System::Void curseProject1::Bytes::button8_Click(System::Object^ sender, System::EventArgs^ e)
 {
     box = 4;
@@ -257,14 +293,17 @@ System::Void curseProject1::Bytes::button8_Click(System::Object^ sender, System:
     return System::Void();
 }
 
+/*
+Выполняет поиск строки в векторе сессий в соответствии с тем, какой поиск был выбран
+*/
 System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System::EventArgs^ e)
 {
     std::string str;
     Convert_String_to_string(textBox1->Text,str);
-    std::vector<SessionHelper> sessions;// {sessions2[counter1], sessions2[counter2], sessions2[counter3], sessions2[counter4]};
+    std::vector<SessionHelper> sessions;
     int i = 0, f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-    for (size_t i = 0; i < sessions2.size()&&i<4; i++)
-    {
+    for (size_t i = 0; i < sessions2.size()&&i<4; i++)                                                              //формируем вектор сессий для сортировок
+    {                                                                                                               //выставляем флаги для сортировки сессий
         switch (i)
         {
         case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
@@ -273,16 +312,17 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         case 3: sessions.push_back(sessions2[counter4]); f4 = 1; break;
         }
     }
-    if (radioButton1->Checked) {
+    if (radioButton1->Checked)                                                                                      //если был выбран поиск по одной позиции 
+    {
         int txtStart = 0, txtEnd = 0;
-        int fl = 0, start = findSubstringAt(sessions, str), length = str.length(),
+        int fl = 0, start = findSubstringAt(sessions, str), length = str.length(),                                  //start - позиция первого совпадения
             fl1 = 0, fl0 = 0;
-        if (start == -1)
+        if (start == -1)                                                                                            //проверка, было ли совпадение
             fl1 = 1;
-        if (length == 0)
+        if (length == 0)                                                                                            //проверка длины искомого слова
             fl0 = 1;
         String^ temp = richTextBox1->Text;
-        for (size_t i = 0; i < temp->Length; i++)
+        for (size_t i = 0; i < temp->Length; i++)                                                                   //поиск начала и конца искомого слова в "richTextBox"
         {
             if (fl1 == 1 || fl0 == 1)
                 break;
@@ -302,7 +342,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             }
         }
 
-        if (f1)
+        if (f1)                                                                                                     //проверка существования
         {
             richTextBox1->SelectionBackColor = System::Drawing::Color::White;
             richTextBox1->SelectionStart = txtStart;
@@ -310,7 +350,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox1->SelectionLength = txtEnd - txtStart;
             richTextBox1->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f2)
+        if (f2)                                                                                                     //проверка существования
         {
             richTextBox2->SelectionBackColor = System::Drawing::Color::White;
             richTextBox2->SelectionStart = txtStart;
@@ -318,7 +358,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox2->SelectionLength = txtEnd - txtStart;
             richTextBox2->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f3)
+        if (f3)                                                                                                     //проверка существования
         {
             richTextBox3->SelectionBackColor = System::Drawing::Color::White;
             richTextBox3->SelectionStart = txtStart;
@@ -326,7 +366,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox3->SelectionLength = txtEnd - txtStart;
             richTextBox3->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f4)
+        if (f4)                                                                                                     //проверка существования
         {
             richTextBox4->SelectionBackColor = System::Drawing::Color::White;
             richTextBox4->SelectionStart = txtStart;
@@ -335,10 +375,11 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox4->SelectionBackColor = System::Drawing::Color::Blue;
         }
     }
-    else if (radioButton2->Checked) {
-        std::vector<size_t> startPoints = findSubstring(sessions, str);
+    else if (radioButton2->Checked)                                                                                 //если был выбран поиск по разным позициям
+    {
+        std::vector<size_t> startPoints = findSubstring(sessions, str);                                             //вектор с первыми совпадениям в каждой сессии
         int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-        for (size_t i = 0; i < startPoints.size(); i++)
+        for (size_t i = 0; i < startPoints.size(); i++)                                                             //выставляем флаги для существующих
         {
             switch (i)
             {
@@ -355,9 +396,9 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             txtStart4 = 0, txtEnd4 = 0,
             fl = 0, fl0 = 0, fl1 = 0, fl2 = 0, fl3 = 0, fl4 = 0;
         String^ temp; int start; int length;
-        if (f1)
+        if (f1)                                                                                                     //проверка существования
         {
-            start = startPoints[0], length = str.length();
+            start = startPoints[0], length = str.length();                                                          //поиск начала и конца искомого слова в "richTextBox1"
 
             if (start == -1)
                 fl1 = 1;
@@ -384,7 +425,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
                 }
             }
         }
-        if (f2)
+        if (f2)                                                                                                     //поиск начала и конца искомого слова в "richTextBox2"
         {
             start = startPoints[1]; length = str.length();
             fl = 0;
@@ -411,7 +452,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
                 }
             }
         }
-        if (f3)
+        if (f3)                                                                                                     //поиск начала и конца искомого слова в "richTextBox3"
         {
             start = startPoints[2]; length = str.length();
             fl = 0;
@@ -438,7 +479,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
                 }
             }
         }
-        if (f4)
+        if (f4)                                                                                                     //поиск начала и конца искомого слова в "richTextBox4"
         {
             start = startPoints[3]; length = str.length();
             fl = 0;
@@ -466,7 +507,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             }
         }
         
-        if (f1)
+        if (f1)                                                                                                     //проверка существования
         {
             richTextBox1->SelectionBackColor = System::Drawing::Color::White;
             richTextBox1->SelectionStart = txtStart1;
@@ -474,7 +515,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox1->SelectionLength = txtEnd1 - txtStart1;
             richTextBox1->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f2)
+        if (f2)                                                                                                     //проверка существования
         {
             richTextBox2->SelectionBackColor = System::Drawing::Color::White;
             richTextBox2->SelectionStart = txtStart2;
@@ -482,7 +523,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox2->SelectionLength = txtEnd2 - txtStart2;
             richTextBox2->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f3)
+        if (f3)                                                                                                     //проверка существования
         {
             richTextBox3->SelectionBackColor = System::Drawing::Color::White;
             richTextBox3->SelectionStart = txtStart3;
@@ -490,7 +531,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox3->SelectionLength = txtEnd3 - txtStart3;
             richTextBox3->SelectionBackColor = System::Drawing::Color::Blue;
         }
-        if (f4)
+        if (f4)                                                                                                     //проверка существования
         {
             richTextBox4->SelectionBackColor = System::Drawing::Color::White;
             richTextBox4->SelectionStart = txtStart4;

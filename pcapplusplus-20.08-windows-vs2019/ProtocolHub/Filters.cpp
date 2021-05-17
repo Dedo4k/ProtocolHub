@@ -1,6 +1,9 @@
 #include "Filters.h"
 #include "Sessions.h"
 
+/*
+Выставляет фильтры согласно списку выставленных фильтров
+*/
 void curseProject1::Filters::initFilters()
 {
     for (size_t i = 0; i < filters->Count; i++)
@@ -8,28 +11,38 @@ void curseProject1::Filters::initFilters()
         bool filterFlag = false;
         if (filters[i]->Equals("True"))
             filterFlag = true;
-        if (i == 6)
+        if (i == 6)                                                                                     //Enable
         {   
             checkBox1->Checked = filterFlag;
-            if (checkBox1->Checked) {
+            if (checkBox1->Checked) 
+            {
                 checkedListBox1->Enabled = false;
             }
-            else {
+            else 
+            {
                 checkedListBox1->Enabled = true;
             }
         }
-        else if (i == 7) {
+        else if (i == 7)                                                                                //По времени начала 
+        {
             checkBox2->Checked = filterFlag;
         }
-        else if (i == 8) {
+        else if (i == 8)                                                                                //По количеству байт
+        {
             checkBox3->Checked = filterFlag;
         }
-        else {
+        else                                                                                            //Флаги протоколов
+        {
             checkedListBox1->SetItemChecked(i, filterFlag);
         }
     }
 }
 
+/*
+Формирует список выставленных фильтров при нажатии на кнопку "button1"
+Передаёт список фильтров в форму для работы с сессиями
+Вызывает метод "startDrawingSessions" и "drawHandshake"
+*/
 System::Void curseProject1::Filters::button1_Click(System::Object^ sender, System::EventArgs^ e)
 {
     System::Collections::ArrayList^ filters = gcnew System::Collections::ArrayList;
@@ -43,57 +56,14 @@ System::Void curseProject1::Filters::button1_Click(System::Object^ sender, Syste
     filters->Add(checkBox3->Checked.ToString());
     sessions->setFilters(filters);
     sessions->startDrawingSessions(sessions->getSystemFilePaths());
+    sessions->drawHandshake();
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
 }
 
-System::Void curseProject1::Filters::checkBox1_Click(System::Object^ sender, System::EventArgs^ e)
-{
-    if (checkBox1->Checked) {
-        checkedListBox1->Enabled = false;
-    }
-    else {
-        checkedListBox1->Enabled = true;
-    }
-    return System::Void();
-}
-
-System::Void curseProject1::Filters::button3_Click(System::Object^ sender, System::EventArgs^ e)
-{
-    if(checkedListBox1->Enabled)
-    for (size_t i = 0; i < checkedListBox1->Items->Count; i++)
-    {
-        checkedListBox1->SetItemChecked(i, true);
-    }
-    return System::Void();
-}
-
-System::Void curseProject1::Filters::button4_Click(System::Object^ sender, System::EventArgs^ e)
-{
-    if(checkedListBox1->Enabled)
-    for (size_t i = 0; i < checkedListBox1->Items->Count; i++)
-    {
-        checkedListBox1->SetItemChecked(i, false);
-    }
-    return System::Void();
-}
-
-System::Void curseProject1::Filters::checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
-{
-    if (checkBox2->Checked)
-        checkBox3->Enabled = false;
-    else checkBox3->Enabled = true;
-    return System::Void();
-}
-
-System::Void curseProject1::Filters::checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
-{
-    if (checkBox3->Checked)
-        checkBox2->Enabled = false;
-    else checkBox2->Enabled = true;
-    return System::Void();
-}
-
+/*
+Отключает все выставленные фильтры при нажатии на кнопку "button2"
+*/
 System::Void curseProject1::Filters::button2_Click(System::Object^ sender, System::EventArgs^ e)
 {
     checkBox1->Checked = false;
@@ -106,5 +76,67 @@ System::Void curseProject1::Filters::button2_Click(System::Object^ sender, Syste
     checkBox2->Enabled = true;
     checkBox3->Checked = false;
     checkBox3->Enabled = true;
+    return System::Void();
+}
+
+/*
+Выставляет все фильтры протоколов при нажатии на кнопку "button3"
+*/
+System::Void curseProject1::Filters::button3_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if(checkedListBox1->Enabled)
+    for (size_t i = 0; i < checkedListBox1->Items->Count; i++)
+    {
+        checkedListBox1->SetItemChecked(i, true);
+    }
+    return System::Void();
+}
+
+/*
+Отключает все выставленные фильтры протоколов при нажатии на кнопку "button4"
+*/
+System::Void curseProject1::Filters::button4_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if(checkedListBox1->Enabled)
+    for (size_t i = 0; i < checkedListBox1->Items->Count; i++)
+    {
+        checkedListBox1->SetItemChecked(i, false);
+    }
+    return System::Void();
+}
+
+/*
+Блокирует или разблокирует "checkedListBox1" в зависимости от того, был ли нажат "checkBox1" 
+*/
+System::Void curseProject1::Filters::checkBox1_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    if (checkBox1->Checked) {
+        checkedListBox1->Enabled = false;
+    }
+    else {
+        checkedListBox1->Enabled = true;
+    }
+    return System::Void();
+}
+
+/*
+Блокирует или разблокирует "checkBox3" в зависимости от того, был ли нажат "checkBox2"
+*/
+System::Void curseProject1::Filters::checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (checkBox2->Checked)
+        checkBox3->Enabled = false;
+    else checkBox3->Enabled = true;
+    return System::Void();
+}
+
+/*
+Блокирует или разблокирует "checkBox2" в зависимости от того, был ли нажат "checkBox3"
+*/
+System::Void curseProject1::Filters::checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (checkBox3->Checked)
+        checkBox2->Enabled = false;
+    else checkBox2->Enabled = true;
     return System::Void();
 }

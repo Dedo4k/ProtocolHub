@@ -1,6 +1,4 @@
 #pragma once
-#include <msclr/marshal_cppstd.h>
-#include "Form2.h"
 
 namespace curseProject1 {
 
@@ -29,9 +27,9 @@ namespace curseProject1 {
 			}
 		}
 
+	protected:
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ îòêğûòüToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ îÏğîãğàììåToolStripMenuItem;
@@ -40,11 +38,9 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Label^ outLabel;
 	private: System::Windows::Forms::ToolStripMenuItem^ î÷èñòèòüToolStripMenuItem;
 	private: System::Windows::Forms::Label^ numberLabel;
-
 	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	private: System::Windows::Forms::ToolStripMenuItem^ äàëååToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ çàêğûòüÏğèëîæåíèåToolStripMenuItem;
-
 	private: System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -204,19 +200,12 @@ namespace curseProject1 {
 
 #pragma endregion
 	private: System::Void Drag_Drop(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e);
-
 	private: System::Void Drag_Enter(System::Object^ sender, System::Windows::Forms::DragEventArgs^ e);
-
 	private: System::Void Drag_Leave(System::Object^ sender, System::EventArgs^ e);
-
-	private: System::Void îòêğûòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-	
+	private: System::Void îòêğûòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);	
 	private: System::Void î÷èñòèòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-
 	private: System::Void îÏğîãğàììåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-
 	private: System::Void äàëååToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-
 	private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

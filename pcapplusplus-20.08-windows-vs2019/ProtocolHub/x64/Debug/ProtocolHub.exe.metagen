@@ -48,7 +48,6 @@ Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
     startFinding(): PrivateScope, Public, HideBySig
     setFilters(ArrayList): PrivateScope, Public, HideBySig
-    addSession(Int32): PrivateScope, Public, HideBySig
     getSystemFilePaths(): PrivateScope, Public, HideBySig
 Class curseProject1.SecondForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
@@ -60,14 +59,14 @@ Class curseProject1.FirstForm: AutoLayout, AnsiClass, Class, Public, BeforeField
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Int32 numberOfDraggedFiles : Public
+Class curseProject1.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class curseProject1.Form2: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
     StartParsingFiles(ArrayList): PrivateScope, Public, HideBySig
-Class curseProject1.Form1: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class Project3.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

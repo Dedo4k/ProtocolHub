@@ -27,6 +27,8 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+	
+	protected:
 	private: System::Collections::ArrayList^ filters;
 	private: System::Windows::Forms::CheckedListBox^ checkedListBox1;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
@@ -36,11 +38,7 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::CheckBox^ checkBox2;
 	private: System::Windows::Forms::CheckBox^ checkBox3;
-
-
-
-	private:
-		System::ComponentModel::Container ^components;
+	private: System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -167,14 +165,16 @@ namespace curseProject1 {
 			this->PerformLayout();
 
 		}
+
 #pragma endregion
 		public: void initFilters();
+
 		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void checkBox1_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void checkBox1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

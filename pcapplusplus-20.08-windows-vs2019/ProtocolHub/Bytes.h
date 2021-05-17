@@ -27,17 +27,16 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+
+	protected:
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ íàçàäToolStripMenuItem;
 	private: System::Windows::Forms::RichTextBox^ richTextBox1;
-
 	private: System::Windows::Forms::ToolStripMenuItem^ çàêðûòüÏðèëîæåíèåToolStripMenuItem;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
-
 	private: System::Windows::Forms::RichTextBox^ richTextBox2;
 	private: System::Windows::Forms::RichTextBox^ richTextBox3;
 	private: System::Windows::Forms::RichTextBox^ richTextBox4;
@@ -55,7 +54,6 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::RadioButton^ radioButton2;
-
 	private: System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -362,6 +360,7 @@ namespace curseProject1 {
 			this->PerformLayout();
 
 		}
+
 #pragma endregion
 		public: void startDrawingBytes(System::Collections::ArrayList^ systemFilePaths);
 

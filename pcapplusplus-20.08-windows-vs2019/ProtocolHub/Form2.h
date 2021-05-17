@@ -27,6 +27,8 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+	
+	protected:
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ôàéëToolStripMenuItem;
@@ -42,10 +44,7 @@ namespace curseProject1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
 	private: System::Windows::Forms::ToolStripMenuItem^ çàêğûòüÏğèëîæåíèåToolStripMenuItem;
-
 	private: System::ComponentModel::IContainer^ components;
-
-	protected:
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -225,12 +224,12 @@ namespace curseProject1 {
 
 		}
 
-
 #pragma endregion
-		private: System::Void íàçàäToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		public: void StartParsingFiles(System::Collections::ArrayList^ systemFilePaths);
-		private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
+
+		private: System::Void íàçàäToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void ñåññèèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 };
 }
