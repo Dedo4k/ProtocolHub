@@ -130,6 +130,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->richTextBox1->Location = System::Drawing::Point(12, 100);
 			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->ReadOnly = true;
 			this->richTextBox1->Size = System::Drawing::Size(299, 279);
 			this->richTextBox1->TabIndex = 1;
 			this->richTextBox1->Text = L"";
@@ -161,6 +162,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->richTextBox2->Location = System::Drawing::Point(317, 100);
 			this->richTextBox2->Name = L"richTextBox2";
+			this->richTextBox2->ReadOnly = true;
 			this->richTextBox2->Size = System::Drawing::Size(299, 279);
 			this->richTextBox2->TabIndex = 5;
 			this->richTextBox2->Text = L"";
@@ -172,6 +174,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->richTextBox3->Location = System::Drawing::Point(622, 100);
 			this->richTextBox3->Name = L"richTextBox3";
+			this->richTextBox3->ReadOnly = true;
 			this->richTextBox3->Size = System::Drawing::Size(299, 279);
 			this->richTextBox3->TabIndex = 6;
 			this->richTextBox3->Text = L"";
@@ -183,6 +186,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->richTextBox4->Location = System::Drawing::Point(927, 100);
 			this->richTextBox4->Name = L"richTextBox4";
+			this->richTextBox4->ReadOnly = true;
 			this->richTextBox4->Size = System::Drawing::Size(299, 279);
 			this->richTextBox4->TabIndex = 7;
 			this->richTextBox4->Text = L"";

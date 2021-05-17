@@ -93,3 +93,18 @@ System::Void curseProject1::Filters::checkBox3_CheckedChanged(System::Object^ se
     else checkBox2->Enabled = true;
     return System::Void();
 }
+
+System::Void curseProject1::Filters::button2_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    checkBox1->Checked = false;
+    checkedListBox1->Enabled = true;
+    for (size_t i = 0; i < checkedListBox1->Items->Count; i++)
+    {
+        checkedListBox1->SetItemChecked(i, false);
+    }
+    checkBox2->Checked = false;
+    checkBox2->Enabled = true;
+    checkBox3->Checked = false;
+    checkBox3->Enabled = true;
+    return System::Void();
+}

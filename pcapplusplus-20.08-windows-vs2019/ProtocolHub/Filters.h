@@ -100,6 +100,7 @@ namespace curseProject1 {
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Clear all filters";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Filters::button2_Click);
 			// 
 			// button3
 			// 
@@ -174,5 +175,6 @@ namespace curseProject1 {
 		private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void checkBox2_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void checkBox3_CheckedChanged(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }

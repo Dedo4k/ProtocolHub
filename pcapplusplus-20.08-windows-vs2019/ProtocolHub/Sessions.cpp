@@ -17,7 +17,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
 {
 
     int i = 0;
-
+    int min, max;
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
     packets1 = Service::getAllPackets(stringFilePaths);
     sessions1.clear();
@@ -31,8 +31,11 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
             flag = false;
     }
 
-    int min = sessions1[0].getTimeStart();
-    int max = (sessions1[0].getTimeEnd() + sessions1[0].getTimeStart());
+    if (sessions1.size())
+    {
+        min = sessions1[0].getTimeStart();
+        max = (sessions1[0].getTimeEnd() + sessions1[0].getTimeStart());
+    }
     for each (SessionHelper session in sessions1)
     {
         if (session.getTimeStart() < min)

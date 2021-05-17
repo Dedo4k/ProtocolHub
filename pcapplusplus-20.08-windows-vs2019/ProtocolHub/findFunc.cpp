@@ -42,7 +42,9 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
 {
 	std::vector<size_t> temp = findSubstring(sessions, str);
-	size_t value = temp[0];
+	size_t value;
+	if(temp.size())
+		value = temp[0];
 	for (size_t i = 0; i < temp.size(); ++i)
 	{
 		if (value != temp[i])
