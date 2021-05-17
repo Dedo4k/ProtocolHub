@@ -13,6 +13,19 @@
 std::vector<PacketHelper> packets1;
 std::vector<SessionHelper> sessions1;
 
+void curseProject1::Sessions::drawHandshake()
+{
+    int i = 0;
+    for each (SessionHelper session in sessions1)
+    {
+        if (session.isHandshake())
+        {
+            dataGridView1->Rows[i]->Cells[0]->Style->BackColor = System::Drawing::Color::Red;
+            chart1->Series[sessions1.size()-i]->Color = System::Drawing::Color::Red;
+        }
+    }
+}
+
 void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayList^ systemFilePaths)
 {
 
@@ -132,8 +145,6 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                 "\nSIP: " + session.isSip();
 
                 int a = dataGridView1->Rows->Add();
-                //if (session.isHandshake())
-                //    dataGridView1->Rows[a]->Cells[0]->Style->BackColor = System::Drawing::Color::Blue;
                 dataGridView1->Rows[a]->Cells[0]->Value = i++;
                 dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
                                                                 "\nРазмер: " + session.getBytes().length() +

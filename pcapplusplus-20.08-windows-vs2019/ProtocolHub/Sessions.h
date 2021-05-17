@@ -18,6 +18,7 @@ namespace curseProject1 {
 			this->systemFilePaths = gcnew System::Collections::ArrayList(systemFilePaths);
 			InitializeComponent();
 			startDrawingSessions(systemFilePaths);
+			drawHandshake();
 		}
 
 	protected:
@@ -284,6 +285,7 @@ namespace curseProject1 {
 		}
 #pragma endregion
 
+		public: void drawHandshake();
 		public: void startDrawingSessions(System::Collections::ArrayList^ systemFilePaths);
 		public: void startFinding();
 		public: void setFilters(System::Collections::ArrayList^ filters);

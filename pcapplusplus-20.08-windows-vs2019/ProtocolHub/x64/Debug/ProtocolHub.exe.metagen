@@ -44,6 +44,7 @@ Class curseProject1.Sessions: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
   :System.Windows.Forms.Form
     Void .ctor(System.Collections.ArrayList): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Methods:
+    drawHandshake(): PrivateScope, Public, HideBySig
     startDrawingSessions(ArrayList): PrivateScope, Public, HideBySig
     startFinding(): PrivateScope, Public, HideBySig
     setFilters(ArrayList): PrivateScope, Public, HideBySig
