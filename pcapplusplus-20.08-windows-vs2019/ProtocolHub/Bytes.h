@@ -59,6 +59,7 @@ namespace curseProject1 {
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Bytes::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -109,6 +110,8 @@ namespace curseProject1 {
 			// 
 			// çàêðûòüÏðèëîæåíèåToolStripMenuItem
 			// 
+			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
+			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêðûòüÏðèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Name = L"çàêðûòüÏðèëîæåíèåToolStripMenuItem";
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Text = L"Çàêðûòü ïðèëîæåíèå";
@@ -348,6 +351,7 @@ namespace curseProject1 {
 			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->menuStrip1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Location = System::Drawing::Point(165, 47);
 			this->MainMenuStrip = this->menuStrip1;
 			this->Name = L"Bytes";

@@ -89,8 +89,8 @@ namespace curseProject1 {
 			// 
 			// îòêğûòüToolStripMenuItem
 			// 
-			this->îòêğûòüToolStripMenuItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->îòêğûòüToolStripMenuItem->ImageScaling = System::Windows::Forms::ToolStripItemImageScaling::None;
+			this->îòêğûòüToolStripMenuItem->BackColor = System::Drawing::Color::White;
+			this->îòêğûòüToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"îòêğûòüToolStripMenuItem.Image")));
 			this->îòêğûòüToolStripMenuItem->Name = L"îòêğûòüToolStripMenuItem";
 			this->îòêğûòüToolStripMenuItem->Size = System::Drawing::Size(193, 22);
 			this->îòêğûòüToolStripMenuItem->Text = L"Îòêğûòü";
@@ -98,7 +98,8 @@ namespace curseProject1 {
 			// 
 			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
 			// 
-			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêğûòüÏğèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
@@ -109,6 +110,7 @@ namespace curseProject1 {
 			this->î÷èñòèòüToolStripMenuItem->Name = L"î÷èñòèòüToolStripMenuItem";
 			this->î÷èñòèòüToolStripMenuItem->Size = System::Drawing::Size(71, 20);
 			this->î÷èñòèòüToolStripMenuItem->Text = L"Î÷èñòèòü";
+			this->î÷èñòèòüToolStripMenuItem->ToolTipText = L"Óäàëÿåò âñå ïîëó÷åííûå ôàéëû";
 			this->î÷èñòèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::î÷èñòèòüToolStripMenuItem_Click);
 			// 
 			// îÏğîãğàììåToolStripMenuItem
@@ -123,6 +125,7 @@ namespace curseProject1 {
 			this->äàëååToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"äàëååToolStripMenuItem.Image")));
 			this->äàëååToolStripMenuItem->Name = L"äàëååToolStripMenuItem";
 			this->äàëååToolStripMenuItem->Size = System::Drawing::Size(28, 20);
+			this->äàëååToolStripMenuItem->ToolTipText = L"Äàëåå";
 			this->äàëååToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::äàëååToolStripMenuItem_Click);
 			// 
 			// infoLabel

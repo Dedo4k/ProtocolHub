@@ -95,8 +95,10 @@ namespace curseProject1 {
 			// 
 			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
 			// 
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêğûòüÏğèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
-			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(197, 26);
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click);
 			// 
