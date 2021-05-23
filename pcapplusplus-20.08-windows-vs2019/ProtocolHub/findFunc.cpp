@@ -24,12 +24,12 @@ void findUnusingPackets(std::vector<PacketHelper>& packets)
 }
 
 //find positions of substrings in sessions
-std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::string str)
+std::vector<size_t> findSubstring(std::vector<std::string>& strings, std::string str)
 {
 	std::vector<size_t> result;
-	for (size_t i = 0; i < sessions.size(); ++i)
+	for (size_t i = 0; i < strings.size(); ++i)
 	{
-		size_t pos = sessions[i].getBytes().find(str);
+		size_t pos = strings[i].find(str);
 		if (pos != std::string::npos)
 			result.push_back(pos);
 		else
@@ -39,9 +39,9 @@ std::vector<size_t> findSubstring(std::vector<SessionHelper>& sessions, std::str
 }
 
 //find position of substrings in sessions at the same position, returning -1 if not found
-int findSubstringAt(std::vector<SessionHelper>& sessions, std::string str)
+int findSubstringAt(std::vector<std::string>& strings, std::string str)
 {
-	std::vector<size_t> temp = findSubstring(sessions, str);
+	std::vector<size_t> temp = findSubstring(strings, str);
 	size_t value;
 	if(temp.size())
 		value = temp[0];
