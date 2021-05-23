@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="Bytes.cpp" />
     <ClCompile Include="ConvertFunc.cpp" />
+    <ClCompile Include="DataClass.cpp" />
     <ClCompile Include="filterButtons.cpp" />
     <ClCompile Include="Filters.cpp" />
     <ClCompile Include="findFunc.cpp" />
@@ -161,6 +162,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ConvertFunc.h" />
+    <ClInclude Include="DataClass.h" />
     <ClInclude Include="filterButtons.h" />
     <ClInclude Include="Filters.h">
       <FileType>CppForm</FileType>

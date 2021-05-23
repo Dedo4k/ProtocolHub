@@ -5,48 +5,50 @@
 #include "Service.h"
 #include "ConvertFunc.h"
 #include "findFunc.h"
+#include "DataClass.h"
 
-std::vector<PacketHelper> packets2;                                                                         //вектор пакетов
-std::vector<SessionHelper> sessions2;                                                                       //вектор сессий
+//std::vector<PacketHelper> packets2;                                                                         //вектор пакетов
+//std::vector<SessionHelper> sessions2;                                                                       //вектор сессий
 
-int counter1 = 0;                                                                                           //номер сессии для "richTextBox1"
-int counter2 = 1;                                                                                           //номер сессии для "richTextBox2"
-int counter3 = 2;                                                                                           //номер сессии для "richTextBox3"
-int counter4 = 3;                                                                                           //номер сессии для "richTextBox4"
-
-int box = 0;                                                                                                //номер "richTextBox", который был изменён
+//int counter1 = 0;                                                                                           //номер сессии для "richTextBox1"
+//int counter2 = 1;                                                                                           //номер сессии для "richTextBox2"
+//int counter3 = 2;                                                                                           //номер сессии для "richTextBox3"
+//int counter4 = 3;                                                                                           //номер сессии для "richTextBox4"
+//
+//int box = 0;                                                                                                //номер "richTextBox", который был изменён
 
 /*
 Вывод информации в "richTextBox" в зависимости от того, какие номера сессий были выставлены для каждого
 */
 void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ systemFilePaths)
 {
-    if (sessions2.empty())                                                                                  //если вектор сессий пуст, то формируем его 
-    {
-        std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
-        packets2 = Service::getAllPackets(stringFilePaths);
-        bool flag = true;
-        while (flag && sessions2.size() < 40)
-        {
-            SessionHelper session(packets2);
-            if (session.isSession())
-                sessions2.push_back(session);
-            else
-                flag = false;
-        }
-    }
+    //if (sessBytes.empty())                                                                                  //если вектор сессий пуст, то формируем его 
+    //{
+    //    std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
+    //    if(pack.empty())
+    //        pack = Service::getAllPackets(stringFilePaths);
+    //    bool flag = true;
+    //    while (flag && sessBytes.size() < 40)
+    //    {
+    //        SessionHelper session(pack);
+    //        if (session.isSession())
+    //            sessBytes.push_back(session);
+    //        else
+    //            flag = false;
+    //    }
+    //}
 
     String^ str;
     std::vector<SessionHelper> sessions;
     int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-    for (size_t i = 0; i < sessions2.size()&&i<4; i++)                                                      //формируем вектор сессий для вывода в "richTextBox"
+    for (size_t i = 0; i < sessBytes.size()&&i<4; i++)                                                      //формируем вектор сессий для вывода в "richTextBox"
     {                                                                                                       //выставляем флаги для вывода сессий в "richTextBox"
         switch (i)
         {
-        case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
-        case 1: sessions.push_back(sessions2[counter2]); f2 = 2; break;
-        case 2: sessions.push_back(sessions2[counter3]); f3 = 3; break;
-        case 3: sessions.push_back(sessions2[counter4]); f4 = 4; break;
+        case 0: sessions.push_back(sessBytes[counter1]); f1 = 1; break;
+        case 1: sessions.push_back(sessBytes[counter2]); f2 = 2; break;
+        case 2: sessions.push_back(sessBytes[counter3]); f3 = 3; break;
+        case 3: sessions.push_back(sessBytes[counter4]); f4 = 4; break;
         }
     }
     switch (box)                                                                                            //изменяем "richTextBox" в зависимости от того, какой был изменён
@@ -55,42 +57,70 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
     {
         if (f1)                                                                                             //проверка существования
         {
-            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[0].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[0][i])) + " ";
             }
             richTextBox1->Text = str;
-            label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
+            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            {
+                comboBox1->Items->Add(i);
+            }
+            comboBox1->SelectedIndex = counter1;
+            label2->Text = "Номер сессии: " + sessions[0].getNum();
+            label8->Text = "Номер пакета: ";
+            label9->Text = Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
         if (f2)                                                                                             //проверка существования
         {
             str = "";
-            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[1].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[0][i])) + " ";
             }
             richTextBox2->Text = str;
-            label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
+            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            {
+                comboBox4->Items->Add(i);
+            }
+            comboBox4->SelectedIndex = counter2;
+            label3->Text = "Номер сессии: " + sessions[1].getNum();
+            label7->Text = "Номер пакета: ";
+            label10->Text = Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
         if (f3)                                                                                             //проверка существования
         {
             str = "";
-            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[2].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[0][i])) + " ";
             }
             richTextBox3->Text = str;
-            label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
+            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            {
+                comboBox6->Items->Add(i);
+            }
+            comboBox6->SelectedIndex = counter3;
+            label4->Text = "Номер сессии: " + sessions[2].getNum();
+            label6->Text = "Номер пакета: ";
+            label11->Text = Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
         if (f4)                                                                                             //проверка существования
         {
             str = "";
-            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[3].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[0][i])) + " ";
             }
             richTextBox4->Text = str;
-            label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
+            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            {
+                comboBox8->Items->Add(i);
+            }
+            comboBox8->SelectedIndex = counter4;
+            label5->Text = "Номер сессии: " + sessions[3].getNum();
+            label1->Text = "Номер пакета: ";
+            label12->Text = Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
         }
         break;
     }
@@ -99,12 +129,12 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f1)                                                                                             //проверка существования
         {
             str = "";
-            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[0].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[0][i])) + " ";
             }
             richTextBox1->Text = str;
-            label2->Text = "Номер: " + counter1 + "\n" + Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
+            label2->Text = "Номер сессии: " + sessions[0].getNum();
         }
         break;
     }
@@ -113,12 +143,12 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f2)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[1].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[0][i])) + " ";
             }
             richTextBox2->Text = str;
-            label3->Text = "Номер: " + counter2 + "\n" + Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
+            label3->Text = "Номер сессии: " + sessions[1].getNum();
         }
         break;
     }
@@ -127,12 +157,12 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f3)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[2].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[0][i])) + " ";
             }
             richTextBox3->Text = str;
-            label4->Text = "Номер: " + counter3 + "\n" + Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
+            label4->Text = "Номер сессии: " + sessions[2].getNum();
         }
         break;
     }
@@ -141,12 +171,12 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f4)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            for (size_t i = 0; i < sessions[3].getBytes()[0].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[0][i])) + " ";
             }
             richTextBox4->Text = str;
-            label5->Text = "Номер: " + counter4 + "\n" + Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
+            label5->Text = "Номер сессии: " + sessions[3].getNum();
         }
         break;
     }
@@ -160,13 +190,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
 */
 System::Void curseProject1::Bytes::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    packets2.clear();
-    sessions2.clear();
+    //packets2.clear();
+    //sessions2.clear();
     box = 0;
-    counter1 = 0;
-    counter2 = 1;
-    counter3 = 2;
-    counter4 = 3;
+    //counter1 = 0;
+    //counter2 = 1;
+    //counter3 = 2;
+    //counter4 = 3;
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
     return System::Void();
@@ -189,7 +219,7 @@ System::Void curseProject1::Bytes::button1_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1++;
-    if (counter1 == sessions2.size() || counter1 == 40)
+    if (counter1 == sessBytes.size())
         counter1 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -203,8 +233,8 @@ System::Void curseProject1::Bytes::button2_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1--;
-    if (counter1 == sessions2.size() || counter1 == -1)
-        counter1 = sessions2.size()-1;
+    if (counter1 == sessBytes.size() || counter1 == -1)
+        counter1 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -217,8 +247,8 @@ System::Void curseProject1::Bytes::button3_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2--;
-    if (counter2 == sessions2.size() || counter2 == -1)
-        counter2 = sessions2.size()-1;
+    if (counter2 == sessBytes.size() || counter2 == -1)
+        counter2 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -231,7 +261,7 @@ System::Void curseProject1::Bytes::button4_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2++;
-    if (counter2 == sessions2.size() || counter2 == 40)
+    if (counter2 == sessBytes.size())
         counter2 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -245,8 +275,8 @@ System::Void curseProject1::Bytes::button5_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3--;
-    if (counter3 == sessions2.size() || counter3 == -1)
-        counter3 = sessions2.size()-1;
+    if (counter3 == sessBytes.size() || counter3 == -1)
+        counter3 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -259,7 +289,7 @@ System::Void curseProject1::Bytes::button6_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3++;
-    if (counter3 == sessions2.size() || counter3 == 40)
+    if (counter3 == sessBytes.size())
         counter3 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -273,8 +303,8 @@ System::Void curseProject1::Bytes::button7_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4--;
-    if (counter4 == sessions2.size() || counter4 == -1)
-        counter4 = sessions2.size()-1;
+    if (counter4 == sessBytes.size() || counter4 == -1)
+        counter4 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
     return System::Void();
 }
@@ -287,7 +317,7 @@ System::Void curseProject1::Bytes::button8_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4++;
-    if (counter4 == sessions2.size() || counter4 == 40)
+    if (counter4 == sessBytes.size())
         counter4 = 0;
     startDrawingBytes(systemFilePaths);
     return System::Void();
@@ -302,20 +332,20 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
     Convert_String_to_string(textBox1->Text,str);
     std::vector<SessionHelper> sessions;
     int i = 0, f1 = 0, f2 = 0, f3 = 0, f4 = 0;
-    for (size_t i = 0; i < sessions2.size()&&i<4; i++)                                                              //формируем вектор сессий для сортировок
+    for (size_t i = 0; i < sessBytes.size()&&i<4; i++)                                                              //формируем вектор сессий для сортировок
     {                                                                                                               //выставляем флаги для сортировки сессий
         switch (i)
         {
-        case 0: sessions.push_back(sessions2[counter1]); f1 = 1; break;
-        case 1: sessions.push_back(sessions2[counter2]); f2 = 1; break;
-        case 2: sessions.push_back(sessions2[counter3]); f3 = 1; break;
-        case 3: sessions.push_back(sessions2[counter4]); f4 = 1; break;
+        case 0: sessions.push_back(sessBytes[counter1]); f1 = 1; break;
+        case 1: sessions.push_back(sessBytes[counter2]); f2 = 1; break;
+        case 2: sessions.push_back(sessBytes[counter3]); f3 = 1; break;
+        case 3: sessions.push_back(sessBytes[counter4]); f4 = 1; break;
         }
     }
     if (radioButton1->Checked)                                                                                      //если был выбран поиск по одной позиции 
     {
         int txtStart = 0, txtEnd = 0;
-        int fl = 0, start = findSubstringAt(sessions, str), length = str.length(),                                  //start - позиция первого совпадения
+        int fl = 0, start = 0/*findSubstringAt(sessions, str)*/, length = str.length(),                                  //start - позиция первого совпадения
             fl1 = 0, fl0 = 0;
         if (start == -1)                                                                                            //проверка, было ли совпадение
             fl1 = 1;
@@ -377,7 +407,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
     }
     else if (radioButton2->Checked)                                                                                 //если был выбран поиск по разным позициям
     {
-        std::vector<size_t> startPoints = findSubstring(sessions, str);                                             //вектор с первыми совпадениям в каждой сессии
+        std::vector<size_t> startPoints/* = findSubstring(sessions, str)*/;                                             //вектор с первыми совпадениям в каждой сессии
         int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
         for (size_t i = 0; i < startPoints.size(); i++)                                                             //выставляем флаги для существующих
         {

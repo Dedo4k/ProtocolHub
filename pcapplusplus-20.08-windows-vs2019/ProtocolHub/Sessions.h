@@ -15,6 +15,7 @@ namespace curseProject1 {
 		Sessions(System::Collections::ArrayList^ systemFilePaths)
 		{
 			this->filters = gcnew System::Collections::ArrayList;
+			this->sessionsShown = gcnew array<Int32>(1);
 			this->systemFilePaths = gcnew System::Collections::ArrayList(systemFilePaths);
 			InitializeComponent();
 			startDrawingSessions(systemFilePaths);
@@ -31,6 +32,7 @@ namespace curseProject1 {
 		}
 
 	protected:
+	private: array<Int32>^ sessionsShown;
 	private: System::Collections::ArrayList^ filters;
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;

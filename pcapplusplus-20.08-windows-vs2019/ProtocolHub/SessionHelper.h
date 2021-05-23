@@ -6,6 +6,8 @@ class SessionHelper
 private:
 	//name of app
 	std::string appName = "";
+	//number of session
+	size_t num;
 	//source ip
 	pcpp::IPAddress srcIp;
 	//destination ip
@@ -21,7 +23,7 @@ private:
 	//vector of packets
 	std::vector<PacketHelper> packets;
 	//vector of bytes
-	std::string bytes;
+	std::vector<std::string> bytes;
 	//flags
 	bool is = true;
 	bool tcp = false;
@@ -35,6 +37,8 @@ public:
 	SessionHelper(std::vector<PacketHelper> &packets);
 	
 	std::string getAppName();
+	void setNum(size_t value);
+	size_t getNum();
 	pcpp::IPAddress getSrcIp();
 	pcpp::IPAddress getDstIp();
 	int getSrcPort();
@@ -42,7 +46,7 @@ public:
 	int getTimeStart();
 	size_t getTimeEnd();
 	std::vector<PacketHelper> getPackets();
-	std::string getBytes();
+	std::vector<std::string> getBytes();
 	bool isSession();
 	bool isTcp();
 	bool isHttp();

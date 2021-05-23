@@ -100,18 +100,28 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 	//getting data as bytes
 	for (size_t i = 0; i < packets.size(); ++i)
 	{
+		std::string temp;
 		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
 		{
 			char ch = packets[i].getPacketRaw()->getRawData()[j];
 			if (ch<257 && ch>-1)
-				bytes += ch;
+				temp += ch;
 		}
+		bytes.push_back(temp);
 	}
 }
 
 std::string SessionHelper::getAppName()
 {
 	return appName;
+}
+void SessionHelper::setNum(size_t value)
+{
+	num = value;
+}
+size_t SessionHelper::getNum()
+{
+	return num;
 }
 pcpp::IPAddress SessionHelper::getSrcIp()
 {
@@ -141,7 +151,7 @@ std::vector<PacketHelper> SessionHelper::getPackets()
 {
 	return packets;
 }
-std::string SessionHelper::getBytes()
+std::vector<std::string> SessionHelper::getBytes()
 {
 	return bytes;
 }

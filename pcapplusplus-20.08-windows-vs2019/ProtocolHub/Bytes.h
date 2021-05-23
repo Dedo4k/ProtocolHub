@@ -54,7 +54,32 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Label^ label5;
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::RadioButton^ radioButton2;
-	private: System::ComponentModel::Container ^components;
+	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Label^ label6;
+	private: System::Windows::Forms::Label^ label7;
+	private: System::Windows::Forms::Label^ label8;
+	private: System::Windows::Forms::Button^ button10;
+	private: System::Windows::Forms::Button^ button11;
+	private: System::Windows::Forms::Button^ button12;
+	private: System::Windows::Forms::Button^ button13;
+	private: System::Windows::Forms::Button^ button14;
+	private: System::Windows::Forms::Button^ button15;
+	private: System::Windows::Forms::Button^ button16;
+	private: System::Windows::Forms::Button^ button17;
+	private: System::Windows::Forms::Label^ label9;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::Label^ label11;
+	private: System::Windows::Forms::Label^ label12;
+	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::ComboBox^ comboBox2;
+	private: System::Windows::Forms::ComboBox^ comboBox3;
+	private: System::Windows::Forms::ComboBox^ comboBox4;
+	private: System::Windows::Forms::ComboBox^ comboBox5;
+	private: System::Windows::Forms::ComboBox^ comboBox6;
+	private: System::Windows::Forms::ComboBox^ comboBox7;
+	private: System::Windows::Forms::ComboBox^ comboBox8;
+
+	private: System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
@@ -84,6 +109,30 @@ namespace curseProject1 {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->button11 = (gcnew System::Windows::Forms::Button());
+			this->button12 = (gcnew System::Windows::Forms::Button());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->button14 = (gcnew System::Windows::Forms::Button());
+			this->button15 = (gcnew System::Windows::Forms::Button());
+			this->button16 = (gcnew System::Windows::Forms::Button());
+			this->button17 = (gcnew System::Windows::Forms::Button());
+			this->label9 = (gcnew System::Windows::Forms::Label());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox3 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox5 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox6 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox7 = (gcnew System::Windows::Forms::ComboBox());
+			this->comboBox8 = (gcnew System::Windows::Forms::ComboBox());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -138,21 +187,21 @@ namespace curseProject1 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(100, 27);
+			this->button1->Location = System::Drawing::Point(230, 27);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(82, 36);
+			this->button1->Size = System::Drawing::Size(81, 21);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L"Следующая сессия";
+			this->button1->Text = L"Следующая";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Bytes::button1_Click);
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(11, 27);
+			this->button2->Location = System::Drawing::Point(150, 27);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(82, 36);
+			this->button2->Size = System::Drawing::Size(81, 21);
 			this->button2->TabIndex = 3;
-			this->button2->Text = L"Предыдущая сессия";
+			this->button2->Text = L"Предыдущая";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Bytes::button2_Click);
 			// 
@@ -194,61 +243,61 @@ namespace curseProject1 {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(317, 27);
+			this->button3->Location = System::Drawing::Point(456, 27);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(82, 36);
+			this->button3->Size = System::Drawing::Size(81, 21);
 			this->button3->TabIndex = 9;
-			this->button3->Text = L"Предыдущая сессия";
+			this->button3->Text = L"Предыдущая";
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &Bytes::button3_Click);
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(406, 27);
+			this->button4->Location = System::Drawing::Point(536, 27);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(82, 36);
+			this->button4->Size = System::Drawing::Size(81, 21);
 			this->button4->TabIndex = 8;
-			this->button4->Text = L"Следующая сессия";
+			this->button4->Text = L"Следующая";
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &Bytes::button4_Click);
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(621, 27);
+			this->button5->Location = System::Drawing::Point(760, 27);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(82, 36);
+			this->button5->Size = System::Drawing::Size(81, 21);
 			this->button5->TabIndex = 11;
-			this->button5->Text = L"Предыдущая сессия";
+			this->button5->Text = L"Предыдущая";
 			this->button5->UseVisualStyleBackColor = true;
 			this->button5->Click += gcnew System::EventHandler(this, &Bytes::button5_Click);
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(710, 27);
+			this->button6->Location = System::Drawing::Point(840, 27);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(82, 36);
+			this->button6->Size = System::Drawing::Size(81, 21);
 			this->button6->TabIndex = 10;
-			this->button6->Text = L"Следующая сессия";
+			this->button6->Text = L"Следующая";
 			this->button6->UseVisualStyleBackColor = true;
 			this->button6->Click += gcnew System::EventHandler(this, &Bytes::button6_Click);
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(926, 27);
+			this->button7->Location = System::Drawing::Point(1065, 27);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(82, 36);
+			this->button7->Size = System::Drawing::Size(81, 21);
 			this->button7->TabIndex = 13;
-			this->button7->Text = L"Предыдущая сессия";
+			this->button7->Text = L"Предыдущая";
 			this->button7->UseVisualStyleBackColor = true;
 			this->button7->Click += gcnew System::EventHandler(this, &Bytes::button7_Click);
 			// 
 			// button8
 			// 
-			this->button8->Location = System::Drawing::Point(1015, 27);
+			this->button8->Location = System::Drawing::Point(1145, 27);
 			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(82, 36);
+			this->button8->Size = System::Drawing::Size(81, 21);
 			this->button8->TabIndex = 12;
-			this->button8->Text = L"Следующая сессия";
+			this->button8->Text = L"Следующая";
 			this->button8->UseVisualStyleBackColor = true;
 			this->button8->Click += gcnew System::EventHandler(this, &Bytes::button8_Click);
 			// 
@@ -272,7 +321,7 @@ namespace curseProject1 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 66);
+			this->label2->Location = System::Drawing::Point(9, 31);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(0, 13);
 			this->label2->TabIndex = 17;
@@ -280,7 +329,7 @@ namespace curseProject1 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(314, 66);
+			this->label3->Location = System::Drawing::Point(314, 31);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(0, 13);
 			this->label3->TabIndex = 18;
@@ -288,7 +337,7 @@ namespace curseProject1 {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(619, 66);
+			this->label4->Location = System::Drawing::Point(619, 31);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(0, 13);
 			this->label4->TabIndex = 19;
@@ -296,7 +345,7 @@ namespace curseProject1 {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(924, 66);
+			this->label5->Location = System::Drawing::Point(924, 31);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(0, 13);
 			this->label5->TabIndex = 20;
@@ -323,12 +372,240 @@ namespace curseProject1 {
 			this->radioButton2->Text = L"По разным позициям";
 			this->radioButton2->UseVisualStyleBackColor = true;
 			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Location = System::Drawing::Point(924, 58);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 13);
+			this->label1->TabIndex = 34;
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->Location = System::Drawing::Point(619, 58);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(0, 13);
+			this->label6->TabIndex = 33;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->Location = System::Drawing::Point(314, 58);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(0, 13);
+			this->label7->TabIndex = 32;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(9, 58);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(0, 13);
+			this->label8->TabIndex = 31;
+			// 
+			// button10
+			// 
+			this->button10->Location = System::Drawing::Point(1065, 54);
+			this->button10->Name = L"button10";
+			this->button10->Size = System::Drawing::Size(81, 21);
+			this->button10->TabIndex = 30;
+			this->button10->Text = L"Предыдущий";
+			this->button10->UseVisualStyleBackColor = true;
+			// 
+			// button11
+			// 
+			this->button11->Location = System::Drawing::Point(1145, 54);
+			this->button11->Name = L"button11";
+			this->button11->Size = System::Drawing::Size(81, 21);
+			this->button11->TabIndex = 29;
+			this->button11->Text = L"Следующий";
+			this->button11->UseVisualStyleBackColor = true;
+			// 
+			// button12
+			// 
+			this->button12->Location = System::Drawing::Point(760, 54);
+			this->button12->Name = L"button12";
+			this->button12->Size = System::Drawing::Size(81, 21);
+			this->button12->TabIndex = 28;
+			this->button12->Text = L"Предыдущий";
+			this->button12->UseVisualStyleBackColor = true;
+			// 
+			// button13
+			// 
+			this->button13->Location = System::Drawing::Point(840, 54);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(81, 21);
+			this->button13->TabIndex = 27;
+			this->button13->Text = L"Следующий";
+			this->button13->UseVisualStyleBackColor = true;
+			// 
+			// button14
+			// 
+			this->button14->Location = System::Drawing::Point(456, 54);
+			this->button14->Name = L"button14";
+			this->button14->Size = System::Drawing::Size(81, 21);
+			this->button14->TabIndex = 26;
+			this->button14->Text = L"Предыдущий";
+			this->button14->UseVisualStyleBackColor = true;
+			// 
+			// button15
+			// 
+			this->button15->Location = System::Drawing::Point(536, 54);
+			this->button15->Name = L"button15";
+			this->button15->Size = System::Drawing::Size(81, 21);
+			this->button15->TabIndex = 25;
+			this->button15->Text = L"Следующий";
+			this->button15->UseVisualStyleBackColor = true;
+			// 
+			// button16
+			// 
+			this->button16->Location = System::Drawing::Point(150, 54);
+			this->button16->Name = L"button16";
+			this->button16->Size = System::Drawing::Size(81, 21);
+			this->button16->TabIndex = 24;
+			this->button16->Text = L"Предыдущий";
+			this->button16->UseVisualStyleBackColor = true;
+			// 
+			// button17
+			// 
+			this->button17->Location = System::Drawing::Point(230, 54);
+			this->button17->Name = L"button17";
+			this->button17->Size = System::Drawing::Size(81, 21);
+			this->button17->TabIndex = 23;
+			this->button17->Text = L"Следующий";
+			this->button17->UseVisualStyleBackColor = true;
+			// 
+			// label9
+			// 
+			this->label9->AutoSize = true;
+			this->label9->Location = System::Drawing::Point(9, 81);
+			this->label9->Name = L"label9";
+			this->label9->Size = System::Drawing::Size(35, 13);
+			this->label9->TabIndex = 35;
+			this->label9->Text = L"label9";
+			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Location = System::Drawing::Point(314, 80);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(41, 13);
+			this->label10->TabIndex = 36;
+			this->label10->Text = L"label10";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->Location = System::Drawing::Point(619, 80);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(41, 13);
+			this->label11->TabIndex = 37;
+			this->label11->Text = L"label11";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->Location = System::Drawing::Point(924, 80);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(41, 13);
+			this->label12->TabIndex = 38;
+			this->label12->Text = L"label12";
+			// 
+			// comboBox1
+			// 
+			this->comboBox1->FormattingEnabled = true;
+			this->comboBox1->Location = System::Drawing::Point(101, 27);
+			this->comboBox1->Name = L"comboBox1";
+			this->comboBox1->Size = System::Drawing::Size(43, 21);
+			this->comboBox1->TabIndex = 39;
+			// 
+			// comboBox2
+			// 
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Location = System::Drawing::Point(101, 54);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(43, 21);
+			this->comboBox2->TabIndex = 40;
+			// 
+			// comboBox3
+			// 
+			this->comboBox3->FormattingEnabled = true;
+			this->comboBox3->Location = System::Drawing::Point(407, 54);
+			this->comboBox3->Name = L"comboBox3";
+			this->comboBox3->Size = System::Drawing::Size(43, 21);
+			this->comboBox3->TabIndex = 42;
+			// 
+			// comboBox4
+			// 
+			this->comboBox4->FormattingEnabled = true;
+			this->comboBox4->Location = System::Drawing::Point(407, 27);
+			this->comboBox4->Name = L"comboBox4";
+			this->comboBox4->Size = System::Drawing::Size(43, 21);
+			this->comboBox4->TabIndex = 41;
+			// 
+			// comboBox5
+			// 
+			this->comboBox5->FormattingEnabled = true;
+			this->comboBox5->Location = System::Drawing::Point(711, 54);
+			this->comboBox5->Name = L"comboBox5";
+			this->comboBox5->Size = System::Drawing::Size(43, 21);
+			this->comboBox5->TabIndex = 44;
+			// 
+			// comboBox6
+			// 
+			this->comboBox6->FormattingEnabled = true;
+			this->comboBox6->Location = System::Drawing::Point(711, 27);
+			this->comboBox6->Name = L"comboBox6";
+			this->comboBox6->Size = System::Drawing::Size(43, 21);
+			this->comboBox6->TabIndex = 43;
+			// 
+			// comboBox7
+			// 
+			this->comboBox7->FormattingEnabled = true;
+			this->comboBox7->Location = System::Drawing::Point(1016, 54);
+			this->comboBox7->Name = L"comboBox7";
+			this->comboBox7->Size = System::Drawing::Size(43, 21);
+			this->comboBox7->TabIndex = 46;
+			// 
+			// comboBox8
+			// 
+			this->comboBox8->FormattingEnabled = true;
+			this->comboBox8->Location = System::Drawing::Point(1016, 27);
+			this->comboBox8->Name = L"comboBox8";
+			this->comboBox8->Size = System::Drawing::Size(43, 21);
+			this->comboBox8->TabIndex = 45;
+			// 
 			// Bytes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
 			this->ClientSize = System::Drawing::Size(1234, 681);
+			this->Controls->Add(this->comboBox7);
+			this->Controls->Add(this->comboBox8);
+			this->Controls->Add(this->comboBox5);
+			this->Controls->Add(this->comboBox6);
+			this->Controls->Add(this->comboBox3);
+			this->Controls->Add(this->comboBox4);
+			this->Controls->Add(this->comboBox2);
+			this->Controls->Add(this->comboBox1);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label10);
+			this->Controls->Add(this->label9);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->button10);
+			this->Controls->Add(this->button11);
+			this->Controls->Add(this->button12);
+			this->Controls->Add(this->button13);
+			this->Controls->Add(this->button14);
+			this->Controls->Add(this->button15);
+			this->Controls->Add(this->button16);
+			this->Controls->Add(this->button17);
 			this->Controls->Add(this->radioButton2);
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->label5);
@@ -379,5 +656,6 @@ namespace curseProject1 {
 		private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e);
+
 };
 }

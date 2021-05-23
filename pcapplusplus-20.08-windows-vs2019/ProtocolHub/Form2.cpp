@@ -4,8 +4,9 @@
 #include "Sessions.h"
 #include "PacketHelper.h"
 #include "findFunc.h"
+#include "DataClass.h"
 
-std::vector<PacketHelper> packets;                                                                              //вектор пакетов
+//std::vector<PacketHelper> packets;                                                                              //вектор пакетов
 
 /*
 Парсит файлы из списка переданных файлов
@@ -15,9 +16,9 @@ std::vector<PacketHelper> packets;                                              
 void curseProject1::Form2::StartParsingFiles(System::Collections::ArrayList^ systemFilePaths)
 {
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
-    packets = Service::getAllPackets(stringFilePaths);                                                          //Получаем вектор пакетов
-
-    for each (PacketHelper packet in packets)                                                                   //Проходим по всем пакетам
+    //packets = Service::getAllPackets(stringFilePaths);                                                          //Получаем вектор пакетов
+    pack = Service::getAllPackets(stringFilePaths);
+    for each (PacketHelper packet in pack)                                                                   //Проходим по всем пакетам
     {                                                                                                           //Добавляем информацию в таблицу
         int i = dataGridView1->Rows->Add();
 
@@ -57,7 +58,9 @@ System::Void curseProject1::Form2::закрытьПриложениеToolStripMenuItem_Click(Syst
 */
 System::Void curseProject1::Form2::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    packets.clear();
+    pack.clear();
+    sess.clear();
+    //packets.clear();
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
     return System::Void();
@@ -70,7 +73,7 @@ System::Void curseProject1::Form2::dataGridView1_CellClick(System::Object^ sende
 {
     int i = 0;
     dataGridView2->Columns->Clear();
-    for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
+    for each (std::string info in pack[dataGridView1->CurrentCell->RowIndex].getProtocols())//было packets
     {
         dataGridView2->Columns->Add(i.ToString(), Convert_string_to_String(info));
         i++;
