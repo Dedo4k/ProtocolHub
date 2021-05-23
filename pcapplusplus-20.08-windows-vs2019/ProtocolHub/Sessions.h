@@ -18,6 +18,7 @@ namespace curseProject1 {
 			this->systemFilePaths = gcnew System::Collections::ArrayList(systemFilePaths);
 			InitializeComponent();
 			startDrawingSessions(systemFilePaths);
+			drawHandshake();
 		}
 
 	protected:
@@ -28,10 +29,11 @@ namespace curseProject1 {
 				delete components;
 			}
 		}
+
+	protected:
 	private: System::Collections::ArrayList^ filters;
 	private: System::Collections::ArrayList^ systemFilePaths;
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	protected:
 	private: System::Windows::Forms::ToolStripMenuItem^ Ù‡ÈÎToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ Ì‡Á‡‰ToolStripMenuItem;
 	private: System::Windows::Forms::DataVisualization::Charting::Chart^ chart1;
@@ -43,7 +45,6 @@ namespace curseProject1 {
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::BindingSource^ bindingSource1;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
-
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocols;
 	private: System::Windows::Forms::ToolStripMenuItem^ ·‡ÈÚÓ‚Í‡ToolStripMenuItem;
@@ -54,8 +55,8 @@ namespace curseProject1 {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Sessions::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->Ù‡ÈÎToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -105,8 +106,10 @@ namespace curseProject1 {
 			// 
 			// Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem
 			// 
+			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->BackColor = System::Drawing::Color::White;
+			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem.Image")));
 			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Name = L"Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem";
-			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Size = System::Drawing::Size(197, 26);
 			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Text = L"«‡Í˚Ú¸ ÔËÎÓÊÂÌËÂ";
 			this->Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem_Click);
 			// 
@@ -139,9 +142,9 @@ namespace curseProject1 {
 			this->chart1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->chart1->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Solid;
-			chartArea2->BackColor = System::Drawing::Color::DimGray;
-			chartArea2->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea2);
+			chartArea1->BackColor = System::Drawing::Color::DimGray;
+			chartArea1->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea1);
 			this->chart1->Location = System::Drawing::Point(172, 74);
 			this->chart1->Margin = System::Windows::Forms::Padding(2);
 			this->chart1->Name = L"chart1";
@@ -149,6 +152,7 @@ namespace curseProject1 {
 			this->chart1->Size = System::Drawing::Size(1246, 756);
 			this->chart1->TabIndex = 1;
 			this->chart1->Text = L"chart1";
+			this->chart1->AxisViewChanged += gcnew System::EventHandler<System::Windows::Forms::DataVisualization::Charting::ViewEventArgs^ >(this, &Sessions::chart1_AxisViewChanged);
 			// 
 			// trackBar1
 			// 
@@ -156,7 +160,7 @@ namespace curseProject1 {
 			this->trackBar1->Cursor = System::Windows::Forms::Cursors::Default;
 			this->trackBar1->Location = System::Drawing::Point(1340, 25);
 			this->trackBar1->Margin = System::Windows::Forms::Padding(2);
-			this->trackBar1->Maximum = 52;
+			this->trackBar1->Maximum = 50;
 			this->trackBar1->Name = L"trackBar1";
 			this->trackBar1->Size = System::Drawing::Size(78, 45);
 			this->trackBar1->TabIndex = 2;
@@ -203,6 +207,9 @@ namespace curseProject1 {
 			// button1
 			// 
 			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
+			this->button1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.BackgroundImage")));
+			this->button1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->button1->ForeColor = System::Drawing::SystemColors::ControlText;
 			this->button1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button1.Image")));
 			this->button1->Location = System::Drawing::Point(1196, 25);
 			this->button1->Margin = System::Windows::Forms::Padding(2);
@@ -240,7 +247,8 @@ namespace curseProject1 {
 			// button2
 			// 
 			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
-			this->button2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.Image")));
+			this->button2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"button2.BackgroundImage")));
+			this->button2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->button2->Location = System::Drawing::Point(1136, 25);
 			this->button2->Margin = System::Windows::Forms::Padding(2);
 			this->button2->Name = L"button2";
@@ -270,7 +278,6 @@ namespace curseProject1 {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"ProtocolHub";
 			this->WindowState = System::Windows::Forms::FormWindowState::Maximized;
-			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &Sessions::Sessions_FormClosing);
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->EndInit();
@@ -282,24 +289,25 @@ namespace curseProject1 {
 			this->PerformLayout();
 
 		}
+
 #pragma endregion
 
+		public: void drawHandshake();
 		public: void startDrawingSessions(System::Collections::ArrayList^ systemFilePaths);
 		public: void startFinding();
 		public: void setFilters(System::Collections::ArrayList^ filters);
-		public: void addSession(int i);
 		public: System::Collections::ArrayList^ getSystemFilePaths();
+
 		private: System::Void Ì‡Á‡‰ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
-		
-		private: System::Void trackBar1_Scroll(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void trackBar2_Scroll(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
-		private: System::Void trackBar1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-		private: System::Void trackBar2_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
-		private: System::Void Sessions_FormClosing(System::Object^ sender, System::Windows::Forms::FormClosingEventArgs^ e);
-		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void ÙËÎ¸Ú˚ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void ·‡ÈÚÓ‚Í‡ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void Á‡Í˚Ú¸œËÎÓÊÂÌËÂToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void trackBar1_Scroll(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void trackBar2_Scroll(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void trackBar1_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		private: System::Void trackBar2_MouseUp(System::Object^ sender, System::Windows::Forms::MouseEventArgs^ e);
+		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void chart1_AxisViewChanged(System::Object^ sender, System::Windows::Forms::DataVisualization::Charting::ViewEventArgs^ e);
 };
 }

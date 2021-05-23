@@ -5,15 +5,20 @@
 #include "PacketHelper.h"
 #include "findFunc.h"
 
-std::vector<PacketHelper> packets;
+std::vector<PacketHelper> packets;                                                                              //вектор пакетов
 
+/*
+Парсит файлы из списка переданных файлов
+Формирует вектор пакетов
+Добавляет всю полученную информацию в таблицу
+*/
 void curseProject1::Form2::StartParsingFiles(System::Collections::ArrayList^ systemFilePaths)
 {
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
-    packets = Service::getAllPackets(stringFilePaths);
+    packets = Service::getAllPackets(stringFilePaths);                                                          //Получаем вектор пакетов
 
-    for each (PacketHelper packet in packets)
-    {
+    for each (PacketHelper packet in packets)                                                                   //Проходим по всем пакетам
+    {                                                                                                           //Добавляем информацию в таблицу
         int i = dataGridView1->Rows->Add();
 
         dataGridView1->Rows[i]->Cells[0]->Value = Convert_string_to_String(packet.getSrcIp().toString());       //Sourse
@@ -23,20 +28,12 @@ void curseProject1::Form2::StartParsingFiles(System::Collections::ArrayList^ sys
         dataGridView1->Rows[i]->Cells[4]->Value = Convert_string_to_String(packet.getProtocolName());           //Protocol
         dataGridView1->Rows[i]->Cells[5]->Value = Convert_string_to_String(packet.getTimestampAsString());      //Time
     }
-}
-
-System::Void curseProject1::Form2::dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
-{
-    int i = 0;
-    dataGridView2->Columns->Clear();
-    for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
-    {
-        dataGridView2->Columns->Add(i.ToString(), Convert_string_to_String(info));
-        i++;
-    }
     return System::Void();
 }
 
+/*
+Открывает окно для работы с сессиями при нажатии на кнопку "Сессии" из панели меню
+*/
 System::Void curseProject1::Form2::сессииToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     this->Hide();
@@ -46,16 +43,37 @@ System::Void curseProject1::Form2::сессииToolStripMenuItem_Click(System::Object^
     return System::Void();
 }
 
+/*
+Закрывает приложение при нажатии на кнопку "Закрыть приложение" из панели меню
+*/
 System::Void curseProject1::Form2::закрытьПриложениеToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     Environment::Exit(0);
     return System::Void();
 }
 
+/*
+Закрывает текущее окно при нажатии на кнопку "Назад" из панели меню и открывает окно для работы с сессими
+*/
 System::Void curseProject1::Form2::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
     packets.clear();
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
+    return System::Void();
+}
+
+/*
+Выводит дополнительную информацию о пакете при нажатии на ряд из таблицы
+*/
+System::Void curseProject1::Form2::dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e)
+{
+    int i = 0;
+    dataGridView2->Columns->Clear();
+    for each (std::string info in packets[dataGridView1->CurrentCell->RowIndex].getProtocols())
+    {
+        dataGridView2->Columns->Add(i.ToString(), Convert_string_to_String(info));
+        i++;
+    }
     return System::Void();
 }

@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 	system("color 0a");
 
 	// open a pcap file for reading
-	pcpp::IFileReaderDevice* reader = pcpp::IFileReaderDevice::getReader("my.pcap");
+	pcpp::IFileReaderDevice* reader = pcpp::IFileReaderDevice::getReader("ng.pcapng");
 	if (!reader->open())
 	{
 		printf("Error opening the pcap file\n");

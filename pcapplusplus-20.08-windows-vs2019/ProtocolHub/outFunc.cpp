@@ -1,6 +1,6 @@
 #include "outFunc.h"
 
-//получение tcp флагов
+//getting tcp flags as string
 std::string printTcpFlags(pcpp::TcpLayer* tcp)
 {
 	std::string result = "";
@@ -24,7 +24,7 @@ std::string printTcpFlags(pcpp::TcpLayer* tcp)
 	return result;
 }
 
-//получение tcp опций
+//getting tcp option type as string
 std::string printTcpOptionType(pcpp::TcpLayer* tcp)
 {
 	std::string result = "";
@@ -119,7 +119,7 @@ std::string printTcpOptionType(pcpp::TcpLayer* tcp)
 		return result;
 }
 
-//получение dns операций
+//getting dns operations as string
 std::string printDnsOperation(pcpp::DnsLayer* dns)
 {
 	switch (ntohs(dns->getDnsHeader()->opcode))
@@ -151,7 +151,7 @@ std::string printDnsOperation(pcpp::DnsLayer* dns)
 	}
 }
 
-//получение имени протокола с AIPN
+//getting AIPN as name of protocol
 std::string printIPv4Protocol(pcpp::IPv4Layer* ip)
 {
 	switch (ip->getIPv4Header()->protocol)
@@ -216,7 +216,7 @@ std::string printIPv4Protocol(pcpp::IPv4Layer* ip)
 	}
 }
 
-//получение http методов
+//getting http methods as string
 std::string printHTTPMethods(pcpp::HttpRequestLayer* httpRq)
 {
 	switch (httpRq->getFirstLine()->getMethod())
@@ -257,7 +257,7 @@ std::string printHTTPMethods(pcpp::HttpRequestLayer* httpRq)
 	}
 }
 
-//получение http версии
+//getting http version as string
 std::string printHTTPVersion(pcpp::HttpRequestLayer* httpRq)
 {
 	switch (httpRq->getFirstLine()->getVersion())
@@ -303,7 +303,7 @@ std::string printHTTPVersion(pcpp::HttpResponseLayer* httpRs)
 	}
 }
 
-//получение SSL ипа записи
+//getting ssl record type as string
 std::string printSslRecordType(pcpp::SSLLayer* ssl)
 {
 	switch (ssl->getRecordType())
@@ -326,7 +326,7 @@ std::string printSslRecordType(pcpp::SSLLayer* ssl)
 	}
 }
 
-//получение ssl сообщения
+//getting ssl message as string
 std::string printSslMessage(pcpp::Packet& parsedPacket, pcpp::SSLLayer* ssl)
 {
 	std::string result = "";
@@ -463,7 +463,7 @@ std::string printSslMessage(pcpp::Packet& parsedPacket, pcpp::SSLLayer* ssl)
 	return result;
 }
 
-//преобразование из 10 в 16 систему
+//getting value and convert to hex as string
 std::string dToX(int value)
 {
 	int temp;
@@ -484,7 +484,6 @@ std::string dToX(int value)
 	return result;
 }
 
-//вывод времени
 size_t tmToSec(tm &value)
 {
 	size_t result = 0;
@@ -496,7 +495,6 @@ size_t tmToSec(tm &value)
 	return result;
 }
 
-//сортировка аски кодов и символов
 std::string charToAscii(char ch)
 {
 	std::string result = "";

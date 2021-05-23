@@ -1,6 +1,5 @@
 #include "SessionHelper.h"
 
-//конструктор
 SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 {
 	bool flag = true;
@@ -101,19 +100,28 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 	//getting data as bytes
 	for (size_t i = 0; i < packets.size(); ++i)
 	{
+		std::string temp;
 		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
 		{
 			char ch = packets[i].getPacketRaw()->getRawData()[j];
 			if (ch<257 && ch>-1)
-				bytes += ch;
+				temp += ch;
 		}
+		bytes.push_back(temp);
 	}
 }
 
-//начало блока геттеров
 std::string SessionHelper::getAppName()
 {
 	return appName;
+}
+void SessionHelper::setNum(size_t value)
+{
+	num = value;
+}
+size_t SessionHelper::getNum()
+{
+	return num;
 }
 pcpp::IPAddress SessionHelper::getSrcIp()
 {
@@ -179,4 +187,3 @@ bool SessionHelper::isHandshake()
 {
 	return handshake;
 }
-//конец блока геттеров
