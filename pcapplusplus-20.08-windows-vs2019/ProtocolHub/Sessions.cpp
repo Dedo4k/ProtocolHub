@@ -56,6 +56,10 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     counter2 = 1;
     counter3 = 2;
     counter4 = 3;
+    packetCounter1 = 0;
+    packetCounter2 = 0;
+    packetCounter3 = 0;
+    packetCounter4 = 0;
     if (sess.empty())
     {
         while (flag)                                                                   //формируем вектор сессий

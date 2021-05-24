@@ -9,6 +9,7 @@
 
 //std::vector<PacketHelper> packets2;                                                                         //вектор пакетов
 //std::vector<SessionHelper> sessions2;                                                                       //вектор сессий
+std::vector<SessionHelper> sessions;
 
 //int counter1 = 0;                                                                                           //номер сессии для "richTextBox1"
 //int counter2 = 1;                                                                                           //номер сессии для "richTextBox2"
@@ -37,9 +38,8 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
     //            flag = false;
     //    }
     //}
-
+    sessions.clear();
     String^ str;
-    std::vector<SessionHelper> sessions;
     int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
     for (size_t i = 0; i < sessBytes.size()&&i<4; i++)                                                      //формируем вектор сессий для вывода в "richTextBox"
     {                                                                                                       //выставляем флаги для вывода сессий в "richTextBox"
@@ -62,12 +62,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
                 str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[0][i])) + " ";
             }
             richTextBox1->Text = str;
-            for (size_t i = 0; i < sessions[0].getBytes().size(); i++)
+            comboBox1->Items->Clear();
+            for (size_t i = 0; i < sessBytes.size(); i++)
             {
-                comboBox1->Items->Add(i);
+                comboBox1->Items->Add(sessBytes[i].getNum());
             }
             comboBox1->SelectedIndex = counter1;
-            label2->Text = "Номер сессии: " + sessions[0].getNum();
+            for (size_t i = 0; i < sessions[0].getPackets().size(); i++)
+            {
+                comboBox2->Items->Add(i);
+            }
+            comboBox2->SelectedIndex = packetCounter1;
+            label2->Text = "Номер сессии: ";
             label8->Text = "Номер пакета: ";
             label9->Text = Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
@@ -79,12 +85,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
                 str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[0][i])) + " ";
             }
             richTextBox2->Text = str;
-            for (size_t i = 0; i < sessions[1].getBytes().size(); i++)
+            comboBox4->Items->Clear();
+            for (size_t i = 0; i < sessBytes.size(); i++)
             {
-                comboBox4->Items->Add(i);
+                comboBox4->Items->Add(sessBytes[i].getNum());
             }
             comboBox4->SelectedIndex = counter2;
-            label3->Text = "Номер сессии: " + sessions[1].getNum();
+            for (size_t i = 0; i < sessions[1].getPackets().size(); i++)
+            {
+                comboBox3->Items->Add(i);
+            }
+            comboBox3->SelectedIndex = packetCounter2;
+            label3->Text = "Номер сессии: ";
             label7->Text = "Номер пакета: ";
             label10->Text = Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
@@ -96,12 +108,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
                 str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[0][i])) + " ";
             }
             richTextBox3->Text = str;
-            for (size_t i = 0; i < sessions[2].getBytes().size(); i++)
+            comboBox6->Items->Clear();
+            for (size_t i = 0; i < sessBytes.size(); i++)
             {
-                comboBox6->Items->Add(i);
+                comboBox6->Items->Add(sessBytes[i].getNum());
             }
             comboBox6->SelectedIndex = counter3;
-            label4->Text = "Номер сессии: " + sessions[2].getNum();
+            for (size_t i = 0; i < sessions[2].getPackets().size(); i++)
+            {
+                comboBox5->Items->Add(i);
+            }
+            comboBox5->SelectedIndex = packetCounter3;
+            label4->Text = "Номер сессии: ";
             label6->Text = "Номер пакета: ";
             label11->Text = Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
@@ -113,12 +131,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
                 str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[0][i])) + " ";
             }
             richTextBox4->Text = str;
-            for (size_t i = 0; i < sessions[3].getBytes().size(); i++)
+            comboBox8->Items->Clear();
+            for (size_t i = 0; i < sessBytes.size(); i++)
             {
-                comboBox8->Items->Add(i);
+                comboBox8->Items->Add(sessBytes[i].getNum());
             }
             comboBox8->SelectedIndex = counter4;
-            label5->Text = "Номер сессии: " + sessions[3].getNum();
+            for (size_t i = 0; i < sessions[3].getPackets().size(); i++)
+            {
+                comboBox7->Items->Add(i);
+            }
+            comboBox7->SelectedIndex = packetCounter4;
+            label5->Text = "Номер сессии: ";
             label1->Text = "Номер пакета: ";
             label12->Text = Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
         }
@@ -129,12 +153,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f1)                                                                                             //проверка существования
         {
             str = "";
-            for (size_t i = 0; i < sessions[0].getBytes()[0].length(); i++)
+            for (size_t i = 0; i < sessions[0].getBytes()[packetCounter1].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[0][i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[0].getBytes()[packetCounter1][i])) + " ";
             }
             richTextBox1->Text = str;
-            label2->Text = "Номер сессии: " + sessions[0].getNum();
+            comboBox2->Items->Clear();
+            for (size_t i = 0; i < sessions[0].getPackets().size(); i++)
+            {
+                comboBox2->Items->Add(i);
+            }
+            comboBox1->SelectedIndex = counter1;
+            comboBox2->SelectedIndex = packetCounter1;
         }
         break;
     }
@@ -143,12 +173,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f2)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[1].getBytes()[0].length(); i++)
+            for (size_t i = 0; i < sessions[1].getBytes()[packetCounter2].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[0][i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[1].getBytes()[packetCounter2][i])) + " ";
             }
             richTextBox2->Text = str;
-            label3->Text = "Номер сессии: " + sessions[1].getNum();
+            comboBox3->Items->Clear();
+            for (size_t i = 0; i < sessions[1].getPackets().size(); i++)
+            {
+                comboBox3->Items->Add(i);
+            }
+            comboBox4->SelectedIndex = counter2;
+            comboBox3->SelectedIndex = packetCounter2;
         }
         break;
     }
@@ -157,12 +193,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f3)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[2].getBytes()[0].length(); i++)
+            for (size_t i = 0; i < sessions[2].getBytes()[packetCounter3].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[0][i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[2].getBytes()[packetCounter3][i])) + " ";
             }
             richTextBox3->Text = str;
-            label4->Text = "Номер сессии: " + sessions[2].getNum();
+            comboBox5->Items->Clear();
+            for (size_t i = 0; i < sessions[2].getPackets().size(); i++)
+            {
+                comboBox5->Items->Add(i);
+            }
+            comboBox6->SelectedIndex = counter3;
+            comboBox5->SelectedIndex = packetCounter3;
         }
         break;
     }
@@ -171,12 +213,18 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
         if (f4)                                                                                             //первоначальная инициализация
         {
             str = "";
-            for (size_t i = 0; i < sessions[3].getBytes()[0].length(); i++)
+            for (size_t i = 0; i < sessions[3].getBytes()[packetCounter4].length(); i++)
             {
-                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[0][i])) + " ";
+                str += Convert_string_to_String(charToAscii(sessions[3].getBytes()[packetCounter4][i])) + " ";
             }
             richTextBox4->Text = str;
-            label5->Text = "Номер сессии: " + sessions[3].getNum();
+            comboBox7->Items->Clear();
+            for (size_t i = 0; i < sessions[3].getPackets().size(); i++)
+            {
+                comboBox7->Items->Add(i);
+            }
+            comboBox8->SelectedIndex = counter4;
+            comboBox7->SelectedIndex = packetCounter4;
         }
         break;
     }
@@ -219,6 +267,7 @@ System::Void curseProject1::Bytes::button1_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1++;
+    packetCounter1 = 0;
     if (counter1 == sessBytes.size())
         counter1 = 0;
     startDrawingBytes(systemFilePaths);
@@ -233,6 +282,7 @@ System::Void curseProject1::Bytes::button2_Click(System::Object^ sender, System:
 {
     box = 1;
     counter1--;
+    packetCounter1 = 0;
     if (counter1 == sessBytes.size() || counter1 == -1)
         counter1 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
@@ -247,6 +297,7 @@ System::Void curseProject1::Bytes::button3_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2--;
+    packetCounter2 = 0;
     if (counter2 == sessBytes.size() || counter2 == -1)
         counter2 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
@@ -261,6 +312,7 @@ System::Void curseProject1::Bytes::button4_Click(System::Object^ sender, System:
 {
     box = 2;
     counter2++;
+    packetCounter2 = 0;
     if (counter2 == sessBytes.size())
         counter2 = 0;
     startDrawingBytes(systemFilePaths);
@@ -275,6 +327,7 @@ System::Void curseProject1::Bytes::button5_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3--;
+    packetCounter3 = 0;
     if (counter3 == sessBytes.size() || counter3 == -1)
         counter3 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
@@ -289,6 +342,7 @@ System::Void curseProject1::Bytes::button6_Click(System::Object^ sender, System:
 {
     box = 3;
     counter3++;
+    packetCounter3 = 0;
     if (counter3 == sessBytes.size())
         counter3 = 0;
     startDrawingBytes(systemFilePaths);
@@ -303,6 +357,7 @@ System::Void curseProject1::Bytes::button7_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4--;
+    packetCounter4 = 0;
     if (counter4 == sessBytes.size() || counter4 == -1)
         counter4 = sessBytes.size()-1;
     startDrawingBytes(systemFilePaths);
@@ -317,6 +372,7 @@ System::Void curseProject1::Bytes::button8_Click(System::Object^ sender, System:
 {
     box = 4;
     counter4++;
+    packetCounter4 = 0;
     if (counter4 == sessBytes.size())
         counter4 = 0;
     startDrawingBytes(systemFilePaths);
@@ -570,5 +626,85 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
             richTextBox4->SelectionBackColor = System::Drawing::Color::Blue;
         }
     }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button16_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 1;
+    packetCounter1--;
+    if (packetCounter1 == sessions[0].getPackets().size() || packetCounter1 == -1)
+        packetCounter1 = sessions[0].getPackets().size() - 1;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button17_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 1;
+    packetCounter1++;
+    if (packetCounter1 == sessions[0].getPackets().size())
+        packetCounter1 = 0;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button14_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 2;
+    packetCounter2--;
+    if (packetCounter2 == sessions[1].getPackets().size() || packetCounter2 == -1)
+        packetCounter2 = sessions[1].getPackets().size() - 1;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button15_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 2;
+    packetCounter2++;
+    if (packetCounter2 == sessions[1].getPackets().size())
+        packetCounter2 = 0;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button12_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 3;
+    packetCounter3--;
+    if (packetCounter3 == sessions[2].getPackets().size() || packetCounter3 == -1)
+        packetCounter3 = sessions[2].getPackets().size() - 1;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button13_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 3;
+    packetCounter3++;
+    if (packetCounter3 == sessions[2].getPackets().size())
+        packetCounter3 = 0;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button10_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 4;
+    packetCounter4--;
+    if (packetCounter4 == sessions[3].getPackets().size() || packetCounter4 == -1)
+        packetCounter4 = sessions[3].getPackets().size() - 1;
+    startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::button11_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    box = 4;
+    packetCounter4++;
+    if (packetCounter4 == sessions[3].getPackets().size())
+        packetCounter4 = 0;
+    startDrawingBytes(systemFilePaths);
     return System::Void();
 }

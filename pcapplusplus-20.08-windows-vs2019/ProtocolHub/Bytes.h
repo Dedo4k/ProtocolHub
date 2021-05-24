@@ -140,13 +140,14 @@ namespace curseProject1 {
 			// 
 			this->menuStrip1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->menuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->ôàéëToolStripMenuItem,
 					this->íàçàäToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1234, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1645, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -154,7 +155,7 @@ namespace curseProject1 {
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêðûòüÏðèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// çàêðûòüÏðèëîæåíèåToolStripMenuItem
@@ -162,14 +163,14 @@ namespace curseProject1 {
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêðûòüÏðèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Name = L"çàêðûòüÏðèëîæåíèåToolStripMenuItem";
-			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(242, 26);
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Text = L"Çàêðûòü ïðèëîæåíèå";
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Bytes::çàêðûòüÏðèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(51, 20);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Bytes::íàçàäToolStripMenuItem_Click);
 			// 
@@ -178,18 +179,20 @@ namespace curseProject1 {
 			this->richTextBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->richTextBox1->Location = System::Drawing::Point(12, 100);
+			this->richTextBox1->Location = System::Drawing::Point(16, 123);
+			this->richTextBox1->Margin = System::Windows::Forms::Padding(4);
 			this->richTextBox1->Name = L"richTextBox1";
 			this->richTextBox1->ReadOnly = true;
-			this->richTextBox1->Size = System::Drawing::Size(299, 279);
+			this->richTextBox1->Size = System::Drawing::Size(397, 342);
 			this->richTextBox1->TabIndex = 1;
 			this->richTextBox1->Text = L"";
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(230, 27);
+			this->button1->Location = System::Drawing::Point(307, 33);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(81, 21);
+			this->button1->Size = System::Drawing::Size(108, 26);
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Ñëåäóþùàÿ";
 			this->button1->UseVisualStyleBackColor = true;
@@ -197,9 +200,10 @@ namespace curseProject1 {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(150, 27);
+			this->button2->Location = System::Drawing::Point(200, 33);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(81, 21);
+			this->button2->Size = System::Drawing::Size(108, 26);
 			this->button2->TabIndex = 3;
 			this->button2->Text = L"Ïðåäûäóùàÿ";
 			this->button2->UseVisualStyleBackColor = true;
@@ -210,10 +214,11 @@ namespace curseProject1 {
 			this->richTextBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->richTextBox2->Location = System::Drawing::Point(317, 100);
+			this->richTextBox2->Location = System::Drawing::Point(423, 123);
+			this->richTextBox2->Margin = System::Windows::Forms::Padding(4);
 			this->richTextBox2->Name = L"richTextBox2";
 			this->richTextBox2->ReadOnly = true;
-			this->richTextBox2->Size = System::Drawing::Size(299, 279);
+			this->richTextBox2->Size = System::Drawing::Size(397, 342);
 			this->richTextBox2->TabIndex = 5;
 			this->richTextBox2->Text = L"";
 			// 
@@ -222,10 +227,11 @@ namespace curseProject1 {
 			this->richTextBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->richTextBox3->Location = System::Drawing::Point(622, 100);
+			this->richTextBox3->Location = System::Drawing::Point(829, 123);
+			this->richTextBox3->Margin = System::Windows::Forms::Padding(4);
 			this->richTextBox3->Name = L"richTextBox3";
 			this->richTextBox3->ReadOnly = true;
-			this->richTextBox3->Size = System::Drawing::Size(299, 279);
+			this->richTextBox3->Size = System::Drawing::Size(397, 342);
 			this->richTextBox3->TabIndex = 6;
 			this->richTextBox3->Text = L"";
 			// 
@@ -234,18 +240,20 @@ namespace curseProject1 {
 			this->richTextBox4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->richTextBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->richTextBox4->Location = System::Drawing::Point(927, 100);
+			this->richTextBox4->Location = System::Drawing::Point(1236, 123);
+			this->richTextBox4->Margin = System::Windows::Forms::Padding(4);
 			this->richTextBox4->Name = L"richTextBox4";
 			this->richTextBox4->ReadOnly = true;
-			this->richTextBox4->Size = System::Drawing::Size(299, 279);
+			this->richTextBox4->Size = System::Drawing::Size(397, 342);
 			this->richTextBox4->TabIndex = 7;
 			this->richTextBox4->Text = L"";
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(456, 27);
+			this->button3->Location = System::Drawing::Point(608, 33);
+			this->button3->Margin = System::Windows::Forms::Padding(4);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(81, 21);
+			this->button3->Size = System::Drawing::Size(108, 26);
 			this->button3->TabIndex = 9;
 			this->button3->Text = L"Ïðåäûäóùàÿ";
 			this->button3->UseVisualStyleBackColor = true;
@@ -253,9 +261,10 @@ namespace curseProject1 {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(536, 27);
+			this->button4->Location = System::Drawing::Point(715, 33);
+			this->button4->Margin = System::Windows::Forms::Padding(4);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(81, 21);
+			this->button4->Size = System::Drawing::Size(108, 26);
 			this->button4->TabIndex = 8;
 			this->button4->Text = L"Ñëåäóþùàÿ";
 			this->button4->UseVisualStyleBackColor = true;
@@ -263,9 +272,10 @@ namespace curseProject1 {
 			// 
 			// button5
 			// 
-			this->button5->Location = System::Drawing::Point(760, 27);
+			this->button5->Location = System::Drawing::Point(1013, 33);
+			this->button5->Margin = System::Windows::Forms::Padding(4);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(81, 21);
+			this->button5->Size = System::Drawing::Size(108, 26);
 			this->button5->TabIndex = 11;
 			this->button5->Text = L"Ïðåäûäóùàÿ";
 			this->button5->UseVisualStyleBackColor = true;
@@ -273,9 +283,10 @@ namespace curseProject1 {
 			// 
 			// button6
 			// 
-			this->button6->Location = System::Drawing::Point(840, 27);
+			this->button6->Location = System::Drawing::Point(1120, 33);
+			this->button6->Margin = System::Windows::Forms::Padding(4);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(81, 21);
+			this->button6->Size = System::Drawing::Size(108, 26);
 			this->button6->TabIndex = 10;
 			this->button6->Text = L"Ñëåäóþùàÿ";
 			this->button6->UseVisualStyleBackColor = true;
@@ -283,9 +294,10 @@ namespace curseProject1 {
 			// 
 			// button7
 			// 
-			this->button7->Location = System::Drawing::Point(1065, 27);
+			this->button7->Location = System::Drawing::Point(1420, 33);
+			this->button7->Margin = System::Windows::Forms::Padding(4);
 			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(81, 21);
+			this->button7->Size = System::Drawing::Size(108, 26);
 			this->button7->TabIndex = 13;
 			this->button7->Text = L"Ïðåäûäóùàÿ";
 			this->button7->UseVisualStyleBackColor = true;
@@ -293,9 +305,10 @@ namespace curseProject1 {
 			// 
 			// button8
 			// 
-			this->button8->Location = System::Drawing::Point(1145, 27);
+			this->button8->Location = System::Drawing::Point(1527, 33);
+			this->button8->Margin = System::Windows::Forms::Padding(4);
 			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(81, 21);
+			this->button8->Size = System::Drawing::Size(108, 26);
 			this->button8->TabIndex = 12;
 			this->button8->Text = L"Ñëåäóþùàÿ";
 			this->button8->UseVisualStyleBackColor = true;
@@ -303,16 +316,18 @@ namespace curseProject1 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(12, 385);
+			this->textBox1->Location = System::Drawing::Point(16, 474);
+			this->textBox1->Margin = System::Windows::Forms::Padding(4);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(261, 20);
+			this->textBox1->Size = System::Drawing::Size(347, 22);
 			this->textBox1->TabIndex = 14;
 			// 
 			// button9
 			// 
-			this->button9->Location = System::Drawing::Point(279, 385);
+			this->button9->Location = System::Drawing::Point(372, 474);
+			this->button9->Margin = System::Windows::Forms::Padding(4);
 			this->button9->Name = L"button9";
-			this->button9->Size = System::Drawing::Size(75, 20);
+			this->button9->Size = System::Drawing::Size(100, 25);
 			this->button9->TabIndex = 16;
 			this->button9->Text = L"Íàéòè";
 			this->button9->UseVisualStyleBackColor = true;
@@ -321,42 +336,47 @@ namespace curseProject1 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 31);
+			this->label2->Location = System::Drawing::Point(12, 38);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(0, 13);
+			this->label2->Size = System::Drawing::Size(0, 17);
 			this->label2->TabIndex = 17;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(314, 31);
+			this->label3->Location = System::Drawing::Point(419, 38);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(0, 13);
+			this->label3->Size = System::Drawing::Size(0, 17);
 			this->label3->TabIndex = 18;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(619, 31);
+			this->label4->Location = System::Drawing::Point(825, 38);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(0, 13);
+			this->label4->Size = System::Drawing::Size(0, 17);
 			this->label4->TabIndex = 19;
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(924, 31);
+			this->label5->Location = System::Drawing::Point(1232, 38);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(0, 13);
+			this->label5->Size = System::Drawing::Size(0, 17);
 			this->label5->TabIndex = 20;
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->Checked = true;
-			this->radioButton1->Location = System::Drawing::Point(12, 431);
+			this->radioButton1->Location = System::Drawing::Point(16, 530);
+			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(117, 17);
+			this->radioButton1->Size = System::Drawing::Size(150, 21);
 			this->radioButton1->TabIndex = 21;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Ïî îäíîé ïîçèöèè";
@@ -365,9 +385,10 @@ namespace curseProject1 {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(12, 455);
+			this->radioButton2->Location = System::Drawing::Point(16, 560);
+			this->radioButton2->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(135, 17);
+			this->radioButton2->Size = System::Drawing::Size(169, 21);
 			this->radioButton2->TabIndex = 22;
 			this->radioButton2->Text = L"Ïî ðàçíûì ïîçèöèÿì";
 			this->radioButton2->UseVisualStyleBackColor = true;
@@ -375,213 +396,245 @@ namespace curseProject1 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(924, 58);
+			this->label1->Location = System::Drawing::Point(1232, 71);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(0, 13);
+			this->label1->Size = System::Drawing::Size(0, 17);
 			this->label1->TabIndex = 34;
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(619, 58);
+			this->label6->Location = System::Drawing::Point(825, 71);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(0, 13);
+			this->label6->Size = System::Drawing::Size(0, 17);
 			this->label6->TabIndex = 33;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(314, 58);
+			this->label7->Location = System::Drawing::Point(419, 71);
+			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 13);
+			this->label7->Size = System::Drawing::Size(0, 17);
 			this->label7->TabIndex = 32;
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(9, 58);
+			this->label8->Location = System::Drawing::Point(12, 71);
+			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(0, 13);
+			this->label8->Size = System::Drawing::Size(0, 17);
 			this->label8->TabIndex = 31;
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(1065, 54);
+			this->button10->Location = System::Drawing::Point(1420, 66);
+			this->button10->Margin = System::Windows::Forms::Padding(4);
 			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(81, 21);
+			this->button10->Size = System::Drawing::Size(108, 26);
 			this->button10->TabIndex = 30;
 			this->button10->Text = L"Ïðåäûäóùèé";
 			this->button10->UseVisualStyleBackColor = true;
+			this->button10->Click += gcnew System::EventHandler(this, &Bytes::button10_Click);
 			// 
 			// button11
 			// 
-			this->button11->Location = System::Drawing::Point(1145, 54);
+			this->button11->Location = System::Drawing::Point(1527, 66);
+			this->button11->Margin = System::Windows::Forms::Padding(4);
 			this->button11->Name = L"button11";
-			this->button11->Size = System::Drawing::Size(81, 21);
+			this->button11->Size = System::Drawing::Size(108, 26);
 			this->button11->TabIndex = 29;
 			this->button11->Text = L"Ñëåäóþùèé";
 			this->button11->UseVisualStyleBackColor = true;
+			this->button11->Click += gcnew System::EventHandler(this, &Bytes::button11_Click);
 			// 
 			// button12
 			// 
-			this->button12->Location = System::Drawing::Point(760, 54);
+			this->button12->Location = System::Drawing::Point(1013, 66);
+			this->button12->Margin = System::Windows::Forms::Padding(4);
 			this->button12->Name = L"button12";
-			this->button12->Size = System::Drawing::Size(81, 21);
+			this->button12->Size = System::Drawing::Size(108, 26);
 			this->button12->TabIndex = 28;
 			this->button12->Text = L"Ïðåäûäóùèé";
 			this->button12->UseVisualStyleBackColor = true;
+			this->button12->Click += gcnew System::EventHandler(this, &Bytes::button12_Click);
 			// 
 			// button13
 			// 
-			this->button13->Location = System::Drawing::Point(840, 54);
+			this->button13->Location = System::Drawing::Point(1120, 66);
+			this->button13->Margin = System::Windows::Forms::Padding(4);
 			this->button13->Name = L"button13";
-			this->button13->Size = System::Drawing::Size(81, 21);
+			this->button13->Size = System::Drawing::Size(108, 26);
 			this->button13->TabIndex = 27;
 			this->button13->Text = L"Ñëåäóþùèé";
 			this->button13->UseVisualStyleBackColor = true;
+			this->button13->Click += gcnew System::EventHandler(this, &Bytes::button13_Click);
 			// 
 			// button14
 			// 
-			this->button14->Location = System::Drawing::Point(456, 54);
+			this->button14->Location = System::Drawing::Point(608, 66);
+			this->button14->Margin = System::Windows::Forms::Padding(4);
 			this->button14->Name = L"button14";
-			this->button14->Size = System::Drawing::Size(81, 21);
+			this->button14->Size = System::Drawing::Size(108, 26);
 			this->button14->TabIndex = 26;
 			this->button14->Text = L"Ïðåäûäóùèé";
 			this->button14->UseVisualStyleBackColor = true;
+			this->button14->Click += gcnew System::EventHandler(this, &Bytes::button14_Click);
 			// 
 			// button15
 			// 
-			this->button15->Location = System::Drawing::Point(536, 54);
+			this->button15->Location = System::Drawing::Point(715, 66);
+			this->button15->Margin = System::Windows::Forms::Padding(4);
 			this->button15->Name = L"button15";
-			this->button15->Size = System::Drawing::Size(81, 21);
+			this->button15->Size = System::Drawing::Size(108, 26);
 			this->button15->TabIndex = 25;
 			this->button15->Text = L"Ñëåäóþùèé";
 			this->button15->UseVisualStyleBackColor = true;
+			this->button15->Click += gcnew System::EventHandler(this, &Bytes::button15_Click);
 			// 
 			// button16
 			// 
-			this->button16->Location = System::Drawing::Point(150, 54);
+			this->button16->Location = System::Drawing::Point(200, 66);
+			this->button16->Margin = System::Windows::Forms::Padding(4);
 			this->button16->Name = L"button16";
-			this->button16->Size = System::Drawing::Size(81, 21);
+			this->button16->Size = System::Drawing::Size(108, 26);
 			this->button16->TabIndex = 24;
 			this->button16->Text = L"Ïðåäûäóùèé";
 			this->button16->UseVisualStyleBackColor = true;
+			this->button16->Click += gcnew System::EventHandler(this, &Bytes::button16_Click);
 			// 
 			// button17
 			// 
-			this->button17->Location = System::Drawing::Point(230, 54);
+			this->button17->Location = System::Drawing::Point(307, 66);
+			this->button17->Margin = System::Windows::Forms::Padding(4);
 			this->button17->Name = L"button17";
-			this->button17->Size = System::Drawing::Size(81, 21);
+			this->button17->Size = System::Drawing::Size(108, 26);
 			this->button17->TabIndex = 23;
 			this->button17->Text = L"Ñëåäóþùèé";
 			this->button17->UseVisualStyleBackColor = true;
+			this->button17->Click += gcnew System::EventHandler(this, &Bytes::button17_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(9, 81);
+			this->label9->Location = System::Drawing::Point(12, 100);
+			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(35, 13);
+			this->label9->Size = System::Drawing::Size(46, 17);
 			this->label9->TabIndex = 35;
 			this->label9->Text = L"label9";
 			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Location = System::Drawing::Point(314, 80);
+			this->label10->Location = System::Drawing::Point(419, 98);
+			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(41, 13);
+			this->label10->Size = System::Drawing::Size(54, 17);
 			this->label10->TabIndex = 36;
 			this->label10->Text = L"label10";
 			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Location = System::Drawing::Point(619, 80);
+			this->label11->Location = System::Drawing::Point(825, 98);
+			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(41, 13);
+			this->label11->Size = System::Drawing::Size(54, 17);
 			this->label11->TabIndex = 37;
 			this->label11->Text = L"label11";
 			// 
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Location = System::Drawing::Point(924, 80);
+			this->label12->Location = System::Drawing::Point(1232, 98);
+			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(41, 13);
+			this->label12->Size = System::Drawing::Size(54, 17);
 			this->label12->TabIndex = 38;
 			this->label12->Text = L"label12";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(101, 27);
+			this->comboBox1->Location = System::Drawing::Point(135, 33);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(43, 21);
+			this->comboBox1->Size = System::Drawing::Size(56, 24);
 			this->comboBox1->TabIndex = 39;
 			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(101, 54);
+			this->comboBox2->Location = System::Drawing::Point(135, 66);
+			this->comboBox2->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(43, 21);
+			this->comboBox2->Size = System::Drawing::Size(56, 24);
 			this->comboBox2->TabIndex = 40;
 			// 
 			// comboBox3
 			// 
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Location = System::Drawing::Point(407, 54);
+			this->comboBox3->Location = System::Drawing::Point(543, 66);
+			this->comboBox3->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox3->Name = L"comboBox3";
-			this->comboBox3->Size = System::Drawing::Size(43, 21);
+			this->comboBox3->Size = System::Drawing::Size(56, 24);
 			this->comboBox3->TabIndex = 42;
 			// 
 			// comboBox4
 			// 
 			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Location = System::Drawing::Point(407, 27);
+			this->comboBox4->Location = System::Drawing::Point(543, 33);
+			this->comboBox4->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox4->Name = L"comboBox4";
-			this->comboBox4->Size = System::Drawing::Size(43, 21);
+			this->comboBox4->Size = System::Drawing::Size(56, 24);
 			this->comboBox4->TabIndex = 41;
 			// 
 			// comboBox5
 			// 
 			this->comboBox5->FormattingEnabled = true;
-			this->comboBox5->Location = System::Drawing::Point(711, 54);
+			this->comboBox5->Location = System::Drawing::Point(948, 66);
+			this->comboBox5->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox5->Name = L"comboBox5";
-			this->comboBox5->Size = System::Drawing::Size(43, 21);
+			this->comboBox5->Size = System::Drawing::Size(56, 24);
 			this->comboBox5->TabIndex = 44;
 			// 
 			// comboBox6
 			// 
 			this->comboBox6->FormattingEnabled = true;
-			this->comboBox6->Location = System::Drawing::Point(711, 27);
+			this->comboBox6->Location = System::Drawing::Point(948, 33);
+			this->comboBox6->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox6->Name = L"comboBox6";
-			this->comboBox6->Size = System::Drawing::Size(43, 21);
+			this->comboBox6->Size = System::Drawing::Size(56, 24);
 			this->comboBox6->TabIndex = 43;
 			// 
 			// comboBox7
 			// 
 			this->comboBox7->FormattingEnabled = true;
-			this->comboBox7->Location = System::Drawing::Point(1016, 54);
+			this->comboBox7->Location = System::Drawing::Point(1355, 66);
+			this->comboBox7->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox7->Name = L"comboBox7";
-			this->comboBox7->Size = System::Drawing::Size(43, 21);
+			this->comboBox7->Size = System::Drawing::Size(56, 24);
 			this->comboBox7->TabIndex = 46;
 			// 
 			// comboBox8
 			// 
 			this->comboBox8->FormattingEnabled = true;
-			this->comboBox8->Location = System::Drawing::Point(1016, 27);
+			this->comboBox8->Location = System::Drawing::Point(1355, 33);
+			this->comboBox8->Margin = System::Windows::Forms::Padding(4);
 			this->comboBox8->Name = L"comboBox8";
-			this->comboBox8->Size = System::Drawing::Size(43, 21);
+			this->comboBox8->Size = System::Drawing::Size(56, 24);
 			this->comboBox8->TabIndex = 45;
 			// 
 			// Bytes
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
-			this->ClientSize = System::Drawing::Size(1234, 681);
+			this->ClientSize = System::Drawing::Size(1645, 838);
 			this->Controls->Add(this->comboBox7);
 			this->Controls->Add(this->comboBox8);
 			this->Controls->Add(this->comboBox5);
@@ -631,6 +684,7 @@ namespace curseProject1 {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Location = System::Drawing::Point(165, 47);
 			this->MainMenuStrip = this->menuStrip1;
+			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Bytes";
 			this->ShowInTaskbar = false;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
@@ -656,6 +710,13 @@ namespace curseProject1 {
 		private: System::Void button7_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button8_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button9_Click(System::Object^ sender, System::EventArgs^ e);
-
+		private: System::Void button16_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button17_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button14_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button15_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void button11_Click(System::Object^ sender, System::EventArgs^ e);
 };
 }
