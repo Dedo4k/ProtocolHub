@@ -386,22 +386,22 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
 {
     std::string str;
     Convert_String_to_string(textBox1->Text,str);
-    std::vector<SessionHelper> sessions;
+    std::vector<std::string> sessions;
     int i = 0, f1 = 0, f2 = 0, f3 = 0, f4 = 0;
     for (size_t i = 0; i < sessBytes.size()&&i<4; i++)                                                              //формируем вектор сессий для сортировок
     {                                                                                                               //выставляем флаги для сортировки сессий
         switch (i)
         {
-        case 0: sessions.push_back(sessBytes[counter1]); f1 = 1; break;
-        case 1: sessions.push_back(sessBytes[counter2]); f2 = 1; break;
-        case 2: sessions.push_back(sessBytes[counter3]); f3 = 1; break;
-        case 3: sessions.push_back(sessBytes[counter4]); f4 = 1; break;
+        case 0: sessions.push_back(sessBytes[counter1].getBytes()[packetCounter1]); f1 = 1; break;
+        case 1: sessions.push_back(sessBytes[counter2].getBytes()[packetCounter2]); f2 = 1; break;
+        case 2: sessions.push_back(sessBytes[counter3].getBytes()[packetCounter3]); f3 = 1; break;
+        case 3: sessions.push_back(sessBytes[counter4].getBytes()[packetCounter4]); f4 = 1; break;
         }
     }
     if (radioButton1->Checked)                                                                                      //если был выбран поиск по одной позиции 
     {
         int txtStart = 0, txtEnd = 0;
-        int fl = 0, start = 0/*findSubstringAt(sessions, str)*/, length = str.length(),                                  //start - позиция первого совпадения
+        int fl = 0, start = findSubstringAt(sessions, str), length = str.length(),                                  //start - позиция первого совпадения
             fl1 = 0, fl0 = 0;
         if (start == -1)                                                                                            //проверка, было ли совпадение
             fl1 = 1;
@@ -463,7 +463,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
     }
     else if (radioButton2->Checked)                                                                                 //если был выбран поиск по разным позициям
     {
-        std::vector<size_t> startPoints/* = findSubstring(sessions, str)*/;                                             //вектор с первыми совпадениям в каждой сессии
+        std::vector<size_t> startPoints = findSubstring(sessions, str);                                             //вектор с первыми совпадениям в каждой сессии
         int f1 = 0, f2 = 0, f3 = 0, f4 = 0;
         for (size_t i = 0; i < startPoints.size(); i++)                                                             //выставляем флаги для существующих
         {

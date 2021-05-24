@@ -8,7 +8,7 @@ D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(287,38): warning
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(302,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(332,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(362,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(404,87): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(404,82): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(416,27): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(420,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
 D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(423,16): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
@@ -55,7 +55,7 @@ Common++.lib(TablePrinter.obj) : warning LNK4075: не учитывается "/
 Pcap++.lib(light_platform.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_platform.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_pcapng_ext.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_pcapng_ext.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_pcapng.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_pcapng.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
-Pcap++.lib(light_option.obj) : warning LNK4099: "" PDB не найден с "Pcap++.lib(light_option.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
+Pcap++.lib(light_option.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_option.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_null_compression.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_null_compression.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_manipulate.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_manipulate.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_internal.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_internal.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Debug\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
