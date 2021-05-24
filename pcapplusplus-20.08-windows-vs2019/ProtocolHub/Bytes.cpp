@@ -10,7 +10,7 @@
 //std::vector<PacketHelper> packets2;                                                                         //вектор пакетов
 //std::vector<SessionHelper> sessions2;                                                                       //вектор сессий
 std::vector<SessionHelper> sessions;
-
+int l1 = 0, l2 = 0, l3 = 0, l4 = 0, l5 = 0, l6 = 0, l7 = 0, l8 = 0;
 //int counter1 = 0;                                                                                           //номер сессии дл€ "richTextBox1"
 //int counter2 = 1;                                                                                           //номер сессии дл€ "richTextBox2"
 //int counter3 = 2;                                                                                           //номер сессии дл€ "richTextBox3"
@@ -67,12 +67,16 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox1->Items->Add(sessBytes[i].getNum());
             }
-            comboBox1->SelectedIndex = counter1;
+            l1 = 1;
+            comboBox1->Text = sessBytes[counter1].getNum().ToString();
+            l1 = 0;
             for (size_t i = 0; i < sessions[0].getPackets().size(); i++)
             {
                 comboBox2->Items->Add(i);
             }
-            comboBox2->SelectedIndex = packetCounter1;
+            l2 = 1;
+            comboBox2->Text = packetCounter1.ToString();
+            l2 = 0;
             label2->Text = "Ќомер сессии: ";
             label8->Text = "Ќомер пакета: ";
             label9->Text = Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
@@ -90,12 +94,16 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox4->Items->Add(sessBytes[i].getNum());
             }
-            comboBox4->SelectedIndex = counter2;
+            l4 = 1;
+            comboBox4->Text = sessBytes[counter2].getNum().ToString();
+            l4 = 0;
             for (size_t i = 0; i < sessions[1].getPackets().size(); i++)
             {
                 comboBox3->Items->Add(i);
             }
-            comboBox3->SelectedIndex = packetCounter2;
+            l3 = 1;
+            comboBox3->Text = packetCounter2.ToString();
+            l3 = 0;
             label3->Text = "Ќомер сессии: ";
             label7->Text = "Ќомер пакета: ";
             label10->Text = Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
@@ -113,12 +121,16 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox6->Items->Add(sessBytes[i].getNum());
             }
-            comboBox6->SelectedIndex = counter3;
+            l6 = 1;
+            comboBox6->Text = sessBytes[counter3].getNum().ToString();
+            l6 = 0;
             for (size_t i = 0; i < sessions[2].getPackets().size(); i++)
             {
                 comboBox5->Items->Add(i);
             }
-            comboBox5->SelectedIndex = packetCounter3;
+            l5 = 1;
+            comboBox5->Text = packetCounter3.ToString();
+            l5 = 0;
             label4->Text = "Ќомер сессии: ";
             label6->Text = "Ќомер пакета: ";
             label11->Text = Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
@@ -136,12 +148,16 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox8->Items->Add(sessBytes[i].getNum());
             }
-            comboBox8->SelectedIndex = counter4;
+            l8 = 1;
+            comboBox8->Text = sessBytes[counter4].getNum().ToString();
+            l8 = 0;
             for (size_t i = 0; i < sessions[3].getPackets().size(); i++)
             {
                 comboBox7->Items->Add(i);
             }
-            comboBox7->SelectedIndex = packetCounter4;
+            l7 = 1;
+            comboBox7->Text = packetCounter4.ToString();
+            l7 = 0;
             label5->Text = "Ќомер сессии: ";
             label1->Text = "Ќомер пакета: ";
             label12->Text = Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
@@ -163,8 +179,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox2->Items->Add(i);
             }
-            comboBox1->SelectedIndex = counter1;
-            comboBox2->SelectedIndex = packetCounter1;
+            l1 = 1;
+            comboBox1->Text = sessBytes[counter1].getNum().ToString();
+            l1 = 0;
+            l2 = 1;
+            comboBox2->Text = packetCounter1.ToString();
+            l2 = 0;
+            label9->Text = Convert_string_to_String(sessions[0].getSrcIp().toString()) + ":" + sessions[0].getSrcPort() + "->" + Convert_string_to_String(sessions[0].getDstIp().toString()) + ":" + sessions[0].getDstPort();
         }
         break;
     }
@@ -183,8 +204,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox3->Items->Add(i);
             }
-            comboBox4->SelectedIndex = counter2;
-            comboBox3->SelectedIndex = packetCounter2;
+            l4 = 1;
+            comboBox4->Text = sessBytes[counter2].getNum().ToString();
+            l4 = 0;
+            l3 = 1;
+            comboBox3->Text = packetCounter2.ToString();
+            l3 = 0;
+            label10->Text = Convert_string_to_String(sessions[1].getSrcIp().toString()) + ":" + sessions[1].getSrcPort() + "->" + Convert_string_to_String(sessions[1].getDstIp().toString()) + ":" + sessions[1].getDstPort();
         }
         break;
     }
@@ -203,8 +229,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox5->Items->Add(i);
             }
-            comboBox6->SelectedIndex = counter3;
-            comboBox5->SelectedIndex = packetCounter3;
+            l6 = 1;
+            comboBox6->Text = sessBytes[counter3].getNum().ToString();
+            l6 = 0;
+            l5 = 1;
+            comboBox5->Text = packetCounter3.ToString();
+            l5 = 0;
+            label11->Text = Convert_string_to_String(sessions[2].getSrcIp().toString()) + ":" + sessions[2].getSrcPort() + "->" + Convert_string_to_String(sessions[2].getDstIp().toString()) + ":" + sessions[2].getDstPort();
         }
         break;
     }
@@ -223,8 +254,13 @@ void curseProject1::Bytes::startDrawingBytes(System::Collections::ArrayList^ sys
             {
                 comboBox7->Items->Add(i);
             }
-            comboBox8->SelectedIndex = counter4;
-            comboBox7->SelectedIndex = packetCounter4;
+            l8 = 1;
+            comboBox8->Text = sessBytes[counter4].getNum().ToString();
+            l8 = 0;
+            l7 = 1;
+            comboBox7->Text = packetCounter4.ToString();
+            l7 = 0;
+            label12->Text = Convert_string_to_String(sessions[3].getSrcIp().toString()) + ":" + sessions[3].getSrcPort() + "->" + Convert_string_to_String(sessions[3].getDstIp().toString()) + ":" + sessions[3].getDstPort();
         }
         break;
     }
@@ -430,7 +466,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
 
         if (f1)                                                                                                     //проверка существовани€
         {
-            richTextBox1->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox1->SelectionBackColor = SystemColors::Control;
             richTextBox1->SelectionStart = txtStart;
             richTextBox1->ScrollToCaret();
             richTextBox1->SelectionLength = txtEnd - txtStart;
@@ -438,7 +474,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f2)                                                                                                     //проверка существовани€
         {
-            richTextBox2->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox2->SelectionBackColor = SystemColors::Control;
             richTextBox2->SelectionStart = txtStart;
             richTextBox2->ScrollToCaret();
             richTextBox2->SelectionLength = txtEnd - txtStart;
@@ -446,7 +482,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f3)                                                                                                     //проверка существовани€
         {
-            richTextBox3->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox3->SelectionBackColor = SystemColors::Control;
             richTextBox3->SelectionStart = txtStart;
             richTextBox3->ScrollToCaret();
             richTextBox3->SelectionLength = txtEnd - txtStart;
@@ -454,7 +490,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f4)                                                                                                     //проверка существовани€
         {
-            richTextBox4->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox4->SelectionBackColor = SystemColors::Control;
             richTextBox4->SelectionStart = txtStart;
             richTextBox4->ScrollToCaret();
             richTextBox4->SelectionLength = txtEnd - txtStart;
@@ -595,7 +631,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         
         if (f1)                                                                                                     //проверка существовани€
         {
-            richTextBox1->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox1->SelectionBackColor = SystemColors::Control;
             richTextBox1->SelectionStart = txtStart1;
             richTextBox1->ScrollToCaret();
             richTextBox1->SelectionLength = txtEnd1 - txtStart1;
@@ -603,7 +639,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f2)                                                                                                     //проверка существовани€
         {
-            richTextBox2->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox2->SelectionBackColor = SystemColors::Control;
             richTextBox2->SelectionStart = txtStart2;
             richTextBox2->ScrollToCaret();
             richTextBox2->SelectionLength = txtEnd2 - txtStart2;
@@ -611,7 +647,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f3)                                                                                                     //проверка существовани€
         {
-            richTextBox3->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox3->SelectionBackColor = SystemColors::Control;
             richTextBox3->SelectionStart = txtStart3;
             richTextBox3->ScrollToCaret();
             richTextBox3->SelectionLength = txtEnd3 - txtStart3;
@@ -619,7 +655,7 @@ System::Void curseProject1::Bytes::button9_Click(System::Object^ sender, System:
         }
         if (f4)                                                                                                     //проверка существовани€
         {
-            richTextBox4->SelectionBackColor = System::Drawing::Color::White;
+            richTextBox4->SelectionBackColor = SystemColors::Control;
             richTextBox4->SelectionStart = txtStart4;
             richTextBox4->ScrollToCaret();
             richTextBox4->SelectionLength = txtEnd4 - txtStart4;
@@ -633,6 +669,7 @@ System::Void curseProject1::Bytes::button16_Click(System::Object^ sender, System
 {
     box = 1;
     packetCounter1--;
+    if(sessions.size()>=1)
     if (packetCounter1 == sessions[0].getPackets().size() || packetCounter1 == -1)
         packetCounter1 = sessions[0].getPackets().size() - 1;
     startDrawingBytes(systemFilePaths);
@@ -643,6 +680,7 @@ System::Void curseProject1::Bytes::button17_Click(System::Object^ sender, System
 {
     box = 1;
     packetCounter1++;
+    if(sessions.size()>=1)
     if (packetCounter1 == sessions[0].getPackets().size())
         packetCounter1 = 0;
     startDrawingBytes(systemFilePaths);
@@ -653,6 +691,7 @@ System::Void curseProject1::Bytes::button14_Click(System::Object^ sender, System
 {
     box = 2;
     packetCounter2--;
+    if(sessions.size()>=2)
     if (packetCounter2 == sessions[1].getPackets().size() || packetCounter2 == -1)
         packetCounter2 = sessions[1].getPackets().size() - 1;
     startDrawingBytes(systemFilePaths);
@@ -663,6 +702,7 @@ System::Void curseProject1::Bytes::button15_Click(System::Object^ sender, System
 {
     box = 2;
     packetCounter2++;
+    if(sessions.size()>=2)
     if (packetCounter2 == sessions[1].getPackets().size())
         packetCounter2 = 0;
     startDrawingBytes(systemFilePaths);
@@ -673,6 +713,7 @@ System::Void curseProject1::Bytes::button12_Click(System::Object^ sender, System
 {
     box = 3;
     packetCounter3--;
+    if(sessions.size()>=3)
     if (packetCounter3 == sessions[2].getPackets().size() || packetCounter3 == -1)
         packetCounter3 = sessions[2].getPackets().size() - 1;
     startDrawingBytes(systemFilePaths);
@@ -683,6 +724,7 @@ System::Void curseProject1::Bytes::button13_Click(System::Object^ sender, System
 {
     box = 3;
     packetCounter3++;
+    if(sessions.size()>=3)
     if (packetCounter3 == sessions[2].getPackets().size())
         packetCounter3 = 0;
     startDrawingBytes(systemFilePaths);
@@ -693,6 +735,7 @@ System::Void curseProject1::Bytes::button10_Click(System::Object^ sender, System
 {
     box = 4;
     packetCounter4--;
+    if(sessions.size()>=4)
     if (packetCounter4 == sessions[3].getPackets().size() || packetCounter4 == -1)
         packetCounter4 = sessions[3].getPackets().size() - 1;
     startDrawingBytes(systemFilePaths);
@@ -703,8 +746,245 @@ System::Void curseProject1::Bytes::button11_Click(System::Object^ sender, System
 {
     box = 4;
     packetCounter4++;
+    if(sessions.size()>=4)
     if (packetCounter4 == sessions[3].getPackets().size())
         packetCounter4 = 0;
     startDrawingBytes(systemFilePaths);
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox1->Text);
+        for (size_t i = 0; i < sessBytes.size(); i++)
+        {
+            if (sessBytes[i].getNum() == input)
+            {
+                box = 1;
+                counter1 = i;
+                packetCounter1 = 0;
+                startDrawingBytes(systemFilePaths);
+            }
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox4_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox4->Text);
+        for (size_t i = 0; i < sessBytes.size(); i++)
+        {
+            if (sessBytes[i].getNum() == input)
+            {
+                box = 2;
+                counter2 = i;
+                packetCounter2 = 0;
+                startDrawingBytes(systemFilePaths);
+            }
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox6_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox6->Text);
+        for (size_t i = 0; i < sessBytes.size(); i++)
+        {
+            if (sessBytes[i].getNum() == input)
+            {
+                box = 3;
+                counter3 = i;
+                packetCounter3 = 0;
+                startDrawingBytes(systemFilePaths);
+            }
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox8_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox8->Text);
+        for (size_t i = 0; i < sessBytes.size(); i++)
+        {
+            if (sessBytes[i].getNum() == input)
+            {
+                box = 4;
+                counter4 = i;
+                packetCounter4 = 0;
+                startDrawingBytes(systemFilePaths);
+            }
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox2_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox2->Text);
+        if (input>=0 && input<sessions[0].getPackets().size())
+        {
+            box = 1;
+            packetCounter1 = input;
+            startDrawingBytes(systemFilePaths);
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox3_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox3->Text);
+        if (input >= 0 && input < sessions[1].getPackets().size())
+        {
+            box = 2;
+            packetCounter2 = input;
+            startDrawingBytes(systemFilePaths);
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox5_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox5->Text);
+        if (input >= 0 && input < sessions[2].getPackets().size())
+        {
+            box = 3;
+            packetCounter3 = input;
+            startDrawingBytes(systemFilePaths);
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox7_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = System::Convert::ToInt16(comboBox7->Text);
+        if (input >= 0 && input < sessions[3].getPackets().size())
+        {
+            box = 4;
+            packetCounter4 = input;
+            startDrawingBytes(systemFilePaths);
+        }
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l1)
+    {
+        box = 1;
+        counter1 = comboBox1->SelectedIndex;
+        packetCounter1 = 0;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox4_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l4)
+    {
+        box = 2;
+        counter2 = comboBox4->SelectedIndex;
+        packetCounter2 = 0;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox6_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l6)
+    {
+        box = 3;
+        counter3 = comboBox6->SelectedIndex;
+        packetCounter3 = 0;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox8_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l8)
+    {
+        box = 4;
+        counter4 = comboBox8->SelectedIndex;
+        packetCounter4 = 0;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox2_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l2)
+    {
+        box = 1;
+        packetCounter1 = comboBox2->SelectedIndex;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox3_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l3)
+    {
+        box = 2;
+        packetCounter2 = comboBox3->SelectedIndex;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox5_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l5)
+    {
+        box = 3;
+        packetCounter3 = comboBox5->SelectedIndex;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::comboBox7_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!l7)
+    {
+        box = 4;
+        packetCounter4 = comboBox7->SelectedIndex;
+        startDrawingBytes(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Bytes::textBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        button9->PerformClick();
+    }
     return System::Void();
 }

@@ -11,6 +11,13 @@
 #include "SortFunc.h"
 #include "DataClass.h"
 
+
+int sessPages = 0;
+int sessPage = 0;
+int sessCounter = 1000;
+int a1 = 0;
+
+
 //std::vector<PacketHelper> packets1;                                                                         //вектор пакетов
 //std::vector<SessionHelper> sessions1;                                                                       //вектор сессий
 
@@ -88,6 +95,9 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 max = session.getTimeEnd() + session.getTimeStart();
         }
     }
+
+    sessPages = sess.size() / 1000;
+
     trackBar1->Maximum = 42;                                                                                //задаём значения для trackBar
     trackBar2->Maximum = max - min;
     
