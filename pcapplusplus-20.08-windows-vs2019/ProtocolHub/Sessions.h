@@ -52,6 +52,7 @@ namespace curseProject1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ áàéòîâêàToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ çàêðûòüÏðèëîæåíèåToolStripMenuItem;
 	private: System::Windows::Forms::ComboBox^ comboBox1;
+	private: System::Windows::Forms::Label^ label3;
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
@@ -59,7 +60,7 @@ namespace curseProject1 {
 		{
 			this->components = (gcnew System::ComponentModel::Container());
 			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Sessions::typeid));
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea4 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -77,6 +78,7 @@ namespace curseProject1 {
 			this->Protocols = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->chart1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->BeginInit();
@@ -97,7 +99,7 @@ namespace curseProject1 {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(1901, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1901, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -105,7 +107,7 @@ namespace curseProject1 {
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêðûòüÏðèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 26);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// çàêðûòüÏðèëîæåíèåToolStripMenuItem
@@ -113,29 +115,33 @@ namespace curseProject1 {
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêðûòüÏðèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Name = L"çàêðûòüÏðèëîæåíèåToolStripMenuItem";
-			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(242, 26);
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Text = L"Çàêðûòü ïðèëîæåíèå";
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::çàêðûòüÏðèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(51, 20);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
+			this->íàçàäToolStripMenuItem->ToolTipText = L"Âîçâðàò ê ïàêåòàì";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::íàçàäToolStripMenuItem_Click);
 			// 
 			// ôèëüòðûToolStripMenuItem
 			// 
 			this->ôèëüòðûToolStripMenuItem->Name = L"ôèëüòðûToolStripMenuItem";
-			this->ôèëüòðûToolStripMenuItem->Size = System::Drawing::Size(69, 20);
+			this->ôèëüòðûToolStripMenuItem->Size = System::Drawing::Size(85, 24);
 			this->ôèëüòðûToolStripMenuItem->Text = L"Ôèëüòðû";
+			this->ôèëüòðûToolStripMenuItem->ToolTipText = L"Îòêðûòèå ôèëüòðîâ";
 			this->ôèëüòðûToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::ôèëüòðûToolStripMenuItem_Click);
 			// 
 			// áàéòîâêàToolStripMenuItem
 			// 
 			this->áàéòîâêàToolStripMenuItem->Name = L"áàéòîâêàToolStripMenuItem";
-			this->áàéòîâêàToolStripMenuItem->Size = System::Drawing::Size(69, 20);
+			this->áàéòîâêàToolStripMenuItem->Size = System::Drawing::Size(87, 24);
+			this->áàéòîâêàToolStripMenuItem->Tag = L"";
 			this->áàéòîâêàToolStripMenuItem->Text = L"Áàéòîâêà";
+			this->áàéòîâêàToolStripMenuItem->ToolTipText = L"Îòêðûòèå áàéòîâîê";
 			this->áàéòîâêàToolStripMenuItem->Click += gcnew System::EventHandler(this, &Sessions::áàéòîâêàToolStripMenuItem_Click);
 			// 
 			// chart1
@@ -146,9 +152,9 @@ namespace curseProject1 {
 			this->chart1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(224)), static_cast<System::Int32>(static_cast<System::Byte>(224)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->chart1->BorderlineDashStyle = System::Windows::Forms::DataVisualization::Charting::ChartDashStyle::Solid;
-			chartArea1->BackColor = System::Drawing::Color::DimGray;
-			chartArea1->Name = L"ChartArea1";
-			this->chart1->ChartAreas->Add(chartArea1);
+			chartArea4->BackColor = System::Drawing::Color::DimGray;
+			chartArea4->Name = L"ChartArea1";
+			this->chart1->ChartAreas->Add(chartArea4);
 			this->chart1->Location = System::Drawing::Point(229, 91);
 			this->chart1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->chart1->Name = L"chart1";
@@ -166,7 +172,7 @@ namespace curseProject1 {
 			this->trackBar1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->trackBar1->Maximum = 50;
 			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(104, 45);
+			this->trackBar1->Size = System::Drawing::Size(104, 56);
 			this->trackBar1->TabIndex = 2;
 			this->trackBar1->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Sessions::trackBar1_MouseUp);
 			// 
@@ -178,7 +184,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->label1->Location = System::Drawing::Point(1804, 62);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(55, 17);
+			this->label1->Size = System::Drawing::Size(69, 20);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Ñåññèè";
 			// 
@@ -190,7 +196,7 @@ namespace curseProject1 {
 				static_cast<System::Byte>(204)));
 			this->label2->Location = System::Drawing::Point(1693, 62);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(50, 17);
+			this->label2->Size = System::Drawing::Size(63, 20);
 			this->label2->TabIndex = 5;
 			this->label2->Text = L"Âðåìÿ";
 			// 
@@ -202,7 +208,7 @@ namespace curseProject1 {
 			this->trackBar2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->trackBar2->Maximum = 100;
 			this->trackBar2->Name = L"trackBar2";
-			this->trackBar2->Size = System::Drawing::Size(104, 45);
+			this->trackBar2->Size = System::Drawing::Size(104, 56);
 			this->trackBar2->TabIndex = 1;
 			this->trackBar2->MouseUp += gcnew System::Windows::Forms::MouseEventHandler(this, &Sessions::trackBar2_MouseUp);
 			// 
@@ -262,16 +268,28 @@ namespace curseProject1 {
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(13, 51);
+			this->comboBox1->Location = System::Drawing::Point(141, 57);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(53, 24);
 			this->comboBox1->TabIndex = 9;
+			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Sessions::comboBox1_SelectedIndexChanged);
+			this->comboBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Sessions::comboBox1_KeyPress);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(13, 61);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(123, 17);
+			this->label3->TabIndex = 10;
+			this->label3->Text = L"Íîìåð ñòðàíèöû:";
 			// 
 			// Sessions
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1901, 1033);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->dataGridView1);
@@ -320,5 +338,7 @@ namespace curseProject1 {
 		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void chart1_AxisViewChanged(System::Object^ sender, System::Windows::Forms::DataVisualization::Charting::ViewEventArgs^ e);
+		private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void comboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

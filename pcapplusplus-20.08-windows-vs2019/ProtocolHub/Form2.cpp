@@ -36,7 +36,7 @@ void curseProject1::Form2::StartParsingFiles(System::Collections::ArrayList^ sys
     dataGridView1->Rows->Clear();
     for each (PacketHelper packet in pack)                                                                   //Проходим по всем пакетам
     {                                                                                                           //Добавляем информацию в таблицу
-        if (q < page * 1000)
+        if (q < page * counter)
         {
             q++;
             continue;
@@ -112,6 +112,20 @@ System::Void curseProject1::Form2::toolStripComboBox1_SelectedIndexChanged(Syste
     {
         page = toolStripComboBox1->SelectedIndex;
         StartParsingFiles(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Form2::toolStripComboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = Convert::ToInt16(toolStripComboBox1->Text);
+        if (input >= 0 && input <= pages) {
+            page = input;
+            toolStripComboBox1->SelectedIndex = input;
+            StartParsingFiles(systemFilePaths);
+        }
     }
     return System::Void();
 }

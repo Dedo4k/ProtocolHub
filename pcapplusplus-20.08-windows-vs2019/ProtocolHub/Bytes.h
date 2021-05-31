@@ -147,7 +147,7 @@ namespace curseProject1 {
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(1645, 24);
+			this->menuStrip1->Size = System::Drawing::Size(1645, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -155,7 +155,7 @@ namespace curseProject1 {
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêðûòüÏðèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// çàêðûòüÏðèëîæåíèåToolStripMenuItem
@@ -163,14 +163,14 @@ namespace curseProject1 {
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêðûòüÏðèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Name = L"çàêðûòüÏðèëîæåíèåToolStripMenuItem";
-			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(242, 26);
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Text = L"Çàêðûòü ïðèëîæåíèå";
 			this->çàêðûòüÏðèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Bytes::çàêðûòüÏðèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(51, 20);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 24);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Bytes::íàçàäToolStripMenuItem_Click);
 			// 
@@ -340,7 +340,7 @@ namespace curseProject1 {
 			this->label2->Location = System::Drawing::Point(12, 38);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(0, 16);
+			this->label2->Size = System::Drawing::Size(0, 17);
 			this->label2->TabIndex = 17;
 			// 
 			// label3
@@ -349,7 +349,7 @@ namespace curseProject1 {
 			this->label3->Location = System::Drawing::Point(419, 38);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(0, 16);
+			this->label3->Size = System::Drawing::Size(0, 17);
 			this->label3->TabIndex = 18;
 			// 
 			// label4
@@ -358,7 +358,7 @@ namespace curseProject1 {
 			this->label4->Location = System::Drawing::Point(825, 38);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(0, 16);
+			this->label4->Size = System::Drawing::Size(0, 17);
 			this->label4->TabIndex = 19;
 			// 
 			// label5
@@ -367,7 +367,7 @@ namespace curseProject1 {
 			this->label5->Location = System::Drawing::Point(1232, 38);
 			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(0, 16);
+			this->label5->Size = System::Drawing::Size(0, 17);
 			this->label5->TabIndex = 20;
 			// 
 			// radioButton1
@@ -377,7 +377,7 @@ namespace curseProject1 {
 			this->radioButton1->Location = System::Drawing::Point(16, 530);
 			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(146, 20);
+			this->radioButton1->Size = System::Drawing::Size(150, 21);
 			this->radioButton1->TabIndex = 21;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Ïî îäíîé ïîçèöèè";
@@ -389,7 +389,7 @@ namespace curseProject1 {
 			this->radioButton2->Location = System::Drawing::Point(16, 560);
 			this->radioButton2->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(164, 20);
+			this->radioButton2->Size = System::Drawing::Size(169, 21);
 			this->radioButton2->TabIndex = 22;
 			this->radioButton2->Text = L"Ïî ðàçíûì ïîçèöèÿì";
 			this->radioButton2->UseVisualStyleBackColor = true;
@@ -400,7 +400,7 @@ namespace curseProject1 {
 			this->label1->Location = System::Drawing::Point(1232, 71);
 			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(0, 16);
+			this->label1->Size = System::Drawing::Size(0, 17);
 			this->label1->TabIndex = 34;
 			// 
 			// label6
@@ -409,7 +409,7 @@ namespace curseProject1 {
 			this->label6->Location = System::Drawing::Point(825, 71);
 			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(0, 16);
+			this->label6->Size = System::Drawing::Size(0, 17);
 			this->label6->TabIndex = 33;
 			// 
 			// label7
@@ -418,7 +418,7 @@ namespace curseProject1 {
 			this->label7->Location = System::Drawing::Point(419, 71);
 			this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 16);
+			this->label7->Size = System::Drawing::Size(0, 17);
 			this->label7->TabIndex = 32;
 			// 
 			// label8
@@ -427,7 +427,7 @@ namespace curseProject1 {
 			this->label8->Location = System::Drawing::Point(12, 71);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(0, 16);
+			this->label8->Size = System::Drawing::Size(0, 17);
 			this->label8->TabIndex = 31;
 			// 
 			// button10
@@ -524,7 +524,7 @@ namespace curseProject1 {
 			this->label9->Location = System::Drawing::Point(12, 100);
 			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(0, 16);
+			this->label9->Size = System::Drawing::Size(0, 17);
 			this->label9->TabIndex = 35;
 			// 
 			// label10
@@ -533,7 +533,7 @@ namespace curseProject1 {
 			this->label10->Location = System::Drawing::Point(419, 98);
 			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(0, 16);
+			this->label10->Size = System::Drawing::Size(0, 17);
 			this->label10->TabIndex = 36;
 			// 
 			// label11
@@ -542,7 +542,7 @@ namespace curseProject1 {
 			this->label11->Location = System::Drawing::Point(825, 98);
 			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(0, 16);
+			this->label11->Size = System::Drawing::Size(0, 17);
 			this->label11->TabIndex = 37;
 			// 
 			// label12
@@ -551,7 +551,7 @@ namespace curseProject1 {
 			this->label12->Location = System::Drawing::Point(1232, 98);
 			this->label12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(0, 16);
+			this->label12->Size = System::Drawing::Size(0, 17);
 			this->label12->TabIndex = 38;
 			// 
 			// comboBox1
@@ -647,6 +647,7 @@ namespace curseProject1 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoScroll = true;
+			this->AutoSize = true;
 			this->ClientSize = System::Drawing::Size(1645, 838);
 			this->Controls->Add(this->comboBox7);
 			this->Controls->Add(this->comboBox8);
@@ -700,7 +701,7 @@ namespace curseProject1 {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Bytes";
 			this->ShowInTaskbar = false;
-			this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Bytes";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();

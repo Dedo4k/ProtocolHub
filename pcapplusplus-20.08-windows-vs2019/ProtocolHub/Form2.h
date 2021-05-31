@@ -52,6 +52,7 @@ namespace curseProject1 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Protocol;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Time;
 	private: System::Windows::Forms::ToolStripComboBox^ toolStripComboBox1;
+
 	private: System::ComponentModel::IContainer^ components;
 
 #pragma region Windows Form Designer generated code
@@ -92,7 +93,7 @@ namespace curseProject1 {
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
 			this->menuStrip1->Padding = System::Windows::Forms::Padding(5, 2, 0, 2);
-			this->menuStrip1->Size = System::Drawing::Size(1901, 27);
+			this->menuStrip1->Size = System::Drawing::Size(1901, 32);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -100,7 +101,7 @@ namespace curseProject1 {
 			// 
 			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->çàêğûòüÏğèëîæåíèåToolStripMenuItem });
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
-			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(48, 23);
+			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 28);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
 			// 
 			// çàêğûòüÏğèëîæåíèåToolStripMenuItem
@@ -108,29 +109,34 @@ namespace curseProject1 {
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->BackColor = System::Drawing::Color::White;
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"çàêğûòüÏğèëîæåíèåToolStripMenuItem.Image")));
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Name = L"çàêğûòüÏğèëîæåíèåToolStripMenuItem";
-			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(193, 22);
+			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(242, 26);
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Text = L"Çàêğûòü ïğèëîæåíèå";
 			this->çàêğûòüÏğèëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click);
 			// 
 			// íàçàäToolStripMenuItem
 			// 
 			this->íàçàäToolStripMenuItem->Name = L"íàçàäToolStripMenuItem";
-			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(51, 23);
+			this->íàçàäToolStripMenuItem->Size = System::Drawing::Size(65, 28);
 			this->íàçàäToolStripMenuItem->Text = L"Íàçàä";
+			this->íàçàäToolStripMenuItem->ToolTipText = L"Âîçâğàò ê âûáîğó ôàéëîâ";
 			this->íàçàäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::íàçàäToolStripMenuItem_Click);
 			// 
 			// ñåññèèToolStripMenuItem
 			// 
+			this->ñåññèèToolStripMenuItem->AutoToolTip = true;
 			this->ñåññèèToolStripMenuItem->Name = L"ñåññèèToolStripMenuItem";
-			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(59, 23);
+			this->ñåññèèToolStripMenuItem->Size = System::Drawing::Size(72, 28);
 			this->ñåññèèToolStripMenuItem->Text = L"Ñåññèè";
+			this->ñåññèèToolStripMenuItem->ToolTipText = L"Îòêğûòèå ñåññèé";
 			this->ñåññèèToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form2::ñåññèèToolStripMenuItem_Click);
 			// 
 			// toolStripComboBox1
 			// 
 			this->toolStripComboBox1->Name = L"toolStripComboBox1";
-			this->toolStripComboBox1->Size = System::Drawing::Size(121, 23);
+			this->toolStripComboBox1->Size = System::Drawing::Size(121, 28);
+			this->toolStripComboBox1->ToolTipText = L"Íîìåğ ñòğàíèöû";
 			this->toolStripComboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &Form2::toolStripComboBox1_SelectedIndexChanged);
+			this->toolStripComboBox1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Form2::toolStripComboBox1_KeyPress);
 			// 
 			// dataGridView1
 			// 
@@ -160,6 +166,7 @@ namespace curseProject1 {
 			// 
 			this->Number->FillWeight = 5;
 			this->Number->HeaderText = L"¹";
+			this->Number->MinimumWidth = 6;
 			this->Number->Name = L"Number";
 			this->Number->ReadOnly = true;
 			// 
@@ -264,5 +271,6 @@ namespace curseProject1 {
 		private: System::Void çàêğûòüÏğèëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e);
 		private: System::Void dataGridView1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e);
 		private: System::Void toolStripComboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e);
+		private: System::Void toolStripComboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e);
 };
 }

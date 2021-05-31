@@ -14,7 +14,7 @@
 
 int sessPages = 0;
 int sessPage = 0;
-int sessCounter = 1000;
+int sessCounter = 50;
 int a1 = 0;
 
 
@@ -96,9 +96,18 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         }
     }
 
-    sessPages = sess.size() / 1000;
+    sessPages = sess.size() / sessCounter;
 
-    trackBar1->Maximum = 42;                                                                                //задаём значения для trackBar
+    comboBox1->Items->Clear();
+    for (size_t i = 0; i < sessPages+1; i++)
+    {
+        comboBox1->Items->Add(i);
+    }
+    a1 = 1;
+    comboBox1->SelectedIndex = sessPage;
+    a1 = 0;
+
+    trackBar1->Maximum = 50;                                                                                //задаём значения для trackBar
     trackBar2->Maximum = max - min;
     
     chart1->ChartAreas[0]->AxisX->ScaleView->Zoomable = true;                                               // Set automatic zooming
@@ -128,9 +137,17 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
     {
         sortByByte(sess);
     }
-
+    int k = 1;
+    int q = 0;
     for each (SessionHelper session in sess)                                                           //выводим сессии согласно выставленным фильтрам
     {  
+        if (q < sessPage * sessCounter) 
+        {
+            q++;
+            continue;
+        }
+        if (k > sessCounter)
+            break;
         if (filter) {                                                                                       //если "filter=0" то выводит все сессии
             //int counter = filter;                                                                         //иначе смотрим какие фильтры выставлены
             int counter = 0;
@@ -195,6 +212,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                                 "\nDNS: " + session.isDns() +
                                                                 "\nHTTP: " + session.isHttp() +
                                                                 "\nSIP: " + session.isSip();
+                k++;
                 continue;
             }
             else continue;
@@ -234,6 +252,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                         "\nDNS: " + session.isDns() +
                                                         "\nHTTP: " + session.isHttp() +
                                                         "\nSIP: " + session.isSip();
+        k++;
     }
 }
 
@@ -367,9 +386,33 @@ System::Void curseProject1::Sessions::button2_Click(System::Object^ sender, Syst
 */
 System::Void curseProject1::Sessions::chart1_AxisViewChanged(System::Object^ sender, System::Windows::Forms::DataVisualization::Charting::ViewEventArgs^ e)
 {
-    for (size_t i = 0; i < chart1->Series->Count; i++)
+    //for (size_t i = 0; i < chart1->Series->Count; i++)
+    //{
+    //    //chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";
+    //}
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!a1) 
     {
-        //chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";
+        sessPage = comboBox1->SelectedIndex;
+        startDrawingSessions(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::comboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = Convert::ToInt16(comboBox1->Text);
+        if (input>=0 && input <=sessPages) {
+            sessPage = input;
+            comboBox1->SelectedIndex = input;
+            startDrawingSessions(systemFilePaths);
+        }
     }
     return System::Void();
 }
