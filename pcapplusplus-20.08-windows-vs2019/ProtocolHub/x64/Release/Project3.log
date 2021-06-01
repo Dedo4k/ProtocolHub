@@ -1,135 +1,15 @@
-﻿  Bytes.cpp
+﻿  findFunc.cpp
 D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
 D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
 D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
 D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(323,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(338,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(368,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(398,38): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(440,82): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(452,27): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(456,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(459,16): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(462,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(523,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(523,58): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(535,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(539,34): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(542,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(545,24): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(552,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(552,58): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(562,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(566,34): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(569,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(572,24): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(579,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(579,58): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(589,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(593,34): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(596,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(599,24): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(606,35): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(606,58): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(616,32): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(620,34): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(623,20): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(626,24): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(674,61): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(696,61): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(718,61): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(740,61): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(766,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(785,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(804,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Bytes.cpp(823,29): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-  ConvertFunc.cpp
-  DataClass.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-  filterButtons.cpp
-  Filters.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(12,12): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(36,58): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(52,56): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(73,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(90,48): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Filters.cpp(103,49): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  findFunc.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\findFunc.cpp(53,14): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
-  FirstForm.cpp
-  Form1.cpp
-  Form2.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Form2.cpp(25,31): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-  MyForm.cpp
-  outFunc.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\outFunc.cpp(450,43): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  PacketHelper.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\PacketHelper.cpp(248,80): warning C4311: приведение типов: усечение указателя из "uint8_t *" в "int"
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\PacketHelper.cpp(248,80): warning C4302: приведение типов: усечение из "uint8_t *" к "int"
-  Repository.cpp
-  SecondForm.cpp
-  Service.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Service.cpp(148,80): warning C4311: приведение типов: усечение указателя из "uint8_t *" в "int"
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Service.cpp(148,80): warning C4302: приведение типов: усечение из "uint8_t *" к "int"
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Service.cpp(149,85): warning C4311: приведение типов: усечение указателя из "uint8_t *" в "int"
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Service.cpp(149,85): warning C4302: приведение типов: усечение из "uint8_t *" к "int"
-  SessionHelper.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\SessionHelper.cpp(68,71): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\SessionHelper.cpp(76,51): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-  Sessions.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(87,66): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(95,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(99,42): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(128,12): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  SortFunc.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\SortFunc.cpp(11,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\SortFunc.cpp(32,13): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-  ThirdForm1.cpp
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
-  Создание кода...
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\ConvertFunc.cpp(25): warning C4172: возвращение адреса локальной или временной переменной : os
+D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\findFunc.cpp(52,14): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
   Bytes.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
 Common++.lib(TablePrinter.obj) : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
 Pcap++.lib(light_platform.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_platform.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_pcapng_ext.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_pcapng_ext.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_pcapng.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_pcapng.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
-Pcap++.lib(light_option.obj) : warning LNK4099: "" PDB не найден с "Pcap++.lib(light_option.obj)" или на ""; компоновка объекта выполняется как при отсутствии отладочных данных
+Pcap++.lib(light_option.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_option.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_null_compression.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_null_compression.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_manipulate.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_manipulate.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных
 Pcap++.lib(light_internal.obj) : warning LNK4099: "LightPcapNg.pdb" PDB не найден с "Pcap++.lib(light_internal.obj)" или на "D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\x64\Release\LightPcapNg.pdb"; компоновка объекта выполняется как при отсутствии отладочных данных

@@ -35,7 +35,7 @@ void curseProject1::Sessions::drawHandshake()
             if (i < dataGridView1->Rows->Count)
             {
                 dataGridView1->Rows[i]->Cells[0]->Style->BackColor = System::Drawing::Color::Red;
-                chart1->Series[sess.size() - 1 - i]->Color = System::Drawing::Color::Red;
+                //chart1->Series[sess.size() - 1 - i]->Color = System::Drawing::Color::Red;
             }
         }
         if (i < chart1->Series->Count)

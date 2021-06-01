@@ -83,4 +83,5 @@ public:
 	bool isDns();
 	bool isSip();
 	bool isHandshake();
+	void setHandshake(bool value);
 };

@@ -40,6 +40,7 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 		}
 	}
 	//setting flags
+	tm time = packets[0].getTimestamp();
 	for (size_t i = 0; i < packets.size(); ++i)
 	{
 		if (packets[i].isDns())
@@ -56,11 +57,8 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 			tls = true;
 		if (packets[i].isUdp())
 			udp = true;
-	}
-	//setting timeStart
-	tm time = packets[0].getTimestamp();
-	for (size_t i = 0; i < packets.size(); i++)
-	{
+
+		//setting timeStart
 		if (packets[i].getTimestamp().tm_mday < time.tm_mday)
 		{
 			if (-1 * 24 * 60 * 60 - tmToSec(packets[i].getTimestamp()) < timeStart)
@@ -77,6 +75,16 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 				time = packets[i].getTimestamp();
 			}
 		}
+
+		//getting data as bytes
+		std::string temp;
+		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
+		{
+			char ch = packets[i].getPacketRaw()->getRawData()[j];
+			if (ch<257 && ch>-1)
+				temp += ch;
+		}
+		bytes.push_back(temp);
 	}
 	//setting timeEnd
 	time = packets[0].getTimestamp();
@@ -97,18 +105,6 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 		}
 	}
 	++timeEnd;
-	//getting data as bytes
-	for (size_t i = 0; i < packets.size(); ++i)
-	{
-		std::string temp;
-		for (size_t j = 0; j < packets[i].getPacketRaw()->getRawDataLen(); ++j)
-		{
-			char ch = packets[i].getPacketRaw()->getRawData()[j];
-			if (ch<257 && ch>-1)
-				temp += ch;
-		}
-		bytes.push_back(temp);
-	}
 }
 
 std::string SessionHelper::getAppName()
@@ -150,6 +146,11 @@ size_t SessionHelper::getTimeEnd()
 std::vector<PacketHelper> SessionHelper::getPackets()
 {
 	return packets;
+}
+void SessionHelper::deleteLastPacket()
+{
+	packets.pop_back();
+	bytes.pop_back();
 }
 std::vector<std::string> SessionHelper::getBytes()
 {

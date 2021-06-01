@@ -31,7 +31,13 @@ void sortByByte(std::vector<SessionHelper>& sessions)
         {
             for (int j = (sessions.size() - 1); j > i; --j)
             {
-                if (sessions[j-1].getBytes().size() > sessions[j].getBytes().size())
+                long size1 = 0, size2 = 0;
+                for (size_t k = 0; k < sessions[j-1].getBytes().size(); ++k)
+                    size1 += sessions[j-1].getBytes()[k].length();
+                for (size_t k = 0; k < sessions[j].getBytes().size(); ++k)
+                    size2 += sessions[j].getBytes()[k].length();
+
+                if (size1 > size2)
                 {
                     SessionHelper temp = sessions[j - 1];
                     sessions[j - 1] = sessions[j];

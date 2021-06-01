@@ -199,8 +199,12 @@ void PacketHelper::parseAllInfo()
 			temp = "\t\t" + ssl->sslVersionToString(ssl->getRecordVersion()) + '\n';
 			temp += "Record type: " + printSslRecordType(ssl) + '\n';
 			temp += "Message: " + printSslMessage(parsedPacket, ssl) + '\n';
-			if (printSslRecordType(ssl) == "Handshake")
+			if (temp.find("Handshake"))
+			{
 				handshake = true;
+				std::cout << "HADNSHAKE IN >>" << this->getSrcIp().toString() << ":" << this->getSrcPort() << " -> "
+					<< this->getDstIp().toString() << ":" << this->getDstPort()<<std::endl;
+			}
 			break;
 		}
 		case pcpp::SIP:
@@ -348,4 +352,8 @@ bool PacketHelper::isSip()
 bool PacketHelper::isHandshake()
 {
 	return handshake;
+}
+void PacketHelper::setHandshake(bool value)
+{
+	handshake = value;
 }

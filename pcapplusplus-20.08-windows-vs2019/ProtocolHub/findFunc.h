@@ -4,7 +4,7 @@
 
 int findStartPoint(std::vector<SessionHelper>& sessions);
 
-void findUnusingPackets(std::vector<PacketHelper>& packets);
+void findUnusingPackets(std::vector<SessionHelper>& packets);
 
 std::vector<size_t> findSubstring(std::vector<std::string>& strings, std::string str);
 

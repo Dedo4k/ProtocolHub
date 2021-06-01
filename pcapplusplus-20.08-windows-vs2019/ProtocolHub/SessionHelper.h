@@ -46,6 +46,7 @@ public:
 	int getTimeStart();
 	size_t getTimeEnd();
 	std::vector<PacketHelper> getPackets();
+	void deleteLastPacket();
 	std::vector<std::string> getBytes();
 	bool isSession();
 	bool isTcp();
