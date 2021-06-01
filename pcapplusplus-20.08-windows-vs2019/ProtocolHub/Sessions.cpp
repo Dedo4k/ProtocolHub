@@ -9,9 +9,17 @@
 #include "Filters.h"
 #include "Bytes.h"
 #include "SortFunc.h"
+#include "DataClass.h"
 
-std::vector<PacketHelper> packets1;                                                                         //вектор пакетов
-std::vector<SessionHelper> sessions1;                                                                       //вектор сессий
+
+int sessPages = 0;
+int sessPage = 0;
+int sessCounter = 50;
+int a1 = 0;
+
+
+//std::vector<PacketHelper> packets1;                                                                         //вектор пакетов
+//std::vector<SessionHelper> sessions1;                                                                       //вектор сессий
 
 /*
 Выделяет линию на диаграмме и ячейку в таблице красным цветом если соответствующая сессия является Handshake
@@ -20,19 +28,19 @@ std::vector<SessionHelper> sessions1;                                           
 void curseProject1::Sessions::drawHandshake()
 {
     int i = 0;
-    for each (SessionHelper session in sessions1)                                                           //Проходим по всем сессиям
+    for each (SessionHelper session in sess)                                                           //Проходим по всем сессиям
     {
         if (session.isHandshake())                                                                          //Проверяем если Handshake
         {
             if (i < dataGridView1->Rows->Count)
             {
                 dataGridView1->Rows[i]->Cells[0]->Style->BackColor = System::Drawing::Color::Red;
-                chart1->Series[sessions1.size() - 1 - i]->Color = System::Drawing::Color::Red;
+                chart1->Series[sess.size() - 1 - i]->Color = System::Drawing::Color::Red;
             }
         }
         if (i < chart1->Series->Count)
         {
-            chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";                                  // оптимально чтобы влезли все 40 желательно 200
+            //chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";                                  // оптимально чтобы влезли все 40 желательно 200
         }
         i++;
     }
@@ -44,39 +52,62 @@ void curseProject1::Sessions::drawHandshake()
 */
 void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayList^ systemFilePaths)
 {
-
-    int i = 0, filter = 0, min, max;
+    int i = 0, filter = 0;// , min, max;
     bool flag = true;
     std::vector<std::string> stringFilePaths = Service::convertToString(systemFilePaths);
-    packets1 = Service::getAllPackets(stringFilePaths);                                                     //получаем вектор пакетов
-    sessions1.clear();
-    while (flag)                                                                   //формируем вектор сессий
+    //packets1 = Service::getAllPackets(stringFilePaths);                                                     //получаем вектор пакетов
+    //sessions1.clear();
+    //sess.clear();
+    sessBytes.clear();
+    counter1 = 0;
+    counter2 = 1;
+    counter3 = 2;
+    counter4 = 3;
+    packetCounter1 = 0;
+    packetCounter2 = 0;
+    packetCounter3 = 0;
+    packetCounter4 = 0;
+    if (sess.empty())
     {
-        SessionHelper session(packets1);
-        if (session.isSession())
-            sessions1.push_back(session);
-        else
-            flag = false;
+        while (flag)                                                                   //формируем вектор сессий
+        {
+            SessionHelper session(pack);
+            if (session.isSession())
+                sess.push_back(session);
+            else
+                flag = false;
+        }
+
+        for (size_t i = 0; i < sess.size(); i++)
+            sess[i].setNum(i);
+
+        if (sess.size())                                                                                   //задаём начальные значения для min и max
+        {
+            min = sess[0].getTimeStart();
+            max = (sess[0].getTimeEnd() + sess[0].getTimeStart());
+        }
+
+        for each (SessionHelper session in sess)                                                           //находим минимальное и максимальное значение времени среди сессий
+        {
+            if (session.getTimeStart() < min)
+                min = session.getTimeStart();
+            if ((session.getTimeEnd() + session.getTimeStart()) > max)
+                max = session.getTimeEnd() + session.getTimeStart();
+        }
     }
 
-    for (size_t i = 0; i < sessions1.size(); i++)
-        sessions1[i].setNum(i);
+    sessPages = sess.size() / sessCounter;
 
-    if (sessions1.size())                                                                                   //задаём начальные значения для min и max
+    comboBox1->Items->Clear();
+    for (size_t i = 0; i < sessPages+1; i++)
     {
-        min = sessions1[0].getTimeStart();
-        max = (sessions1[0].getTimeEnd() + sessions1[0].getTimeStart());
+        comboBox1->Items->Add(i);
     }
+    a1 = 1;
+    comboBox1->SelectedIndex = sessPage;
+    a1 = 0;
 
-    for each (SessionHelper session in sessions1)                                                           //находим минимальное и максимальное значение времени среди сессий
-    {
-        if (session.getTimeStart() < min)
-            min = session.getTimeStart();
-        if ((session.getTimeEnd() + session.getTimeStart()) > max)
-            max = session.getTimeEnd() + session.getTimeStart();
-    }
-
-    trackBar1->Maximum = 42;                                                                                //задаём значения для trackBar
+    trackBar1->Maximum = 50;                                                                                //задаём значения для trackBar
     trackBar2->Maximum = max - min;
     
     chart1->ChartAreas[0]->AxisX->ScaleView->Zoomable = true;                                               // Set automatic zooming
@@ -100,15 +131,23 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
 
     if (filters->Count && filters[7]->Equals("True"))                                                       //сортируем по времени начала 
     {                                                     
-        sortByTimeStart(sessions1);
+        sortByTimeStart(sess);
     }
     else if (filters->Count && filters[8]->Equals("True"))                                                  //сортируем по количеству байт
     {
-        sortByByte(sessions1);
+        sortByByte(sess);
     }
-
-    for each (SessionHelper session in sessions1)                                                           //выводим сессии согласно выставленным фильтрам
+    int k = 1;
+    int q = 0;
+    for each (SessionHelper session in sess)                                                           //выводим сессии согласно выставленным фильтрам
     {  
+        if (q < sessPage * sessCounter) 
+        {
+            q++;
+            continue;
+        }
+        if (k > sessCounter)
+            break;
         if (filter) {                                                                                       //если "filter=0" то выводит все сессии
             //int counter = filter;                                                                         //иначе смотрим какие фильтры выставлены
             int counter = 0;
@@ -137,11 +176,12 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 counter++;
             }
             if (counter) {                                                                                  //если хотя бы один из протоколов есть в сессии, то выводим
-                String^ temp = i.ToString();
+                sessBytes.push_back(session);
+                String^ temp = session.getNum().ToString();
                 chart1->Series->Add(temp);
-                chart1->Series[temp]->CustomProperties = "PixelPointWidth = 200";
+                //chart1->Series[temp]->CustomProperties = "PixelPointWidth = 200";
                 chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                     "\nРазмер: " + session.getBytes().length() +
+                                                     //"\nРазмер: " + session.getBytes().length() +
                                                      "\nHandshake: " + session.isHandshake() +
                                                      "\nTCP: " + session.isTcp() +
                                                      "\nUDP: " + session.isUdp() +
@@ -150,9 +190,9 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                      "\nHTTP: " + session.isHttp() +
                                                      "\nSIP: " + session.isSip();
                 chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-                chart1->Series[temp]->Points->AddXY(i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+                chart1->Series[temp]->Points->AddXY(i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
                 chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                "\nРазмер: " + session.getBytes().length() +
+                                                //"\nРазмер: " + session.getBytes().length() +
                                                 "\nHandshake: " + session.isHandshake() +
                                                 "\nTCP: " + session.isTcp() +
                                                 "\nUDP: " + session.isUdp() +
@@ -162,9 +202,9 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                 "\nSIP: " + session.isSip();
 
                 int a = dataGridView1->Rows->Add();
-                dataGridView1->Rows[a]->Cells[0]->Value = i++;
+                dataGridView1->Rows[a]->Cells[0]->Value = session.getNum();
                 dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                                "\nРазмер: " + session.getBytes().length() +
+                                                                //"\nРазмер: " + session.getBytes().length() +
                                                                 "\nHandshake: " + session.isHandshake() +
                                                                 "\nTCP: " + session.isTcp() +
                                                                 "\nUDP: " + session.isUdp() +
@@ -172,14 +212,16 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                                 "\nDNS: " + session.isDns() +
                                                                 "\nHTTP: " + session.isHttp() +
                                                                 "\nSIP: " + session.isSip();
+                k++;
                 continue;
             }
             else continue;
         }
-        String^ temp = i.ToString();
+        sessBytes.push_back(session);
+        String^ temp = session.getNum().ToString();
         chart1->Series->Add(temp);
         chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                "\nРазмер: " + session.getBytes().length() +
+                                                //"\nРазмер: " + session.getBytes().length() +
                                                 "\nHandshake: " + session.isHandshake() +
                                                 "\nTCP: " + session.isTcp() +
                                                 "\nUDP: " + session.isUdp() +
@@ -188,9 +230,9 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                 "\nHTTP: " + session.isHttp() +
                                                 "\nSIP: " + session.isSip();
         chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
-        chart1->Series[temp]->Points->AddXY(i, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
+        chart1->Series[temp]->Points->AddXY(i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
         chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                        "\nРазмер: " + session.getBytes().length() +
+                                        //"\nРазмер: " + session.getBytes().length() +
                                         "\nHandshake: " + session.isHandshake() +
                                         "\nTCP: " + session.isTcp() +
                                         "\nUDP: " + session.isUdp() +
@@ -200,9 +242,9 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                         "\nSIP: " + session.isSip();
 
         int a = dataGridView1->Rows->Add();
-        dataGridView1->Rows[a]->Cells[0]->Value = i++;
+        dataGridView1->Rows[a]->Cells[0]->Value = session.getNum();
         dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                        "\nРазмер: " + session.getBytes().length() +
+                                                        //"\nРазмер: " + session.getBytes().length() +
                                                         "\nHandshake: " + session.isHandshake() +
                                                         "\nTCP: " + session.isTcp() +
                                                         "\nUDP: " + session.isUdp() +
@@ -210,6 +252,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                                                         "\nDNS: " + session.isDns() +
                                                         "\nHTTP: " + session.isHttp() +
                                                         "\nSIP: " + session.isSip();
+        k++;
     }
 }
 
@@ -226,7 +269,7 @@ System::Collections::ArrayList^ curseProject1::Sessions::getSystemFilePaths()
 */
 void curseProject1::Sessions::startFinding()
 {
-    findUnusingPackets(packets1);
+    findUnusingPackets(pack);
 }
 
 /*
@@ -242,8 +285,8 @@ void curseProject1::Sessions::setFilters(System::Collections::ArrayList^ filters
 */
 System::Void curseProject1::Sessions::назадToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
-    sessions1.clear();
-    packets1.clear();
+    //sess.clear();
+    //pack.clear();
     this->Close();
     this->DialogResult = System::Windows::Forms::DialogResult::OK;
     return System::Void();
@@ -334,7 +377,7 @@ System::Void curseProject1::Sessions::button2_Click(System::Object^ sender, Syst
 {
     MessageBox::Show("Подожите пока не удалятся все неиспользуемые пакеты.", "Внимание!");
     
-    findUnusingPackets(packets1);
+    findUnusingPackets(pack);
     return System::Void();
 }
 
@@ -343,9 +386,33 @@ System::Void curseProject1::Sessions::button2_Click(System::Object^ sender, Syst
 */
 System::Void curseProject1::Sessions::chart1_AxisViewChanged(System::Object^ sender, System::Windows::Forms::DataVisualization::Charting::ViewEventArgs^ e)
 {
-    for (size_t i = 0; i < chart1->Series->Count; i++)
+    //for (size_t i = 0; i < chart1->Series->Count; i++)
+    //{
+    //    //chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";
+    //}
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::comboBox1_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e)
+{
+    if (!a1) 
     {
-        chart1->Series[i]->CustomProperties = "PixelPointWidth = 200";
+        sessPage = comboBox1->SelectedIndex;
+        startDrawingSessions(systemFilePaths);
+    }
+    return System::Void();
+}
+
+System::Void curseProject1::Sessions::comboBox1_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e)
+{
+    if (e->KeyChar == (int)Keys::Enter) {
+        e->Handled = true;
+        int input = Convert::ToInt16(comboBox1->Text);
+        if (input>=0 && input <=sessPages) {
+            sessPage = input;
+            comboBox1->SelectedIndex = input;
+            startDrawingSessions(systemFilePaths);
+        }
     }
     return System::Void();
 }

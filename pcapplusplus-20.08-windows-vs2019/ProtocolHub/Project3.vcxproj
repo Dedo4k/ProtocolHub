@@ -51,7 +51,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
@@ -83,6 +83,11 @@
     <IgnoreImportLibrary>false</IgnoreImportLibrary>
     <IncludePath>D:\PHub\prhread-win32\Pre-built.2\include;D:\PHub\WpdPack\Include;D:\PHub\pcapplusplus-20.08-windows-vs2019\header;$(IncludePath)</IncludePath>
     <LibraryPath>D:\PHub\prhread-win32\Pre-built.2\lib\x64;D:\PHub\WpdPack\Lib\x64;D:\PHub\pcapplusplus-20.08-windows-vs2019\x64\Debug;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>D:\PHub\prhread-win32\Pre-built.2\include;D:\PHub\WpdPack\Include;D:\PHub\pcapplusplus-20.08-windows-vs2019\header;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\PHub\prhread-win32\Pre-built.2\lib\x64;D:\PHub\WpdPack\Lib\x64;D:\PHub\pcapplusplus-20.08-windows-vs2019\x64\Debug;$(LibraryPath)</LibraryPath>
+    <IgnoreImportLibrary>false</IgnoreImportLibrary>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -123,8 +128,9 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <Link />
     <Link>
-      <AdditionalDependencies />
+      <AdditionalDependencies>Ws2_32.lib;IPHLPAPI.lib;wpcap.lib;Packet.lib;pthreadVC2.lib;Common++.lib;Packet++.lib;Pcap++.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -139,6 +145,7 @@
   <ItemGroup>
     <ClCompile Include="Bytes.cpp" />
     <ClCompile Include="ConvertFunc.cpp" />
+    <ClCompile Include="DataClass.cpp" />
     <ClCompile Include="filterButtons.cpp" />
     <ClCompile Include="Filters.cpp" />
     <ClCompile Include="findFunc.cpp" />
@@ -161,6 +168,7 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ConvertFunc.h" />
+    <ClInclude Include="DataClass.h" />
     <ClInclude Include="filterButtons.h" />
     <ClInclude Include="Filters.h">
       <FileType>CppForm</FileType>

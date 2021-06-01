@@ -151,7 +151,7 @@ std::vector<PacketHelper> SessionHelper::getPackets()
 {
 	return packets;
 }
-std::string SessionHelper::getBytes()
+std::vector<std::string> SessionHelper::getBytes()
 {
 	return bytes;
 }
