@@ -56,9 +56,6 @@ std::vector<bool> findMatch(std::vector<std::string>& strings)
 {
 	std::vector<bool> result;
 
-	//if vector is empty
-	if (strings.size() < 1) return;
-
 	long maxSize = strings[0].size();
 	long minSize = strings[0].size();
 	long i = 0;

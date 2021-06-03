@@ -297,10 +297,10 @@ std::string PacketHelper::getTimestampAsString()
 	
 	result += std::to_string(timestamp.tm_mday) + '/';
 	result += std::to_string(timestamp.tm_mon + 1) + '/';
-	result += std::to_string(timestamp.tm_year + 1900) + '\t';
-	result += std::to_string(timestamp.tm_sec) + ':';
-	result += std::to_string(timestamp.tm_min + 1) + ':';
-	result += std::to_string(timestamp.tm_hour + 1900);
+	result += std::to_string(timestamp.tm_year + 1900) + "     ";
+	result += std::to_string(timestamp.tm_hour) + ':';
+	result += std::to_string(timestamp.tm_min) + ':';
+	result += std::to_string(timestamp.tm_sec);
 
 	return result;
 }

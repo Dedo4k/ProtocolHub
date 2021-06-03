@@ -1,9 +1,0 @@
-﻿  Sessions.cpp
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\TLVData.h(35,25): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): warning C4200: нестандартное расширение: массив нулевого размера в структуре (объединении)
-D:\PHub\pcapplusplus-20.08-windows-vs2019\header\SSLHandshake.h(157,27): message : Этот член будет пропущен конструктором, установленным по умолчанию, или оператором назначения копии или перемещения
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(87,66): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(95,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(99,42): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-D:\PHub\pcapplusplus-20.08-windows-vs2019\ProtocolHub\Sessions.cpp(128,12): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
