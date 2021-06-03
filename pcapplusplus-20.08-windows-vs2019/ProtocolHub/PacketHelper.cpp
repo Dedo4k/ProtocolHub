@@ -200,11 +200,7 @@ void PacketHelper::parseAllInfo()
 			temp += "Record type: " + printSslRecordType(ssl) + '\n';
 			temp += "Message: " + printSslMessage(parsedPacket, ssl) + '\n';
 			if (temp.find("Handshake"))
-			{
 				handshake = true;
-				std::cout << "HADNSHAKE IN >>" << this->getSrcIp().toString() << ":" << this->getSrcPort() << " -> "
-					<< this->getDstIp().toString() << ":" << this->getDstPort()<<std::endl;
-			}
 			break;
 		}
 		case pcpp::SIP:
@@ -244,6 +240,9 @@ void PacketHelper::parseAllInfo()
 		case pcpp::IPv6:
 		{
 			pcpp::IPv6Layer* ip6 = parsedPacket.getLayerOfType<pcpp::IPv6Layer>();
+
+			srcIp = ip6->getSrcIpAddress();
+			dstIp = ip6->getDstIpAddress();
 
 			temp = "\t\tIPv6\n";
 			temp += "Source IP: " + ip6->getSrcIpAddress().toString() + '\n';

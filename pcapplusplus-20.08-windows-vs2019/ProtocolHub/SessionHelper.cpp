@@ -85,6 +85,7 @@ SessionHelper::SessionHelper(std::vector<PacketHelper> &allpackets)
 				temp += ch;
 		}
 		bytes.push_back(temp);
+		size += temp.length();
 	}
 	//setting timeEnd
 	time = packets[0].getTimestamp();
@@ -155,6 +156,10 @@ void SessionHelper::deleteLastPacket()
 std::vector<std::string> SessionHelper::getBytes()
 {
 	return bytes;
+}
+long SessionHelper::getSize()
+{
+	return size;
 }
 bool SessionHelper::isSession()
 {

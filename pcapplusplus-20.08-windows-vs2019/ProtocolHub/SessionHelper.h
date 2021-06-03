@@ -24,6 +24,8 @@ private:
 	std::vector<PacketHelper> packets;
 	//vector of bytes
 	std::vector<std::string> bytes;
+	//count of all bytes
+	long size = 0;
 	//flags
 	bool is = true;
 	bool tcp = false;
@@ -48,6 +50,7 @@ public:
 	std::vector<PacketHelper> getPackets();
 	void deleteLastPacket();
 	std::vector<std::string> getBytes();
+	long getSize();
 	bool isSession();
 	bool isTcp();
 	bool isHttp();

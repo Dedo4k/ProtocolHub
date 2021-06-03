@@ -35,7 +35,7 @@ void curseProject1::Sessions::drawHandshake()
             if (i < dataGridView1->Rows->Count)
             {
                 dataGridView1->Rows[i]->Cells[0]->Style->BackColor = System::Drawing::Color::Red;
-                //chart1->Series[sess.size() - 1 - i]->Color = System::Drawing::Color::Red;
+                chart1->Series[i]->Color = System::Drawing::Color::Red;
             }
         }
         if (i < chart1->Series->Count)
@@ -181,7 +181,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 chart1->Series->Add(temp);
                 //chart1->Series[temp]->CustomProperties = "PixelPointWidth = 200";
                 chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                     //"\nРазмер: " + session.getBytes().length() +
+                                                     "\nРазмер: " + session.getSize() +
                                                      "\nHandshake: " + session.isHandshake() +
                                                      "\nTCP: " + session.isTcp() +
                                                      "\nUDP: " + session.isUdp() +
@@ -192,7 +192,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
                 chart1->Series[temp]->Points->AddXY(i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
                 chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                //"\nРазмер: " + session.getBytes().length() +
+                                                "\nРазмер: " + session.getSize() +
                                                 "\nHandshake: " + session.isHandshake() +
                                                 "\nTCP: " + session.isTcp() +
                                                 "\nUDP: " + session.isUdp() +
@@ -204,7 +204,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
                 int a = dataGridView1->Rows->Add();
                 dataGridView1->Rows[a]->Cells[0]->Value = session.getNum();
                 dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                                //"\nРазмер: " + session.getBytes().length() +
+                                                                "\nРазмер: " + session.getSize() +
                                                                 "\nHandshake: " + session.isHandshake() +
                                                                 "\nTCP: " + session.isTcp() +
                                                                 "\nUDP: " + session.isUdp() +
@@ -221,7 +221,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         String^ temp = session.getNum().ToString();
         chart1->Series->Add(temp);
         chart1->Series[temp]->LabelToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                //"\nРазмер: " + session.getBytes().length() +
+                                                "\nРазмер: " + session.getSize() +
                                                 "\nHandshake: " + session.isHandshake() +
                                                 "\nTCP: " + session.isTcp() +
                                                 "\nUDP: " + session.isUdp() +
@@ -232,7 +232,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         chart1->Series[temp]->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::RangeBar;
         chart1->Series[temp]->Points->AddXY(i++, session.getTimeStart() - min, session.getTimeEnd() + session.getTimeStart() - min);
         chart1->Series[temp]->ToolTip = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                        //"\nРазмер: " + session.getBytes().length() +
+                                        "\nРазмер: " + session.getSize() +
                                         "\nHandshake: " + session.isHandshake() +
                                         "\nTCP: " + session.isTcp() +
                                         "\nUDP: " + session.isUdp() +
@@ -244,7 +244,7 @@ void curseProject1::Sessions::startDrawingSessions(System::Collections::ArrayLis
         int a = dataGridView1->Rows->Add();
         dataGridView1->Rows[a]->Cells[0]->Value = session.getNum();
         dataGridView1->Rows[a]->Cells[0]->ToolTipText = "Номер: " + temp + " Начало: " + (session.getTimeStart() - min) + " Конец: " + (session.getTimeEnd() + session.getTimeStart() - min) +
-                                                        //"\nРазмер: " + session.getBytes().length() +
+                                                        "\nРазмер: " + session.getSize() +
                                                         "\nHandshake: " + session.isHandshake() +
                                                         "\nTCP: " + session.isTcp() +
                                                         "\nUDP: " + session.isUdp() +
@@ -269,7 +269,7 @@ System::Collections::ArrayList^ curseProject1::Sessions::getSystemFilePaths()
 */
 void curseProject1::Sessions::startFinding()
 {
-    findUnusingPackets(pack);
+    findUnusingPackets(sess);
 }
 
 /*
@@ -377,7 +377,7 @@ System::Void curseProject1::Sessions::button2_Click(System::Object^ sender, Syst
 {
     MessageBox::Show("Подожите пока не удалятся все неиспользуемые пакеты.", "Внимание!");
     
-    findUnusingPackets(pack);
+    findUnusingPackets(sess);
     return System::Void();
 }
 
@@ -399,6 +399,7 @@ System::Void curseProject1::Sessions::comboBox1_SelectedIndexChanged(System::Obj
     {
         sessPage = comboBox1->SelectedIndex;
         startDrawingSessions(systemFilePaths);
+        drawHandshake();
     }
     return System::Void();
 }
@@ -412,6 +413,7 @@ System::Void curseProject1::Sessions::comboBox1_KeyPress(System::Object^ sender,
             sessPage = input;
             comboBox1->SelectedIndex = input;
             startDrawingSessions(systemFilePaths);
+            drawHandshake();
         }
     }
     return System::Void();

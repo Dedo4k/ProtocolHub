@@ -37,7 +37,7 @@ private:
 	//timestamp
 	tm timestamp;
 	//assigned ip number
-	int AIPN;
+	int AIPN = -1;
 	//name of protocol (with AIPN)
 	std::string protocolName;
 	//info as string about all protocols

@@ -10,4 +10,6 @@ std::vector<size_t> findSubstring(std::vector<std::string>& strings, std::string
 
 int findSubstringAt(std::vector<std::string>& strings, std::string str);
 
+std::vector<bool> findMatch(std::vector<std::string>& strings);
+
 void fwriteSessionsPcapng(std::string fileapth, std::vector<SessionHelper>& sessions);

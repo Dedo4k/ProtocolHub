@@ -52,6 +52,43 @@ int findSubstringAt(std::vector<std::string>& strings, std::string str)
 	return value;
 }
 
+std::vector<bool> findMatch(std::vector<std::string>& strings)
+{
+	std::vector<bool> result;
+
+	//if vector is empty
+	if (strings.size() < 1) return;
+
+	long maxSize = strings[0].size();
+	long minSize = strings[0].size();
+	long i = 0;
+
+	//find min and max size
+	for (int j; j < strings.size(); ++j)
+	{
+		if (strings[i].size() > maxSize)
+			maxSize = strings[i].size();
+		if (strings[i].size() < minSize)
+			minSize = strings[i].size();
+	}
+
+	//compare symbols
+	for (; i < minSize; ++i)
+	{
+		bool flag = true;
+		char sym = strings[0][i];
+		for (size_t j = 0; j < strings.size(); ++j)
+			if (strings[j][i] != sym)
+				flag = false;
+		result.push_back(flag);
+	}
+	//if some elements more then another one, set match false
+	for (; i < maxSize; ++i)
+		result.push_back(false);
+
+	return result;
+}
+
 void fwriteSessionsPcapng(std::string filepath, std::vector<SessionHelper>& sessions)
 {
 	pcpp::PcapNgFileWriterDevice writer(filepath.c_str());
